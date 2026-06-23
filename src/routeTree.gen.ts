@@ -14,6 +14,7 @@ import { Route as ProductsRouteImport } from './routes/products'
 import { Route as MarketInsightsRouteImport } from './routes/market-insights'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ExportDocumentationRouteImport } from './routes/export-documentation'
 import { Route as ComplianceRouteImport } from './routes/compliance'
 import { Route as AboutRouteImport } from './routes/about'
@@ -44,6 +45,11 @@ const GlobalDeliveryRoute = GlobalDeliveryRouteImport.update({
   path: '/global-delivery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExportDocumentationRoute = ExportDocumentationRouteImport.update({
   id: '/export-documentation',
   path: '/export-documentation',
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
   '/export-documentation': typeof ExportDocumentationRoute
+  '/gallery': typeof GalleryRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRoute
   '/market-insights': typeof MarketInsightsRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
   '/export-documentation': typeof ExportDocumentationRoute
+  '/gallery': typeof GalleryRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRoute
   '/market-insights': typeof MarketInsightsRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
   '/export-documentation': typeof ExportDocumentationRoute
+  '/gallery': typeof GalleryRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRoute
   '/market-insights': typeof MarketInsightsRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/compliance'
     | '/export-documentation'
+    | '/gallery'
     | '/global-delivery'
     | '/industries'
     | '/market-insights'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/compliance'
     | '/export-documentation'
+    | '/gallery'
     | '/global-delivery'
     | '/industries'
     | '/market-insights'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/compliance'
     | '/export-documentation'
+    | '/gallery'
     | '/global-delivery'
     | '/industries'
     | '/market-insights'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ComplianceRoute: typeof ComplianceRoute
   ExportDocumentationRoute: typeof ExportDocumentationRoute
+  GalleryRoute: typeof GalleryRoute
   GlobalDeliveryRoute: typeof GlobalDeliveryRoute
   IndustriesRoute: typeof IndustriesRoute
   MarketInsightsRoute: typeof MarketInsightsRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlobalDeliveryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/export-documentation': {
       id: '/export-documentation'
       path: '/export-documentation'
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ComplianceRoute: ComplianceRoute,
   ExportDocumentationRoute: ExportDocumentationRoute,
+  GalleryRoute: GalleryRoute,
   GlobalDeliveryRoute: GlobalDeliveryRoute,
   IndustriesRoute: IndustriesRoute,
   MarketInsightsRoute: MarketInsightsRoute,
