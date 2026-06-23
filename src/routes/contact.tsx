@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { img } from "../lib/images";
 import { PageHero } from "../components/site-blocks";
+import { checkSpamProtection, honeypotWrapperStyle } from "../lib/spam-protection";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -19,6 +21,10 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const startedAt = useRef(Date.now());
+  const honeypotRef = useRef<HTMLInputElement>(null);
+
   return (
     <>
       <PageHero
@@ -83,9 +89,35 @@ function Contact() {
               </div>
             ) : (
               <form
-                onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const result = checkSpamProtection({
+                    formId: "contact",
+                    honeypotValue: honeypotRef.current?.value ?? "",
+                    startedAt: startedAt.current,
+                  });
+                  if (!result.ok) {
+                    setError(result.message);
+                    return;
+                  }
+                  setError(null);
+                  setSent(true);
+                }}
                 className="space-y-5"
               >
+                {/* Honeypot — hidden from humans, attractive to bots */}
+                <div style={honeypotWrapperStyle} aria-hidden="true">
+                  <label>
+                    Website (leave blank)
+                    <input
+                      ref={honeypotRef}
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </label>
+                </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <Field label="Full Name" name="name" required />
                   <Field label="Company" name="company" />
@@ -98,9 +130,13 @@ function Contact() {
                   <label className="text-[10px] tracking-[0.24em] uppercase text-gold mb-2 block">Message</label>
                   <textarea required rows={5} className="w-full bg-background border border-border px-4 py-3 text-sm focus:border-gold outline-none resize-none" />
                 </div>
+                {error && (
+                  <p className="text-xs text-destructive text-center border border-destructive/40 py-2 px-3">{error}</p>
+                )}
                 <button className="btn-gold btn-gold-hover w-full">Send Inquiry</button>
                 <p className="text-xs text-muted-foreground text-center">Encrypted submission · NDA available on request.</p>
               </form>
+
             )}
           </div>
         </div>

@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { img } from "../lib/images";
 import { PageHero } from "../components/site-blocks";
+import { checkSpamProtection, honeypotWrapperStyle } from "../lib/spam-protection";
+
 
 export const Route = createFileRoute("/request-quote")({
   head: () => ({
@@ -19,6 +21,10 @@ export const Route = createFileRoute("/request-quote")({
 
 function RequestQuote() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const startedAt = useRef(Date.now());
+  const honeypotRef = useRef<HTMLInputElement>(null);
+
   return (
     <>
       <PageHero
@@ -43,9 +49,36 @@ function RequestQuote() {
               </div>
             ) : (
               <form
-                onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const result = checkSpamProtection({
+                    formId: "quote",
+                    honeypotValue: honeypotRef.current?.value ?? "",
+                    startedAt: startedAt.current,
+                  });
+                  if (!result.ok) {
+                    setError(result.message);
+                    return;
+                  }
+                  setError(null);
+                  setSent(true);
+                }}
                 className="space-y-6"
               >
+                {/* Honeypot — hidden from humans, attractive to bots */}
+                <div style={honeypotWrapperStyle} aria-hidden="true">
+                  <label>
+                    Website (leave blank)
+                    <input
+                      ref={honeypotRef}
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </label>
+                </div>
+
                 <div className="grid sm:grid-cols-2 gap-5">
                   <F label="Full Name" name="name" required />
                   <F label="Company" name="company" />
@@ -75,7 +108,11 @@ function RequestQuote() {
                   <span>I confirm I am a qualified institutional buyer and agree to Mayfox's KYC and confidentiality terms. Inquiries are non-binding until an SPA is signed.</span>
                 </label>
 
+                {error && (
+                  <p className="text-xs text-destructive text-center border border-destructive/40 py-2 px-3">{error}</p>
+                )}
                 <button className="btn-gold btn-gold-hover w-full">Submit Quote Request</button>
+
               </form>
             )}
           </div>
