@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { img } from "../lib/images";
 import { PageHero } from "../components/site-blocks";
+import { checkSpamProtection, honeypotWrapperStyle } from "../lib/spam-protection";
+
 
 export const Route = createFileRoute("/request-quote")({
   head: () => ({
