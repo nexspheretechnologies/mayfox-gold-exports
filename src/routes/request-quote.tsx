@@ -105,9 +105,13 @@ function RequestQuote() {
 
             <div className="card-luxe p-7">
               <div className="eyebrow mb-3">Direct Trade Desk</div>
-              <div className="font-display text-2xl mb-1">+254 700 000 000</div>
-              <div className="text-sm text-muted-foreground mb-4">trade@mayfoxgold.co.ke</div>
-              <div className="text-xs text-muted-foreground">Mon–Sat · 08:00–20:00 EAT</div>
+              <a href="tel:+254754979755" className="font-display text-2xl mb-1 block hover:text-gold">+254 754 979 755</a>
+              <a href="mailto:sales@mayfox.co.ke" className="text-sm text-muted-foreground mb-4 block hover:text-gold">sales@mayfox.co.ke</a>
+              <div className="text-xs text-muted-foreground mb-4">Mon–Sat · 08:00–20:00 EAT · Rhapta Road, Westlands, Nairobi</div>
+              <a href="https://wa.me/254754979755?text=Hello%20Mayfox%20Gold%2C%20I%20would%20like%20to%20request%20a%20quote." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-[#25D366] hover:underline">
+                <svg viewBox="0 0 32 32" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.806 2.722.806.395 0 2.642-.058 2.642-1.323 0-.43.014-.872-.272-1.158-.213-.215-1.96-1.146-2.215-1.146z"/></svg>
+                Chat on WhatsApp
+              </a>
             </div>
           </aside>
         </div>

@@ -35,35 +35,35 @@ function Contact() {
             <div className="space-y-10">
               <div>
                 <div className="eyebrow mb-3">Head Office</div>
-                <div className="font-display text-2xl">Mayfox House, Westlands</div>
-                <div className="text-muted-foreground">Waiyaki Way, Nairobi, Kenya · P.O. Box 00100</div>
+                <div className="font-display text-2xl">Rhapta Road, Westlands</div>
+                <div className="text-muted-foreground">Nairobi, Kenya · P.O. Box 00100</div>
               </div>
               <div>
                 <div className="eyebrow mb-3">Trade Desk</div>
-                <div className="font-display text-2xl">+254 (0) 700 000 000</div>
+                <a href="tel:+254754979755" className="font-display text-2xl hover:text-gold">+254 754 979 755</a>
                 <div className="text-muted-foreground">Direct senior trader line — Mon–Sat, 08:00–20:00 EAT</div>
               </div>
               <div>
                 <div className="eyebrow mb-3">Email</div>
-                <div className="font-display text-2xl">trade@mayfoxgold.co.ke</div>
-                <div className="text-muted-foreground">compliance@mayfoxgold.co.ke · logistics@mayfoxgold.co.ke</div>
+                <a href="mailto:sales@mayfox.co.ke" className="font-display text-2xl hover:text-gold">sales@mayfox.co.ke</a>
+                <div className="text-muted-foreground">All sales, compliance and logistics inquiries</div>
               </div>
               <div>
-                <div className="eyebrow mb-3">WhatsApp & Emergency</div>
-                <div className="font-display text-2xl">+254 (0) 711 000 000</div>
-                <div className="text-muted-foreground">24/7 emergency trade support for in-transit consignments.</div>
+                <div className="eyebrow mb-3">WhatsApp Chat</div>
+                <a href="https://wa.me/254754979755" target="_blank" rel="noopener noreferrer" className="font-display text-2xl hover:text-gold">+254 754 979 755</a>
+                <div className="text-muted-foreground">Tap the floating WhatsApp button for instant chat with our trade desk.</div>
               </div>
               <div>
                 <div className="eyebrow mb-3">Business Hours</div>
                 <div className="text-muted-foreground">Monday – Friday: 08:00 – 18:00 EAT</div>
                 <div className="text-muted-foreground">Saturday: 09:00 – 14:00 EAT</div>
-                <div className="text-muted-foreground">Sunday: Closed (trade desk on-call)</div>
+                <div className="text-muted-foreground">Sunday: Closed (trade desk on-call via WhatsApp)</div>
               </div>
             </div>
 
             <div className="mt-12 aspect-[16/10] overflow-hidden rounded-sm border border-border">
               <iframe
-                title="Mayfox Gold Nairobi office map"
+                title="Mayfox Gold — Rhapta Road, Westlands, Nairobi office map"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=36.795%2C-1.275%2C36.820%2C-1.258&layer=mapnik&marker=-1.2667%2C36.8067"
                 className="w-full h-full grayscale contrast-125"
                 loading="lazy"

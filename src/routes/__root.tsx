@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer } from "../components/site-chrome";
+import { WhatsAppWidget } from "../components/whatsapp-widget";
 
 function NotFoundComponent() {
   return (
@@ -63,16 +64,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mayfox Gold & Precious Metals Kenya | Trusted Bullion Export Partner" },
-      { name: "description", content: "Kenya's trusted gold bullion supplier and precious metals export company. Verified gold bars, dore bars, nuggets with full export documentation and secure global delivery." },
-      { name: "keywords", content: "Gold Dealers Kenya, Gold Bullion Kenya, Gold Export Kenya, Gold Suppliers Kenya, Gold Bars Kenya, Gold Refinery Kenya, Precious Metals Kenya, Gold Dore Bar Exporters, African Gold Suppliers" },
+      { title: "Mayfox Gold Kenya | Buy Gold Bullion, Dore Bars & Nuggets — Nairobi" },
+      { name: "description", content: "Mayfox Gold Kenya — Nairobi's trusted gold dealer, refiner and exporter. Buy verified gold bullion bars, dore bars, nuggets and raw gold from Kenya with full assay, certificate of origin and insured global delivery. Trade desk: +254 754 979 755." },
+      { name: "keywords", content: "gold dealers Kenya, buy gold in Kenya, gold bullion Kenya, gold bars Nairobi, gold refinery Kenya, gold exporters Kenya, gold suppliers Nairobi, gold dore bars Kenya, raw gold Kenya, alluvial gold Kenya, gold nuggets Kenya, precious metals Kenya, LBMA gold Kenya, gold trading company Kenya, gold price Kenya, sell gold Nairobi, African gold suppliers, East Africa gold trading, Kenya gold mining, Migori gold, Kakamega gold, gold investment Kenya, 24 karat gold Kenya, 999.9 gold Kenya, gold smelting Kenya, gold assay Kenya, KYC gold Kenya, conflict-free gold Africa, Dubai gold from Kenya, gold export documentation Kenya, certificate of origin gold Kenya, Mayfox Gold" },
       { name: "author", content: "Mayfox Gold and Precious Metals Kenya" },
-      { property: "og:site_name", content: "Mayfox Gold & Precious Metals" },
+      { name: "geo.region", content: "KE-30" },
+      { name: "geo.placename", content: "Nairobi, Kenya" },
+      { name: "geo.position", content: "-1.2667;36.8067" },
+      { name: "ICBM", content: "-1.2667, 36.8067" },
+      { property: "og:site_name", content: "Mayfox Gold & Precious Metals Kenya" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Mayfox Gold & Precious Metals Kenya" },
-      { property: "og:description", content: "Verified gold bullion, dore bars and precious metals export from Kenya to global markets." },
+      { property: "og:locale", content: "en_KE" },
+      { property: "og:title", content: "Mayfox Gold & Precious Metals Kenya — Trusted Bullion Exporter" },
+      { property: "og:description", content: "Verified Kenyan gold bullion, dore bars, nuggets and refined gold exported worldwide with full documentation. Based on Rhapta Road, Westlands, Nairobi." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Mayfox Gold Kenya — Bullion, Refining & Export" },
+      { name: "twitter:description", content: "Kenya's trusted gold dealer and exporter. Verified bullion, dore bars and nuggets with full assay and secure global delivery." },
       { name: "theme-color", content: "#141414" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+      { name: "format-detection", content: "telephone=yes" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -86,23 +96,63 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": ["Organization", "LocalBusiness"],
+          "@id": "/#organization",
           name: "Mayfox Gold and Precious Metals Kenya",
+          alternateName: ["Mayfox Gold", "Mayfox Gold Kenya"],
           url: "/",
           logo: "/favicon.ico",
-          description: "Leading Kenyan gold trading, bullion supply, refining and precious metals export company.",
+          image: "/favicon.ico",
+          description:
+            "Leading Kenyan gold trading, bullion supply, refining, smelting and precious metals export company serving institutional buyers across Africa, the Middle East, Europe, Asia and North America.",
+          foundingDate: "2013",
+          areaServed: ["KE", "TZ", "UG", "RW", "ET", "AE", "CH", "GB", "US", "CN", "IN", "ZA", "SG", "HK"],
+          knowsAbout: [
+            "Gold bullion trading",
+            "Gold dore bar refining",
+            "Gold export Kenya",
+            "LBMA Good Delivery",
+            "Precious metals logistics",
+            "KYC and AML compliance",
+            "OECD due diligence on minerals",
+          ],
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Mayfox House, Westlands",
+            streetAddress: "Rhapta Road, Westlands",
             addressLocality: "Nairobi",
+            addressRegion: "Nairobi",
+            postalCode: "00100",
             addressCountry: "KE",
           },
-          contactPoint: {
-            "@type": "ContactPoint",
-            telephone: "+254-700-000-000",
-            contactType: "sales",
-            areaServed: ["KE", "AE", "CH", "GB", "US", "CN", "IN", "ZA"],
-          },
+          geo: { "@type": "GeoCoordinates", latitude: -1.2667, longitude: 36.8067 },
+          openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "18:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "14:00" },
+          ],
+          telephone: "+254754979755",
+          email: "sales@mayfox.co.ke",
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              telephone: "+254-754-979-755",
+              contactType: "sales",
+              email: "sales@mayfox.co.ke",
+              areaServed: ["KE", "AE", "CH", "GB", "US", "CN", "IN", "ZA"],
+              availableLanguage: ["English", "Swahili"],
+            },
+          ],
+          sameAs: [],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Mayfox Gold Kenya",
+          url: "/",
+          inLanguage: "en-KE",
+          publisher: { "@id": "/#organization" },
         }),
       },
     ],
@@ -137,6 +187,7 @@ function RootComponent() {
           <Outlet />
         </main>
         <Footer />
+        <WhatsAppWidget />
       </div>
     </QueryClientProvider>
   );

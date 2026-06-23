@@ -26,7 +26,7 @@ export function Header() {
           <span className="hidden md:inline">Verified Purity 95% – 99.99%</span>
           <span className="hidden lg:inline">Secure Global Delivery</span>
           <span className="hidden md:inline">Full Export Documentation</span>
-          <span className="text-gold">+254 (0) 700 000 000 · trade@mayfoxgold.co.ke</span>
+          <span className="text-gold">+254 754 979 755 · sales@mayfox.co.ke</span>
         </div>
       </div>
 
@@ -112,9 +112,10 @@ export function Footer() {
             the Middle East, Europe, Asia, and North America.
           </p>
           <div className="mt-6 space-y-2 text-sm text-muted-foreground">
-            <div><span className="text-gold">Address:</span> Mayfox House, Westlands, Nairobi, Kenya</div>
-            <div><span className="text-gold">Trade Desk:</span> +254 (0) 700 000 000</div>
-            <div><span className="text-gold">Email:</span> trade@mayfoxgold.co.ke</div>
+            <div><span className="text-gold">Address:</span> Rhapta Road, Westlands, Nairobi, Kenya</div>
+            <div><span className="text-gold">Phone:</span> <a href="tel:+254754979755" className="hover:text-gold">+254 754 979 755</a></div>
+            <div><span className="text-gold">WhatsApp:</span> <a href="https://wa.me/254754979755" target="_blank" rel="noopener noreferrer" className="hover:text-gold">+254 754 979 755</a></div>
+            <div><span className="text-gold">Email:</span> <a href="mailto:sales@mayfox.co.ke" className="hover:text-gold">sales@mayfox.co.ke</a></div>
           </div>
         </div>
 
