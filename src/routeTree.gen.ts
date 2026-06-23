@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RequestQuoteRouteImport } from './routes/request-quote'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as MarketInsightsRouteImport } from './routes/market-insights'
 import { Route as IndustriesRouteImport } from './routes/industries'
@@ -25,6 +26,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestQuoteRoute = RequestQuoteRouteImport.update({
+  id: '/request-quote',
+  path: '/request-quote',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsRoute = ProductsRouteImport.update({
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRoute
   '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesRoute
   '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRoute
   '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/market-insights'
     | '/products'
+    | '/request-quote'
     | '/services'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/market-insights'
     | '/products'
+    | '/request-quote'
     | '/services'
   id:
     | '__root__'
@@ -168,6 +179,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/market-insights'
     | '/products'
+    | '/request-quote'
     | '/services'
   fileRoutesById: FileRoutesById
 }
@@ -183,6 +195,7 @@ export interface RootRouteChildren {
   IndustriesRoute: typeof IndustriesRoute
   MarketInsightsRoute: typeof MarketInsightsRoute
   ProductsRoute: typeof ProductsRoute
+  RequestQuoteRoute: typeof RequestQuoteRoute
   ServicesRoute: typeof ServicesRoute
 }
 
@@ -193,6 +206,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request-quote': {
+      id: '/request-quote'
+      path: '/request-quote'
+      fullPath: '/request-quote'
+      preLoaderRoute: typeof RequestQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products': {
@@ -287,6 +307,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesRoute: IndustriesRoute,
   MarketInsightsRoute: MarketInsightsRoute,
   ProductsRoute: ProductsRoute,
+  RequestQuoteRoute: RequestQuoteRoute,
   ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
