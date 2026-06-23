@@ -108,7 +108,11 @@ function RequestQuote() {
                   <span>I confirm I am a qualified institutional buyer and agree to Mayfox's KYC and confidentiality terms. Inquiries are non-binding until an SPA is signed.</span>
                 </label>
 
+                {error && (
+                  <p className="text-xs text-destructive text-center border border-destructive/40 py-2 px-3">{error}</p>
+                )}
                 <button className="btn-gold btn-gold-hover w-full">Submit Quote Request</button>
+
               </form>
             )}
           </div>
