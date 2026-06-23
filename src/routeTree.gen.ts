@@ -14,6 +14,7 @@ import { Route as ProductsRouteImport } from './routes/products'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
 import { Route as ExportDocumentationRouteImport } from './routes/export-documentation'
+import { Route as ComplianceRouteImport } from './routes/compliance'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -42,6 +43,11 @@ const ExportDocumentationRoute = ExportDocumentationRouteImport.update({
   path: '/export-documentation',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComplianceRoute = ComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -56,6 +62,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/compliance': typeof ComplianceRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/compliance': typeof ComplianceRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/compliance': typeof ComplianceRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/compliance'
     | '/export-documentation'
     | '/global-delivery'
     | '/industries'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/compliance'
     | '/export-documentation'
     | '/global-delivery'
     | '/industries'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/compliance'
     | '/export-documentation'
     | '/global-delivery'
     | '/industries'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ComplianceRoute: typeof ComplianceRoute
   ExportDocumentationRoute: typeof ExportDocumentationRoute
   GlobalDeliveryRoute: typeof GlobalDeliveryRoute
   IndustriesRoute: typeof IndustriesRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExportDocumentationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compliance': {
+      id: '/compliance'
+      path: '/compliance'
+      fullPath: '/compliance'
+      preLoaderRoute: typeof ComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ComplianceRoute: ComplianceRoute,
   ExportDocumentationRoute: ExportDocumentationRoute,
   GlobalDeliveryRoute: GlobalDeliveryRoute,
   IndustriesRoute: IndustriesRoute,
