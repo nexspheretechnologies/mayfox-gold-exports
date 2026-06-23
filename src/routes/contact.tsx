@@ -1,0 +1,119 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { img } from "../lib/images";
+import { PageHero } from "../components/site-blocks";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact Mayfox Gold Kenya | Trade Desk, Email & WhatsApp" },
+      { name: "description", content: "Contact Mayfox Gold Kenya: trade desk, business hours, office location in Nairobi, email, WhatsApp and inquiry form for gold bullion buyers." },
+      { property: "og:title", content: "Contact — Mayfox Gold" },
+      { property: "og:image", content: img.boardroom },
+      { property: "og:url", content: "/contact" },
+    ],
+    links: [{ rel: "canonical", href: "/contact" }],
+  }),
+  component: Contact,
+});
+
+function Contact() {
+  const [sent, setSent] = useState(false);
+  return (
+    <>
+      <PageHero
+        eyebrow="Contact"
+        title={<>Speak to the <span className="text-gradient-gold">trade desk</span>.</>}
+        subtitle="Senior traders respond within one business hour, Monday to Saturday. All inquiries are handled under strict confidentiality."
+        image={img.boardroom}
+      />
+
+      <section className="section-y">
+        <div className="container-x grid lg:grid-cols-2 gap-16">
+          {/* Info */}
+          <div>
+            <div className="space-y-10">
+              <div>
+                <div className="eyebrow mb-3">Head Office</div>
+                <div className="font-display text-2xl">Mayfox House, Westlands</div>
+                <div className="text-muted-foreground">Waiyaki Way, Nairobi, Kenya · P.O. Box 00100</div>
+              </div>
+              <div>
+                <div className="eyebrow mb-3">Trade Desk</div>
+                <div className="font-display text-2xl">+254 (0) 700 000 000</div>
+                <div className="text-muted-foreground">Direct senior trader line — Mon–Sat, 08:00–20:00 EAT</div>
+              </div>
+              <div>
+                <div className="eyebrow mb-3">Email</div>
+                <div className="font-display text-2xl">trade@mayfoxgold.co.ke</div>
+                <div className="text-muted-foreground">compliance@mayfoxgold.co.ke · logistics@mayfoxgold.co.ke</div>
+              </div>
+              <div>
+                <div className="eyebrow mb-3">WhatsApp & Emergency</div>
+                <div className="font-display text-2xl">+254 (0) 711 000 000</div>
+                <div className="text-muted-foreground">24/7 emergency trade support for in-transit consignments.</div>
+              </div>
+              <div>
+                <div className="eyebrow mb-3">Business Hours</div>
+                <div className="text-muted-foreground">Monday – Friday: 08:00 – 18:00 EAT</div>
+                <div className="text-muted-foreground">Saturday: 09:00 – 14:00 EAT</div>
+                <div className="text-muted-foreground">Sunday: Closed (trade desk on-call)</div>
+              </div>
+            </div>
+
+            <div className="mt-12 aspect-[16/10] overflow-hidden rounded-sm border border-border">
+              <iframe
+                title="Mayfox Gold Nairobi office map"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=36.795%2C-1.275%2C36.820%2C-1.258&layer=mapnik&marker=-1.2667%2C36.8067"
+                className="w-full h-full grayscale contrast-125"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          {/* Form */}
+          <div className="card-luxe p-8 lg:p-10">
+            <div className="eyebrow mb-4">Inquiry Form</div>
+            <h2 className="font-display text-3xl mb-8">Tell us about your requirement</h2>
+
+            {sent ? (
+              <div className="border border-gold/40 p-6 text-center">
+                <div className="font-display text-2xl text-gradient-gold mb-2">Inquiry Received</div>
+                <p className="text-sm text-muted-foreground">A senior trader will reach out within one business hour.</p>
+              </div>
+            ) : (
+              <form
+                onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+                className="space-y-5"
+              >
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Field label="Full Name" name="name" required />
+                  <Field label="Company" name="company" />
+                  <Field label="Email" type="email" name="email" required />
+                  <Field label="Phone / WhatsApp" name="phone" />
+                </div>
+                <Field label="Country" name="country" />
+                <Field label="Subject" name="subject" />
+                <div>
+                  <label className="text-[10px] tracking-[0.24em] uppercase text-gold mb-2 block">Message</label>
+                  <textarea required rows={5} className="w-full bg-background border border-border px-4 py-3 text-sm focus:border-gold outline-none resize-none" />
+                </div>
+                <button className="btn-gold btn-gold-hover w-full">Send Inquiry</button>
+                <p className="text-xs text-muted-foreground text-center">Encrypted submission · NDA available on request.</p>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Field({ label, name, type = "text", required = false }: { label: string; name: string; type?: string; required?: boolean }) {
+  return (
+    <div>
+      <label className="text-[10px] tracking-[0.24em] uppercase text-gold mb-2 block">{label}{required && " *"}</label>
+      <input type={type} name={name} required={required} className="w-full bg-background border border-border px-4 py-3 text-sm focus:border-gold outline-none" />
+    </div>
+  );
+}
