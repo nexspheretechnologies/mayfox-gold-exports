@@ -49,9 +49,36 @@ function RequestQuote() {
               </div>
             ) : (
               <form
-                onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const result = checkSpamProtection({
+                    formId: "quote",
+                    honeypotValue: honeypotRef.current?.value ?? "",
+                    startedAt: startedAt.current,
+                  });
+                  if (!result.ok) {
+                    setError(result.message);
+                    return;
+                  }
+                  setError(null);
+                  setSent(true);
+                }}
                 className="space-y-6"
               >
+                {/* Honeypot — hidden from humans, attractive to bots */}
+                <div style={honeypotWrapperStyle} aria-hidden="true">
+                  <label>
+                    Website (leave blank)
+                    <input
+                      ref={honeypotRef}
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </label>
+                </div>
+
                 <div className="grid sm:grid-cols-2 gap-5">
                   <F label="Full Name" name="name" required />
                   <F label="Company" name="company" />
