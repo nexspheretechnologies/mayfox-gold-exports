@@ -16,6 +16,8 @@ import africanBoardroom from "../assets/african-boardroom.jpg";
 import africanTrader from "../assets/african-trader.jpg";
 import smeltingImg from "../assets/smelting.jpg";
 import assayLab from "../assets/assay-lab.jpg";
+import goldVault from "../assets/gold-vault.jpg";
+import africanMining from "../assets/african-mining.jpg";
 
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?w=${w}&q=80&auto=format&fit=crop`;
@@ -32,10 +34,10 @@ export const img = {
   goldStack: investmentGradeGold,
   goldIngot: goldDoreBars,
 
-  // Vault / security (object-only Unsplash, no people)
-  vault: u("photo-1554260570-9140fd3b7614"),
-  safe: u("photo-1601597111158-2fceff292cdc"),
-  security: u("photo-1573164713988-8665fc963095"),
+  // Vault / security — generated, no people
+  vault: goldVault,
+  safe: goldVault,
+  security: goldVault,
 
   // Refining / smelting / lab — generated, African operators
   smelting: smeltingImg,
@@ -63,9 +65,9 @@ export const img = {
   africaSkyline: u("photo-1611348586804-61bf6c080437"),
   nairobi: u("photo-1611348586804-61bf6c080437"),
 
-  // Mining / sourcing (landscapes / equipment)
-  mining: u("photo-1582578598774-a377d4b32223"),
-  mining2: u("photo-1611273426858-450d8e3c9fce"),
+  // Mining / sourcing — African artisanal miners
+  mining: africanMining,
+  mining2: africanMining,
   oreDeposit: rawGoldImg,
 
   // Documents / compliance
