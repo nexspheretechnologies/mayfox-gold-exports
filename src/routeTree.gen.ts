@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
 import { Route as ExportDocumentationRouteImport } from './routes/export-documentation'
 import { Route as AboutRouteImport } from './routes/about'
@@ -24,6 +25,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GlobalDeliveryRoute = GlobalDeliveryRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/global-delivery': typeof GlobalDeliveryRoute
+  '/industries': typeof IndustriesRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/global-delivery': typeof GlobalDeliveryRoute
+  '/industries': typeof IndustriesRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/global-delivery': typeof GlobalDeliveryRoute
+  '/industries': typeof IndustriesRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/export-documentation'
     | '/global-delivery'
+    | '/industries'
     | '/products'
     | '/services'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/export-documentation'
     | '/global-delivery'
+    | '/industries'
     | '/products'
     | '/services'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/export-documentation'
     | '/global-delivery'
+    | '/industries'
     | '/products'
     | '/services'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ExportDocumentationRoute: typeof ExportDocumentationRoute
   GlobalDeliveryRoute: typeof GlobalDeliveryRoute
+  IndustriesRoute: typeof IndustriesRoute
   ProductsRoute: typeof ProductsRoute
   ServicesRoute: typeof ServicesRoute
 }
@@ -122,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/global-delivery': {
@@ -160,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ExportDocumentationRoute: ExportDocumentationRoute,
   GlobalDeliveryRoute: GlobalDeliveryRoute,
+  IndustriesRoute: IndustriesRoute,
   ProductsRoute: ProductsRoute,
   ServicesRoute: ServicesRoute,
 }
