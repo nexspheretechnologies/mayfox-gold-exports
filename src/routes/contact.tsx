@@ -21,6 +21,10 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const startedAt = useRef(Date.now());
+  const honeypotRef = useRef<HTMLInputElement>(null);
+
   return (
     <>
       <PageHero
