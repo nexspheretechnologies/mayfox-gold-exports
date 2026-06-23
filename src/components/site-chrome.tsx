@@ -161,10 +161,10 @@ export function Footer() {
         <div className="container-x py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <div>© {new Date().getFullYear()} Mayfox Gold and Precious Metals Kenya. All rights reserved.</div>
           <div className="flex gap-6">
-            <Link to="/privacy" className="hover:text-gold">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-gold">Terms</Link>
-            <Link to="/disclaimer" className="hover:text-gold">Disclaimer</Link>
-            <Link to="/anti-fraud" className="hover:text-gold">Anti-Fraud Notice</Link>
+            <a href="#" className="hover:text-gold">Privacy Policy</a>
+            <a href="#" className="hover:text-gold">Terms</a>
+            <a href="#" className="hover:text-gold">Disclaimer</a>
+            <a href="#" className="hover:text-gold">Anti-Fraud Notice</a>
           </div>
         </div>
       </div>
