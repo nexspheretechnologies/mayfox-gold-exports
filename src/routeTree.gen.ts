@@ -17,6 +17,7 @@ import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as ExportDocumentationRouteImport } from './routes/export-documentation'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ComplianceRouteImport } from './routes/compliance'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -61,6 +62,11 @@ const ExportDocumentationRoute = ExportDocumentationRouteImport.update({
   path: '/export-documentation',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ComplianceRoute = ComplianceRouteImport.update({
   id: '/compliance',
   path: '/compliance',
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
+  '/contact': typeof ContactRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
+  '/contact': typeof ContactRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
@@ -108,6 +116,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
+  '/contact': typeof ContactRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
@@ -123,6 +132,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/compliance'
+    | '/contact'
     | '/export-documentation'
     | '/faqs'
     | '/gallery'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/compliance'
+    | '/contact'
     | '/export-documentation'
     | '/faqs'
     | '/gallery'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/compliance'
+    | '/contact'
     | '/export-documentation'
     | '/faqs'
     | '/gallery'
@@ -163,6 +175,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ComplianceRoute: typeof ComplianceRoute
+  ContactRoute: typeof ContactRoute
   ExportDocumentationRoute: typeof ExportDocumentationRoute
   FaqsRoute: typeof FaqsRoute
   GalleryRoute: typeof GalleryRoute
@@ -231,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExportDocumentationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compliance': {
       id: '/compliance'
       path: '/compliance'
@@ -259,6 +279,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ComplianceRoute: ComplianceRoute,
+  ContactRoute: ContactRoute,
   ExportDocumentationRoute: ExportDocumentationRoute,
   FaqsRoute: FaqsRoute,
   GalleryRoute: GalleryRoute,
