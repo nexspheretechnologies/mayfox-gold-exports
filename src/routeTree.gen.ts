@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as MarketInsightsRouteImport } from './routes/market-insights'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
 import { Route as ExportDocumentationRouteImport } from './routes/export-documentation'
@@ -26,6 +27,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketInsightsRoute = MarketInsightsRouteImport.update({
+  id: '/market-insights',
+  path: '/market-insights',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesRoute = IndustriesRouteImport.update({
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/export-documentation': typeof ExportDocumentationRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRoute
+  '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/export-documentation': typeof ExportDocumentationRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRoute
+  '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/export-documentation': typeof ExportDocumentationRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/industries': typeof IndustriesRoute
+  '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/export-documentation'
     | '/global-delivery'
     | '/industries'
+    | '/market-insights'
     | '/products'
     | '/services'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/export-documentation'
     | '/global-delivery'
     | '/industries'
+    | '/market-insights'
     | '/products'
     | '/services'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/export-documentation'
     | '/global-delivery'
     | '/industries'
+    | '/market-insights'
     | '/products'
     | '/services'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   ExportDocumentationRoute: typeof ExportDocumentationRoute
   GlobalDeliveryRoute: typeof GlobalDeliveryRoute
   IndustriesRoute: typeof IndustriesRoute
+  MarketInsightsRoute: typeof MarketInsightsRoute
   ProductsRoute: typeof ProductsRoute
   ServicesRoute: typeof ServicesRoute
 }
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/market-insights': {
+      id: '/market-insights'
+      path: '/market-insights'
+      fullPath: '/market-insights'
+      preLoaderRoute: typeof MarketInsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries': {
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExportDocumentationRoute: ExportDocumentationRoute,
   GlobalDeliveryRoute: GlobalDeliveryRoute,
   IndustriesRoute: IndustriesRoute,
+  MarketInsightsRoute: MarketInsightsRoute,
   ProductsRoute: ProductsRoute,
   ServicesRoute: ServicesRoute,
 }
