@@ -5,9 +5,10 @@ import { CTABand, PageHero, SectionHeader } from "../components/site-blocks";
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Gold Products | Bullion Bars, Dore Bars, Nuggets, Raw Gold Kenya" },
-      { name: "description", content: "Buy verified gold bullion bars, gold dore bars, gold nuggets, raw gold and investment-grade refined gold from Kenya's trusted exporter, Mayfox Gold." },
-      { property: "og:title", content: "Gold Products — Mayfox Gold Kenya" },
+      { title: "Gold Nuggets for Sale | Gold Dore Bars, Raw Gold & Bullion — Mayfox Kenya" },
+      { name: "description", content: "Gold nuggets for sale, gold dore bars, raw gold and LBMA-grade bullion from Kenya, Tanzania, Uganda & DRC Congo. Verified African gold with full assay, certificate of origin and insured export." },
+      { name: "keywords", content: "gold nuggets for sale, gold dore bars, dore bars, raw gold for sale, african gold, gold bullion kenya, gold bars kenya, 24 karat gold, 999.9 gold, lbma gold, investment grade gold, buy gold online, gold from uganda, gold from tanzania, drc congo gold" },
+      { property: "og:title", content: "Gold Nuggets, Dore Bars & Bullion — Mayfox Gold Kenya" },
       { property: "og:image", content: img.goldBars2 },
       { property: "og:url", content: "/products" },
     ],

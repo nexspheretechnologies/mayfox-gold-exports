@@ -5,8 +5,9 @@ import { CTABand, PageHero, SectionHeader } from "../components/site-blocks";
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries Served | Refineries, Bullion Banks, Jewelers — Mayfox Kenya" },
-      { name: "description", content: "Mayfox Gold supplies verified bullion to refineries, bullion banks, jewelry manufacturers, investment funds, central reserves and industrial buyers worldwide." },
+      { title: "African Gold Suppliers to Refineries, Bullion Banks & Jewelers | Mayfox" },
+      { name: "description", content: "African gold supplier to LBMA refineries, bullion banks, jewelry manufacturers, investment funds and central reserves — sourcing from Kenya, Tanzania, Uganda and DRC Congo." },
+      { name: "keywords", content: "african gold suppliers, gold suppliers to refineries, bullion bank gold supply, gold for jewelry manufacturers, dubai gold suppliers, lbma refinery supply, gold offtake africa" },
       { property: "og:title", content: "Industries Served — Mayfox Gold" },
       { property: "og:image", content: img.boardroom },
       { property: "og:url", content: "/industries" },
