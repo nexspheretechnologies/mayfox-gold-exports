@@ -15,6 +15,11 @@ import { Route as RequestQuoteRouteImport } from './routes/request-quote'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as MarketInsightsRouteImport } from './routes/market-insights'
 import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as GoldInUgandaRouteImport } from './routes/gold-in-uganda'
+import { Route as GoldInTanzaniaRouteImport } from './routes/gold-in-tanzania'
+import { Route as GoldInKenyaRouteImport } from './routes/gold-in-kenya'
+import { Route as GoldInCongoRouteImport } from './routes/gold-in-congo'
+import { Route as GoldInAfricaRouteImport } from './routes/gold-in-africa'
 import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FaqsRouteImport } from './routes/faqs'
@@ -52,6 +57,31 @@ const MarketInsightsRoute = MarketInsightsRouteImport.update({
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoldInUgandaRoute = GoldInUgandaRouteImport.update({
+  id: '/gold-in-uganda',
+  path: '/gold-in-uganda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoldInTanzaniaRoute = GoldInTanzaniaRouteImport.update({
+  id: '/gold-in-tanzania',
+  path: '/gold-in-tanzania',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoldInKenyaRoute = GoldInKenyaRouteImport.update({
+  id: '/gold-in-kenya',
+  path: '/gold-in-kenya',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoldInCongoRoute = GoldInCongoRouteImport.update({
+  id: '/gold-in-congo',
+  path: '/gold-in-congo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoldInAfricaRoute = GoldInAfricaRouteImport.update({
+  id: '/gold-in-africa',
+  path: '/gold-in-africa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GlobalDeliveryRoute = GlobalDeliveryRouteImport.update({
@@ -104,6 +134,11 @@ export interface FileRoutesByFullPath {
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
   '/global-delivery': typeof GlobalDeliveryRoute
+  '/gold-in-africa': typeof GoldInAfricaRoute
+  '/gold-in-congo': typeof GoldInCongoRoute
+  '/gold-in-kenya': typeof GoldInKenyaRoute
+  '/gold-in-tanzania': typeof GoldInTanzaniaRoute
+  '/gold-in-uganda': typeof GoldInUgandaRoute
   '/industries': typeof IndustriesRoute
   '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
@@ -120,6 +155,11 @@ export interface FileRoutesByTo {
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
   '/global-delivery': typeof GlobalDeliveryRoute
+  '/gold-in-africa': typeof GoldInAfricaRoute
+  '/gold-in-congo': typeof GoldInCongoRoute
+  '/gold-in-kenya': typeof GoldInKenyaRoute
+  '/gold-in-tanzania': typeof GoldInTanzaniaRoute
+  '/gold-in-uganda': typeof GoldInUgandaRoute
   '/industries': typeof IndustriesRoute
   '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
@@ -137,6 +177,11 @@ export interface FileRoutesById {
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
   '/global-delivery': typeof GlobalDeliveryRoute
+  '/gold-in-africa': typeof GoldInAfricaRoute
+  '/gold-in-congo': typeof GoldInCongoRoute
+  '/gold-in-kenya': typeof GoldInKenyaRoute
+  '/gold-in-tanzania': typeof GoldInTanzaniaRoute
+  '/gold-in-uganda': typeof GoldInUgandaRoute
   '/industries': typeof IndustriesRoute
   '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
@@ -155,6 +200,11 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/gallery'
     | '/global-delivery'
+    | '/gold-in-africa'
+    | '/gold-in-congo'
+    | '/gold-in-kenya'
+    | '/gold-in-tanzania'
+    | '/gold-in-uganda'
     | '/industries'
     | '/market-insights'
     | '/products'
@@ -171,6 +221,11 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/gallery'
     | '/global-delivery'
+    | '/gold-in-africa'
+    | '/gold-in-congo'
+    | '/gold-in-kenya'
+    | '/gold-in-tanzania'
+    | '/gold-in-uganda'
     | '/industries'
     | '/market-insights'
     | '/products'
@@ -187,6 +242,11 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/gallery'
     | '/global-delivery'
+    | '/gold-in-africa'
+    | '/gold-in-congo'
+    | '/gold-in-kenya'
+    | '/gold-in-tanzania'
+    | '/gold-in-uganda'
     | '/industries'
     | '/market-insights'
     | '/products'
@@ -204,6 +264,11 @@ export interface RootRouteChildren {
   FaqsRoute: typeof FaqsRoute
   GalleryRoute: typeof GalleryRoute
   GlobalDeliveryRoute: typeof GlobalDeliveryRoute
+  GoldInAfricaRoute: typeof GoldInAfricaRoute
+  GoldInCongoRoute: typeof GoldInCongoRoute
+  GoldInKenyaRoute: typeof GoldInKenyaRoute
+  GoldInTanzaniaRoute: typeof GoldInTanzaniaRoute
+  GoldInUgandaRoute: typeof GoldInUgandaRoute
   IndustriesRoute: typeof IndustriesRoute
   MarketInsightsRoute: typeof MarketInsightsRoute
   ProductsRoute: typeof ProductsRoute
@@ -254,6 +319,41 @@ declare module '@tanstack/react-router' {
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gold-in-uganda': {
+      id: '/gold-in-uganda'
+      path: '/gold-in-uganda'
+      fullPath: '/gold-in-uganda'
+      preLoaderRoute: typeof GoldInUgandaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gold-in-tanzania': {
+      id: '/gold-in-tanzania'
+      path: '/gold-in-tanzania'
+      fullPath: '/gold-in-tanzania'
+      preLoaderRoute: typeof GoldInTanzaniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gold-in-kenya': {
+      id: '/gold-in-kenya'
+      path: '/gold-in-kenya'
+      fullPath: '/gold-in-kenya'
+      preLoaderRoute: typeof GoldInKenyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gold-in-congo': {
+      id: '/gold-in-congo'
+      path: '/gold-in-congo'
+      fullPath: '/gold-in-congo'
+      preLoaderRoute: typeof GoldInCongoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gold-in-africa': {
+      id: '/gold-in-africa'
+      path: '/gold-in-africa'
+      fullPath: '/gold-in-africa'
+      preLoaderRoute: typeof GoldInAfricaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/global-delivery': {
@@ -324,6 +424,11 @@ const rootRouteChildren: RootRouteChildren = {
   FaqsRoute: FaqsRoute,
   GalleryRoute: GalleryRoute,
   GlobalDeliveryRoute: GlobalDeliveryRoute,
+  GoldInAfricaRoute: GoldInAfricaRoute,
+  GoldInCongoRoute: GoldInCongoRoute,
+  GoldInKenyaRoute: GoldInKenyaRoute,
+  GoldInTanzaniaRoute: GoldInTanzaniaRoute,
+  GoldInUgandaRoute: GoldInUgandaRoute,
   IndustriesRoute: IndustriesRoute,
   MarketInsightsRoute: MarketInsightsRoute,
   ProductsRoute: ProductsRoute,

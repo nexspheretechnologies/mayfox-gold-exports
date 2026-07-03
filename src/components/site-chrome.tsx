@@ -6,13 +6,13 @@ const nav = [
   { to: "/about", label: "About" },
   { to: "/products", label: "Products" },
   { to: "/services", label: "Services" },
-  { to: "/export-documentation", label: "Export Docs" },
-  { to: "/global-delivery", label: "Global Delivery" },
-  { to: "/industries", label: "Industries" },
+  { to: "/gold-in-africa", label: "Africa" },
+  { to: "/gold-in-kenya", label: "Kenya" },
+  { to: "/gold-in-tanzania", label: "Tanzania" },
+  { to: "/gold-in-uganda", label: "Uganda" },
+  { to: "/gold-in-congo", label: "DRC Congo" },
   { to: "/compliance", label: "Compliance" },
   { to: "/market-insights", label: "Insights" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/faqs", label: "FAQs" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
