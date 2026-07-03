@@ -21,7 +21,7 @@ export const Route = createFileRoute("/gold-in-tanzania")({
       { property: "og:title", content: "Gold in Tanzania — Verified Dore, Nuggets & Bullion" },
       { property: "og:description", content: "Tanzanian gold from Geita, Mwanza and Shinyanga with full assay and export documentation." },
       { property: "og:url", content: "/gold-in-tanzania" },
-      { property: "og:image", content: img.goldDoreBars ?? img.goldBullion },
+      { property: "og:image", content: img.goldIngot },
       { property: "og:type", content: "article" },
     ],
     links: [{ rel: "canonical", href: "/gold-in-tanzania" }],
@@ -38,7 +38,7 @@ function TanzaniaPage() {
       eyebrow="Gold in Tanzania"
       heroTitle={<>Sourcing and exporting <span className="text-gradient-gold">gold in Tanzania</span>.</>}
       heroSubtitle="Verified Tanzanian dore, nuggets and refined bullion from Geita, Mwanza, Shinyanga and the Lake Victoria goldfield — consolidated and exported through Mayfox Nairobi."
-      image={img.goldDoreBars ?? img.goldBullion}
+      image={img.goldIngot}
       intro={
         <>
           <p>
