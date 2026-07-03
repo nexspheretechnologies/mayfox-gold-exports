@@ -64,9 +64,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mayfox Gold Kenya | Buy Gold Bullion, Dore Bars & Nuggets — Nairobi" },
-      { name: "description", content: "Mayfox Gold Kenya — Nairobi's trusted gold dealer, refiner and exporter. Buy verified gold bullion bars, dore bars, nuggets and raw gold from Kenya with full assay, certificate of origin and insured global delivery. Trade desk: +254 754 979 755." },
-      { name: "keywords", content: "gold dealers Kenya, buy gold in Kenya, gold bullion Kenya, gold bars Nairobi, gold refinery Kenya, gold exporters Kenya, gold suppliers Nairobi, gold dore bars Kenya, raw gold Kenya, alluvial gold Kenya, gold nuggets Kenya, precious metals Kenya, LBMA gold Kenya, gold trading company Kenya, gold price Kenya, sell gold Nairobi, African gold suppliers, East Africa gold trading, Kenya gold mining, Migori gold, Kakamega gold, gold investment Kenya, 24 karat gold Kenya, 999.9 gold Kenya, gold smelting Kenya, gold assay Kenya, KYC gold Kenya, conflict-free gold Africa, Dubai gold from Kenya, gold export documentation Kenya, certificate of origin gold Kenya, Mayfox Gold" },
+      { title: "African Gold Suppliers | Gold Dore Bars, Nuggets & Bullion — Mayfox Kenya" },
+      { name: "description", content: "African gold suppliers — buy verified gold nuggets, gold dore bars, raw gold and LBMA-grade bullion from Kenya, Tanzania, Uganda and DRC Congo. Mayfox Gold Nairobi ships worldwide with full assay & export docs. Trade desk: +254 754 979 755." },
+      { name: "keywords", content: "african gold, gold in africa, gold in kenya, gold in uganda, gold in tanzania, gold in congo, gold nuggets for sale, raw gold for sale, gold dore bars, dore bars, lbma gold, gold investment, gold bullion kenya, gold bars kenya, gold dealers in kenya, gold price kenya, gold mining kenya, gold refinery kenya, gold exporters kenya, gold suppliers nairobi, precious metals kenya, alluvial gold, east africa gold, migori gold, kakamega gold, tanzania gold mining, uganda gold export, drc congo gold, gold smelting africa, 24 karat gold, 999.9 gold, conflict-free gold africa, dubai gold suppliers, gold assay kenya, sell gold nairobi, gold trading company kenya, Mayfox Gold" },
       { name: "author", content: "Mayfox Gold and Precious Metals Kenya" },
       { name: "geo.region", content: "KE-30" },
       { name: "geo.placename", content: "Nairobi, Kenya" },

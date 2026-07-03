@@ -5,14 +5,29 @@ import { CTABand, FeatureCard, SectionHeader, Stat } from "../components/site-bl
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mayfox Gold Kenya | Trusted Bullion & Precious Metals Export" },
-      { name: "description", content: "Kenya's leading gold bullion supplier. Verified gold bars, dore bars, raw gold and nuggets exported worldwide with full assay reports and export documentation." },
-      { property: "og:title", content: "Mayfox Gold & Precious Metals Kenya" },
-      { property: "og:description", content: "Verified gold bullion exported to global markets with full documentation." },
+      { title: "African Gold Suppliers — Buy Gold Nuggets, Dore Bars & Bullion | Mayfox Kenya" },
+      { name: "description", content: "Buy African gold from Kenya's trusted exporter: gold nuggets for sale, gold dore bars, raw gold and LBMA-grade bullion sourced across Kenya, Tanzania, Uganda & DRC Congo. Full assay, certificate of origin, insured worldwide delivery." },
+      { property: "og:title", content: "African Gold Suppliers — Mayfox Gold Kenya" },
+      { property: "og:description", content: "Verified African gold — nuggets, dore bars, raw & refined bullion — exported worldwide with full documentation." },
       { property: "og:image", content: img.goldBars1 },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { "@type": "Question", name: "Where can I buy gold in Kenya?", acceptedAnswer: { "@type": "Answer", text: "Mayfox Gold, based on Rhapta Road, Westlands, Nairobi, is a licensed Kenyan gold dealer and exporter supplying verified bullion, dore bars, nuggets and raw gold to institutional buyers worldwide." } },
+            { "@type": "Question", name: "Do you supply gold from Tanzania, Uganda and DRC Congo?", acceptedAnswer: { "@type": "Answer", text: "Yes. Mayfox sources responsibly-mined gold across East and Central Africa — Kenya, Tanzania, Uganda and the Democratic Republic of Congo — under OECD due-diligence and KYC/AML controls." } },
+            { "@type": "Question", name: "What gold products does Mayfox export?", acceptedAnswer: { "@type": "Answer", text: "Gold bullion bars (99.5–99.99%), gold dore bars (85–95%), gold nuggets, raw gold, refined gold and LBMA investment-grade bullion." } },
+            { "@type": "Question", name: "Do you ship gold internationally?", acceptedAnswer: { "@type": "Answer", text: "Yes — insured air freight to Dubai (DMCC), Zurich, London, Singapore, Hong Kong, Mumbai and North America with full export documentation and certificate of origin." } },
+          ],
+        }),
+      },
+    ],
   }),
   component: Home,
 });
