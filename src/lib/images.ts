@@ -93,6 +93,7 @@ export const img = {
 };
 
 export const galleryImages = [
+  realBars.url, realGrains.url, realScale.url,
   goldBullionBars, goldDoreBars, goldNuggetsImg, rawGoldImg,
   refinedGoldImg, investmentGradeGold, heroGold, africanTrader,
   smeltingImg, assayLab, africanBoardroom, africanHandshake,
