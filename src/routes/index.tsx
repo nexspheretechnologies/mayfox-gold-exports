@@ -39,7 +39,12 @@ function Home() {
       {/* HERO */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={img.goldBars1} alt="Gold bullion bars" className="w-full h-full object-cover" />
+          <SilentVideo
+            src={mayfoxVideos[0]}
+            poster={realPhotos.bars}
+            ariaLabel="Mayfox Gold vault footage"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/85 to-onyx/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
