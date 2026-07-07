@@ -16,6 +16,15 @@ import africanBoardroom from "../assets/african-boardroom.jpg";
 import africanTrader from "../assets/african-trader.jpg";
 import smeltingImg from "../assets/smelting.jpg";
 import assayLab from "../assets/assay-lab.jpg";
+import realBars from "../assets/real-gold-bars-crates.jpg.asset.json";
+import realGrains from "../assets/real-gold-grains-sacks.jpg.asset.json";
+import realScale from "../assets/real-gold-bar-scale.jpg.asset.json";
+
+export const realPhotos = {
+  bars: realBars.url,
+  grains: realGrains.url,
+  scale: realScale.url,
+};
 
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?w=${w}&q=80&auto=format&fit=crop`;
