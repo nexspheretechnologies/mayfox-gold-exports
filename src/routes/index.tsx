@@ -115,14 +115,16 @@ function Home() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src={img.vault} alt="Gold vault" className="rounded-sm h-72 w-full object-cover" />
-              <img src={img.assay} alt="Assay laboratory" className="rounded-sm h-72 w-full object-cover mt-12" />
-              <img src={img.smelting} alt="Gold smelting" className="rounded-sm h-72 w-full object-cover -mt-8" />
-              <img src={img.goldBullion} alt="Gold bullion" className="rounded-sm h-72 w-full object-cover mt-4" />
+              <img src={realPhotos.bars} alt="Crates of gold bars at Mayfox trading desk" loading="lazy" className="rounded-sm h-72 w-full object-cover" />
+              <img src={realPhotos.grains} alt="Sacks of gold grains for refining" loading="lazy" className="rounded-sm h-72 w-full object-cover mt-12" />
+              <img src={realPhotos.scale} alt="Gold bar on precision weighing scale" loading="lazy" className="rounded-sm h-72 w-full object-cover -mt-8" />
+              <img src={img.goldBullion} alt="Gold bullion" loading="lazy" className="rounded-sm h-72 w-full object-cover mt-4" />
             </div>
           </div>
         </div>
       </section>
+
+      <VideoShowcase />
 
       {/* PRODUCTS */}
       <section className="section-y bg-onyx">
