@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { img } from "../lib/images";
-import { CTABand, FeatureCard, SectionHeader, Stat } from "../components/site-blocks";
+import { img, realPhotos } from "../lib/images";
+import { CTABand, SectionHeader, Stat } from "../components/site-blocks";
+import { SilentVideo, VideoShowcase, mayfoxVideos } from "../components/video-showcase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
