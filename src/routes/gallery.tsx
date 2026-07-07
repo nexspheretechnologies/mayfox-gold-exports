@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { galleryImages } from "../lib/images";
 import { CTABand, PageHero } from "../components/site-blocks";
+import { SilentVideo, mayfoxVideos } from "../components/video-showcase";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -42,6 +43,27 @@ function Gallery() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-y border-t border-border/50 bg-onyx/40">
+        <div className="container-x">
+          <div className="eyebrow mb-4">Footage</div>
+          <h2 className="font-display text-3xl lg:text-4xl mb-8">
+            Video from the <span className="text-gradient-gold">Mayfox trade floor</span>.
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {mayfoxVideos.map((src, i) => (
+              <div key={src} className="relative overflow-hidden rounded-sm aspect-[9/16] border border-gold/10 group">
+                <SilentVideo
+                  src={src}
+                  ariaLabel={`Mayfox operations footage ${i + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-onyx/70 via-transparent to-transparent" />
+              </div>
+            ))}
           </div>
         </div>
       </section>

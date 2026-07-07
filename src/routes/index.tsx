@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { img } from "../lib/images";
-import { CTABand, FeatureCard, SectionHeader, Stat } from "../components/site-blocks";
+import { img, realPhotos } from "../lib/images";
+import { CTABand, SectionHeader, Stat } from "../components/site-blocks";
+import { SilentVideo, VideoShowcase, mayfoxVideos } from "../components/video-showcase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,7 +39,12 @@ function Home() {
       {/* HERO */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={img.goldBars1} alt="Gold bullion bars" className="w-full h-full object-cover" />
+          <SilentVideo
+            src={mayfoxVideos[0]}
+            poster={realPhotos.bars}
+            ariaLabel="Mayfox Gold vault footage"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/85 to-onyx/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
@@ -109,14 +115,16 @@ function Home() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src={img.vault} alt="Gold vault" className="rounded-sm h-72 w-full object-cover" />
-              <img src={img.assay} alt="Assay laboratory" className="rounded-sm h-72 w-full object-cover mt-12" />
-              <img src={img.smelting} alt="Gold smelting" className="rounded-sm h-72 w-full object-cover -mt-8" />
-              <img src={img.goldBullion} alt="Gold bullion" className="rounded-sm h-72 w-full object-cover mt-4" />
+              <img src={realPhotos.bars} alt="Crates of gold bars at Mayfox trading desk" loading="lazy" className="rounded-sm h-72 w-full object-cover" />
+              <img src={realPhotos.grains} alt="Sacks of gold grains for refining" loading="lazy" className="rounded-sm h-72 w-full object-cover mt-12" />
+              <img src={realPhotos.scale} alt="Gold bar on precision weighing scale" loading="lazy" className="rounded-sm h-72 w-full object-cover -mt-8" />
+              <img src={img.goldBullion} alt="Gold bullion" loading="lazy" className="rounded-sm h-72 w-full object-cover mt-4" />
             </div>
           </div>
         </div>
       </section>
+
+      <VideoShowcase />
 
       {/* PRODUCTS */}
       <section className="section-y bg-onyx">
