@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { galleryImages } from "../lib/images";
 import { CTABand, PageHero } from "../components/site-blocks";
+import { SilentVideo, mayfoxVideos } from "../components/video-showcase";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
