@@ -1,23 +1,61 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/products", label: "Products" },
   { to: "/services", label: "Services" },
-  { to: "/gold-in-africa", label: "Africa" },
-  { to: "/gold-in-kenya", label: "Kenya" },
-  { to: "/gold-in-tanzania", label: "Tanzania" },
-  { to: "/gold-in-uganda", label: "Uganda" },
-  { to: "/gold-in-congo", label: "DRC Congo" },
   { to: "/compliance", label: "Compliance" },
   { to: "/market-insights", label: "Insights" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
+const africaMarkets = [
+  { to: "/gold-in-africa", label: "Gold in Africa" },
+  { to: "/gold-in-kenya", label: "Kenya" },
+  { to: "/gold-in-tanzania", label: "Tanzania" },
+  { to: "/gold-in-uganda", label: "Uganda" },
+  { to: "/gold-in-congo", label: "DRC Congo" },
+];
+
+const globalMarkets = [
+  { to: "/usa", label: "United States" },
+  { to: "/united-kingdom", label: "United Kingdom" },
+  { to: "/uae", label: "UAE" },
+  { to: "/dubai", label: "Dubai" },
+  { to: "/switzerland", label: "Switzerland" },
+  { to: "/singapore", label: "Singapore" },
+  { to: "/hong-kong", label: "Hong Kong" },
+  { to: "/india", label: "India" },
+  { to: "/china", label: "China" },
+  { to: "/saudi-arabia", label: "Saudi Arabia" },
+  { to: "/qatar", label: "Qatar" },
+  { to: "/oman", label: "Oman" },
+  { to: "/kuwait", label: "Kuwait" },
+  { to: "/turkey", label: "Turkey" },
+  { to: "/germany", label: "Germany" },
+  { to: "/france", label: "France" },
+  { to: "/canada", label: "Canada" },
+  { to: "/australia", label: "Australia" },
+];
+
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [marketsOpen, setMarketsOpen] = useState(false);
+  const [mobileMarketsOpen, setMobileMarketsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setMarketsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
   return (
     <>
       {/* Ticker */}
@@ -52,6 +90,46 @@ export function Header() {
                 {n.label}
               </Link>
             ))}
+
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setMarketsOpen((v) => !v)}
+                className="text-muted-foreground hover:text-gold transition-colors flex items-center gap-1"
+              >
+                Markets
+                <svg className={`w-3 h-3 transition-transform ${marketsOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </button>
+
+              {marketsOpen && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-onyx border border-border/60 rounded-sm shadow-2xl z-50 py-3">
+                  <div className="px-4 py-1 text-[10px] tracking-[0.2em] text-gold uppercase mb-2">Africa</div>
+                  {africaMarkets.map((m) => (
+                    <Link
+                      key={m.to}
+                      to={m.to}
+                      className="block px-4 py-2 text-sm text-muted-foreground hover:text-gold hover:bg-card/50 transition-colors"
+                      onClick={() => setMarketsOpen(false)}
+                    >
+                      {m.label}
+                    </Link>
+                  ))}
+                  <div className="border-t border-border/40 my-2" />
+                  <div className="px-4 py-1 text-[10px] tracking-[0.2em] text-gold uppercase mb-2">Global Markets</div>
+                  <div className="grid grid-cols-2">
+                    {globalMarkets.map((m) => (
+                      <Link
+                        key={m.to}
+                        to={m.to}
+                        className="block px-4 py-2 text-xs text-muted-foreground hover:text-gold hover:bg-card/50 transition-colors"
+                        onClick={() => setMarketsOpen(false)}
+                      >
+                        {m.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -83,6 +161,43 @@ export function Header() {
                   {n.label}
                 </Link>
               ))}
+
+              <button
+                onClick={() => setMobileMarketsOpen((v) => !v)}
+                className="col-span-2 py-2 text-muted-foreground hover:text-gold text-left flex items-center justify-between"
+              >
+                Markets
+                <svg className={`w-4 h-4 transition-transform ${mobileMarketsOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </button>
+
+              {mobileMarketsOpen && (
+                <div className="col-span-2 border-t border-border/40 pt-3 mt-1 space-y-1">
+                  <div className="text-[10px] tracking-[0.2em] text-gold uppercase px-1 mb-1">Africa</div>
+                  {africaMarkets.map((m) => (
+                    <Link
+                      key={m.to}
+                      to={m.to}
+                      onClick={() => setOpen(false)}
+                      className="block py-1.5 text-sm text-muted-foreground hover:text-gold"
+                    >
+                      {m.label}
+                    </Link>
+                  ))}
+                  <div className="border-t border-border/40 my-2" />
+                  <div className="text-[10px] tracking-[0.2em] text-gold uppercase px-1 mb-1">Global Markets</div>
+                  {globalMarkets.map((m) => (
+                    <Link
+                      key={m.to}
+                      to={m.to}
+                      onClick={() => setOpen(false)}
+                      className="block py-1.5 text-sm text-muted-foreground hover:text-gold"
+                    >
+                      {m.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+
               <Link to="/request-quote" onClick={() => setOpen(false)} className="col-span-2 btn-gold mt-2">
                 Request Quote
               </Link>

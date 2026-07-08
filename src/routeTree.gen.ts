@@ -9,35 +9,88 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UsaRouteImport } from './routes/usa'
+import { Route as UnitedKingdomRouteImport } from './routes/united-kingdom'
+import { Route as UaeRouteImport } from './routes/uae'
+import { Route as TurkeyRouteImport } from './routes/turkey'
+import { Route as SwitzerlandRouteImport } from './routes/switzerland'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SingaporeRouteImport } from './routes/singapore'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SaudiArabiaRouteImport } from './routes/saudi-arabia'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as RequestQuoteRouteImport } from './routes/request-quote'
+import { Route as QatarRouteImport } from './routes/qatar'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as OmanRouteImport } from './routes/oman'
 import { Route as MarketInsightsRouteImport } from './routes/market-insights'
+import { Route as KuwaitRouteImport } from './routes/kuwait'
 import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as IndiaRouteImport } from './routes/india'
+import { Route as HongKongRouteImport } from './routes/hong-kong'
 import { Route as GoldInUgandaRouteImport } from './routes/gold-in-uganda'
 import { Route as GoldInTanzaniaRouteImport } from './routes/gold-in-tanzania'
 import { Route as GoldInKenyaRouteImport } from './routes/gold-in-kenya'
 import { Route as GoldInCongoRouteImport } from './routes/gold-in-congo'
 import { Route as GoldInAfricaRouteImport } from './routes/gold-in-africa'
 import { Route as GlobalDeliveryRouteImport } from './routes/global-delivery'
+import { Route as GermanyRouteImport } from './routes/germany'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FranceRouteImport } from './routes/france'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as ExportDocumentationRouteImport } from './routes/export-documentation'
+import { Route as DubaiRouteImport } from './routes/dubai'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ComplianceRouteImport } from './routes/compliance'
+import { Route as ChinaRouteImport } from './routes/china'
+import { Route as CanadaRouteImport } from './routes/canada'
+import { Route as AustraliaRouteImport } from './routes/australia'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UsaRoute = UsaRouteImport.update({
+  id: '/usa',
+  path: '/usa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnitedKingdomRoute = UnitedKingdomRouteImport.update({
+  id: '/united-kingdom',
+  path: '/united-kingdom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UaeRoute = UaeRouteImport.update({
+  id: '/uae',
+  path: '/uae',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TurkeyRoute = TurkeyRouteImport.update({
+  id: '/turkey',
+  path: '/turkey',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SwitzerlandRoute = SwitzerlandRouteImport.update({
+  id: '/switzerland',
+  path: '/switzerland',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SingaporeRoute = SingaporeRouteImport.update({
+  id: '/singapore',
+  path: '/singapore',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SaudiArabiaRoute = SaudiArabiaRouteImport.update({
+  id: '/saudi-arabia',
+  path: '/saudi-arabia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
@@ -50,9 +103,19 @@ const RequestQuoteRoute = RequestQuoteRouteImport.update({
   path: '/request-quote',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QatarRoute = QatarRouteImport.update({
+  id: '/qatar',
+  path: '/qatar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OmanRoute = OmanRouteImport.update({
+  id: '/oman',
+  path: '/oman',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MarketInsightsRoute = MarketInsightsRouteImport.update({
@@ -60,9 +123,24 @@ const MarketInsightsRoute = MarketInsightsRouteImport.update({
   path: '/market-insights',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KuwaitRoute = KuwaitRouteImport.update({
+  id: '/kuwait',
+  path: '/kuwait',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndiaRoute = IndiaRouteImport.update({
+  id: '/india',
+  path: '/india',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HongKongRoute = HongKongRouteImport.update({
+  id: '/hong-kong',
+  path: '/hong-kong',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GoldInUgandaRoute = GoldInUgandaRouteImport.update({
@@ -95,9 +173,19 @@ const GlobalDeliveryRoute = GlobalDeliveryRouteImport.update({
   path: '/global-delivery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GermanyRoute = GermanyRouteImport.update({
+  id: '/germany',
+  path: '/germany',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FranceRoute = FranceRouteImport.update({
+  id: '/france',
+  path: '/france',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqsRoute = FaqsRouteImport.update({
@@ -110,6 +198,11 @@ const ExportDocumentationRoute = ExportDocumentationRouteImport.update({
   path: '/export-documentation',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DubaiRoute = DubaiRouteImport.update({
+  id: '/dubai',
+  path: '/dubai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -118,6 +211,21 @@ const ContactRoute = ContactRouteImport.update({
 const ComplianceRoute = ComplianceRouteImport.update({
   id: '/compliance',
   path: '/compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChinaRoute = ChinaRouteImport.update({
+  id: '/china',
+  path: '/china',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CanadaRoute = CanadaRouteImport.update({
+  id: '/canada',
+  path: '/canada',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AustraliaRoute = AustraliaRouteImport.update({
+  id: '/australia',
+  path: '/australia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -134,164 +242,325 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/australia': typeof AustraliaRoute
+  '/canada': typeof CanadaRoute
+  '/china': typeof ChinaRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
+  '/dubai': typeof DubaiRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/faqs': typeof FaqsRoute
+  '/france': typeof FranceRoute
   '/gallery': typeof GalleryRoute
+  '/germany': typeof GermanyRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/gold-in-africa': typeof GoldInAfricaRoute
   '/gold-in-congo': typeof GoldInCongoRoute
   '/gold-in-kenya': typeof GoldInKenyaRoute
   '/gold-in-tanzania': typeof GoldInTanzaniaRoute
   '/gold-in-uganda': typeof GoldInUgandaRoute
+  '/hong-kong': typeof HongKongRoute
+  '/india': typeof IndiaRoute
   '/industries': typeof IndustriesRoute
+  '/kuwait': typeof KuwaitRoute
   '/market-insights': typeof MarketInsightsRoute
+  '/oman': typeof OmanRoute
   '/products': typeof ProductsRoute
+  '/qatar': typeof QatarRoute
   '/request-quote': typeof RequestQuoteRoute
   '/robots.txt': typeof RobotsDottxtRoute
+  '/saudi-arabia': typeof SaudiArabiaRoute
   '/services': typeof ServicesRoute
+  '/singapore': typeof SingaporeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/switzerland': typeof SwitzerlandRoute
+  '/turkey': typeof TurkeyRoute
+  '/uae': typeof UaeRoute
+  '/united-kingdom': typeof UnitedKingdomRoute
+  '/usa': typeof UsaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/australia': typeof AustraliaRoute
+  '/canada': typeof CanadaRoute
+  '/china': typeof ChinaRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
+  '/dubai': typeof DubaiRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/faqs': typeof FaqsRoute
+  '/france': typeof FranceRoute
   '/gallery': typeof GalleryRoute
+  '/germany': typeof GermanyRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/gold-in-africa': typeof GoldInAfricaRoute
   '/gold-in-congo': typeof GoldInCongoRoute
   '/gold-in-kenya': typeof GoldInKenyaRoute
   '/gold-in-tanzania': typeof GoldInTanzaniaRoute
   '/gold-in-uganda': typeof GoldInUgandaRoute
+  '/hong-kong': typeof HongKongRoute
+  '/india': typeof IndiaRoute
   '/industries': typeof IndustriesRoute
+  '/kuwait': typeof KuwaitRoute
   '/market-insights': typeof MarketInsightsRoute
+  '/oman': typeof OmanRoute
   '/products': typeof ProductsRoute
+  '/qatar': typeof QatarRoute
   '/request-quote': typeof RequestQuoteRoute
   '/robots.txt': typeof RobotsDottxtRoute
+  '/saudi-arabia': typeof SaudiArabiaRoute
   '/services': typeof ServicesRoute
+  '/singapore': typeof SingaporeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/switzerland': typeof SwitzerlandRoute
+  '/turkey': typeof TurkeyRoute
+  '/uae': typeof UaeRoute
+  '/united-kingdom': typeof UnitedKingdomRoute
+  '/usa': typeof UsaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/australia': typeof AustraliaRoute
+  '/canada': typeof CanadaRoute
+  '/china': typeof ChinaRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
+  '/dubai': typeof DubaiRoute
   '/export-documentation': typeof ExportDocumentationRoute
   '/faqs': typeof FaqsRoute
+  '/france': typeof FranceRoute
   '/gallery': typeof GalleryRoute
+  '/germany': typeof GermanyRoute
   '/global-delivery': typeof GlobalDeliveryRoute
   '/gold-in-africa': typeof GoldInAfricaRoute
   '/gold-in-congo': typeof GoldInCongoRoute
   '/gold-in-kenya': typeof GoldInKenyaRoute
   '/gold-in-tanzania': typeof GoldInTanzaniaRoute
   '/gold-in-uganda': typeof GoldInUgandaRoute
+  '/hong-kong': typeof HongKongRoute
+  '/india': typeof IndiaRoute
   '/industries': typeof IndustriesRoute
+  '/kuwait': typeof KuwaitRoute
   '/market-insights': typeof MarketInsightsRoute
+  '/oman': typeof OmanRoute
   '/products': typeof ProductsRoute
+  '/qatar': typeof QatarRoute
   '/request-quote': typeof RequestQuoteRoute
   '/robots.txt': typeof RobotsDottxtRoute
+  '/saudi-arabia': typeof SaudiArabiaRoute
   '/services': typeof ServicesRoute
+  '/singapore': typeof SingaporeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/switzerland': typeof SwitzerlandRoute
+  '/turkey': typeof TurkeyRoute
+  '/uae': typeof UaeRoute
+  '/united-kingdom': typeof UnitedKingdomRoute
+  '/usa': typeof UsaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/australia'
+    | '/canada'
+    | '/china'
     | '/compliance'
     | '/contact'
+    | '/dubai'
     | '/export-documentation'
     | '/faqs'
+    | '/france'
     | '/gallery'
+    | '/germany'
     | '/global-delivery'
     | '/gold-in-africa'
     | '/gold-in-congo'
     | '/gold-in-kenya'
     | '/gold-in-tanzania'
     | '/gold-in-uganda'
+    | '/hong-kong'
+    | '/india'
     | '/industries'
+    | '/kuwait'
     | '/market-insights'
+    | '/oman'
     | '/products'
+    | '/qatar'
     | '/request-quote'
     | '/robots.txt'
+    | '/saudi-arabia'
     | '/services'
+    | '/singapore'
     | '/sitemap.xml'
+    | '/switzerland'
+    | '/turkey'
+    | '/uae'
+    | '/united-kingdom'
+    | '/usa'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/australia'
+    | '/canada'
+    | '/china'
     | '/compliance'
     | '/contact'
+    | '/dubai'
     | '/export-documentation'
     | '/faqs'
+    | '/france'
     | '/gallery'
+    | '/germany'
     | '/global-delivery'
     | '/gold-in-africa'
     | '/gold-in-congo'
     | '/gold-in-kenya'
     | '/gold-in-tanzania'
     | '/gold-in-uganda'
+    | '/hong-kong'
+    | '/india'
     | '/industries'
+    | '/kuwait'
     | '/market-insights'
+    | '/oman'
     | '/products'
+    | '/qatar'
     | '/request-quote'
     | '/robots.txt'
+    | '/saudi-arabia'
     | '/services'
+    | '/singapore'
     | '/sitemap.xml'
+    | '/switzerland'
+    | '/turkey'
+    | '/uae'
+    | '/united-kingdom'
+    | '/usa'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/australia'
+    | '/canada'
+    | '/china'
     | '/compliance'
     | '/contact'
+    | '/dubai'
     | '/export-documentation'
     | '/faqs'
+    | '/france'
     | '/gallery'
+    | '/germany'
     | '/global-delivery'
     | '/gold-in-africa'
     | '/gold-in-congo'
     | '/gold-in-kenya'
     | '/gold-in-tanzania'
     | '/gold-in-uganda'
+    | '/hong-kong'
+    | '/india'
     | '/industries'
+    | '/kuwait'
     | '/market-insights'
+    | '/oman'
     | '/products'
+    | '/qatar'
     | '/request-quote'
     | '/robots.txt'
+    | '/saudi-arabia'
     | '/services'
+    | '/singapore'
     | '/sitemap.xml'
+    | '/switzerland'
+    | '/turkey'
+    | '/uae'
+    | '/united-kingdom'
+    | '/usa'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AustraliaRoute: typeof AustraliaRoute
+  CanadaRoute: typeof CanadaRoute
+  ChinaRoute: typeof ChinaRoute
   ComplianceRoute: typeof ComplianceRoute
   ContactRoute: typeof ContactRoute
+  DubaiRoute: typeof DubaiRoute
   ExportDocumentationRoute: typeof ExportDocumentationRoute
   FaqsRoute: typeof FaqsRoute
+  FranceRoute: typeof FranceRoute
   GalleryRoute: typeof GalleryRoute
+  GermanyRoute: typeof GermanyRoute
   GlobalDeliveryRoute: typeof GlobalDeliveryRoute
   GoldInAfricaRoute: typeof GoldInAfricaRoute
   GoldInCongoRoute: typeof GoldInCongoRoute
   GoldInKenyaRoute: typeof GoldInKenyaRoute
   GoldInTanzaniaRoute: typeof GoldInTanzaniaRoute
   GoldInUgandaRoute: typeof GoldInUgandaRoute
+  HongKongRoute: typeof HongKongRoute
+  IndiaRoute: typeof IndiaRoute
   IndustriesRoute: typeof IndustriesRoute
+  KuwaitRoute: typeof KuwaitRoute
   MarketInsightsRoute: typeof MarketInsightsRoute
+  OmanRoute: typeof OmanRoute
   ProductsRoute: typeof ProductsRoute
+  QatarRoute: typeof QatarRoute
   RequestQuoteRoute: typeof RequestQuoteRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SaudiArabiaRoute: typeof SaudiArabiaRoute
   ServicesRoute: typeof ServicesRoute
+  SingaporeRoute: typeof SingaporeRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SwitzerlandRoute: typeof SwitzerlandRoute
+  TurkeyRoute: typeof TurkeyRoute
+  UaeRoute: typeof UaeRoute
+  UnitedKingdomRoute: typeof UnitedKingdomRoute
+  UsaRoute: typeof UsaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/usa': {
+      id: '/usa'
+      path: '/usa'
+      fullPath: '/usa'
+      preLoaderRoute: typeof UsaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/united-kingdom': {
+      id: '/united-kingdom'
+      path: '/united-kingdom'
+      fullPath: '/united-kingdom'
+      preLoaderRoute: typeof UnitedKingdomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/uae': {
+      id: '/uae'
+      path: '/uae'
+      fullPath: '/uae'
+      preLoaderRoute: typeof UaeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/turkey': {
+      id: '/turkey'
+      path: '/turkey'
+      fullPath: '/turkey'
+      preLoaderRoute: typeof TurkeyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/switzerland': {
+      id: '/switzerland'
+      path: '/switzerland'
+      fullPath: '/switzerland'
+      preLoaderRoute: typeof SwitzerlandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -299,11 +568,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/singapore': {
+      id: '/singapore'
+      path: '/singapore'
+      fullPath: '/singapore'
+      preLoaderRoute: typeof SingaporeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saudi-arabia': {
+      id: '/saudi-arabia'
+      path: '/saudi-arabia'
+      fullPath: '/saudi-arabia'
+      preLoaderRoute: typeof SaudiArabiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/robots.txt': {
@@ -320,11 +603,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RequestQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/qatar': {
+      id: '/qatar'
+      path: '/qatar'
+      fullPath: '/qatar'
+      preLoaderRoute: typeof QatarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products': {
       id: '/products'
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oman': {
+      id: '/oman'
+      path: '/oman'
+      fullPath: '/oman'
+      preLoaderRoute: typeof OmanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/market-insights': {
@@ -334,11 +631,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarketInsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kuwait': {
+      id: '/kuwait'
+      path: '/kuwait'
+      fullPath: '/kuwait'
+      preLoaderRoute: typeof KuwaitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries': {
       id: '/industries'
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/india': {
+      id: '/india'
+      path: '/india'
+      fullPath: '/india'
+      preLoaderRoute: typeof IndiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hong-kong': {
+      id: '/hong-kong'
+      path: '/hong-kong'
+      fullPath: '/hong-kong'
+      preLoaderRoute: typeof HongKongRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gold-in-uganda': {
@@ -383,11 +701,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlobalDeliveryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/germany': {
+      id: '/germany'
+      path: '/germany'
+      fullPath: '/germany'
+      preLoaderRoute: typeof GermanyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/france': {
+      id: '/france'
+      path: '/france'
+      fullPath: '/france'
+      preLoaderRoute: typeof FranceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faqs': {
@@ -404,6 +736,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExportDocumentationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dubai': {
+      id: '/dubai'
+      path: '/dubai'
+      fullPath: '/dubai'
+      preLoaderRoute: typeof DubaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -416,6 +755,27 @@ declare module '@tanstack/react-router' {
       path: '/compliance'
       fullPath: '/compliance'
       preLoaderRoute: typeof ComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/china': {
+      id: '/china'
+      path: '/china'
+      fullPath: '/china'
+      preLoaderRoute: typeof ChinaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/canada': {
+      id: '/canada'
+      path: '/canada'
+      fullPath: '/canada'
+      preLoaderRoute: typeof CanadaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/australia': {
+      id: '/australia'
+      path: '/australia'
+      fullPath: '/australia'
+      preLoaderRoute: typeof AustraliaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -438,24 +798,42 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AustraliaRoute: AustraliaRoute,
+  CanadaRoute: CanadaRoute,
+  ChinaRoute: ChinaRoute,
   ComplianceRoute: ComplianceRoute,
   ContactRoute: ContactRoute,
+  DubaiRoute: DubaiRoute,
   ExportDocumentationRoute: ExportDocumentationRoute,
   FaqsRoute: FaqsRoute,
+  FranceRoute: FranceRoute,
   GalleryRoute: GalleryRoute,
+  GermanyRoute: GermanyRoute,
   GlobalDeliveryRoute: GlobalDeliveryRoute,
   GoldInAfricaRoute: GoldInAfricaRoute,
   GoldInCongoRoute: GoldInCongoRoute,
   GoldInKenyaRoute: GoldInKenyaRoute,
   GoldInTanzaniaRoute: GoldInTanzaniaRoute,
   GoldInUgandaRoute: GoldInUgandaRoute,
+  HongKongRoute: HongKongRoute,
+  IndiaRoute: IndiaRoute,
   IndustriesRoute: IndustriesRoute,
+  KuwaitRoute: KuwaitRoute,
   MarketInsightsRoute: MarketInsightsRoute,
+  OmanRoute: OmanRoute,
   ProductsRoute: ProductsRoute,
+  QatarRoute: QatarRoute,
   RequestQuoteRoute: RequestQuoteRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
+  SaudiArabiaRoute: SaudiArabiaRoute,
   ServicesRoute: ServicesRoute,
+  SingaporeRoute: SingaporeRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SwitzerlandRoute: SwitzerlandRoute,
+  TurkeyRoute: TurkeyRoute,
+  UaeRoute: UaeRoute,
+  UnitedKingdomRoute: UnitedKingdomRoute,
+  UsaRoute: UsaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
