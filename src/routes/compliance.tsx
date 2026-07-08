@@ -5,7 +5,7 @@ import { CTABand, PageHero, SectionHeader } from "../components/site-blocks";
 export const Route = createFileRoute("/compliance")({
   head: () => ({
     meta: [
-      { title: "Compliance | KYC, AML, OECD Due Diligence — Mayfox Gold Kenya" },
+      { title: "Compliance — KYC, AML & OECD | Mayfox Gold Kenya" },
       { name: "description", content: "Mayfox operates to LBMA, OECD and Kenyan regulatory standards: verified purity 95–99.99%, KYC, AML, responsible sourcing and full export compliance." },
       { property: "og:title", content: "Compliance — Mayfox Gold" },
       { property: "og:image", content: img.lab },
