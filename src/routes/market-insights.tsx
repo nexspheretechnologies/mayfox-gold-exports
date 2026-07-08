@@ -5,8 +5,8 @@ import { PageHero, SectionHeader } from "../components/site-blocks";
 export const Route = createFileRoute("/market-insights")({
   head: () => ({
     meta: [
-      { title: "African Gold Market Insights | Kenya, Tanzania, Uganda & DRC Bullion News" },
-      { name: "description", content: "African gold market intelligence: bullion price trends, Kenya, Tanzania, Uganda and DRC Congo mining news, LBMA compliance, export regulations and precious metals analysis." },
+      { title: "African Gold Market Insights | Mayfox Gold Kenya" },
+      { name: "description", content: "African gold market intelligence: bullion price trends, Kenya, Tanzania, Uganda & DRC mining news, LBMA compliance and export updates." },
       { name: "keywords", content: "african gold market, gold price africa, gold mining africa, kenya gold news, tanzania gold mining, uganda gold export, drc congo gold, lbma gold, gold investment africa, bullion market insights" },
       { property: "og:title", content: "Market Insights — Mayfox Gold" },
       { property: "og:image", content: img.chart },

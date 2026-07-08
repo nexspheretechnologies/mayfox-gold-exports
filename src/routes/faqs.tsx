@@ -6,7 +6,7 @@ import { CTABand, PageHero } from "../components/site-blocks";
 export const Route = createFileRoute("/faqs")({
   head: () => ({
     meta: [
-      { title: "FAQs | Gold Export, Pricing, Documentation — Mayfox Gold Kenya" },
+      { title: "Gold Export FAQs — Pricing & Docs | Mayfox Kenya" },
       { name: "description", content: "Frequently asked questions on gold purity, pricing, export documentation, shipping, security, compliance, payments and wholesale supply from Kenya." },
       { property: "og:title", content: "FAQs — Mayfox Gold" },
       { property: "og:url", content: "/faqs" },

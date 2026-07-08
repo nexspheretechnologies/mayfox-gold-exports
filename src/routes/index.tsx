@@ -6,8 +6,8 @@ import { SilentVideo, VideoShowcase, mayfoxVideos } from "../components/video-sh
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "African Gold Suppliers — Buy Gold Nuggets, Dore Bars & Bullion | Mayfox Kenya" },
-      { name: "description", content: "Buy African gold from Kenya's trusted exporter: gold nuggets for sale, gold dore bars, raw gold and LBMA-grade bullion sourced across Kenya, Tanzania, Uganda & DRC Congo. Full assay, certificate of origin, insured worldwide delivery." },
+      { title: "Buy African Gold — Nuggets, Dore Bars & Bullion | Mayfox" },
+      { name: "description", content: "Kenya's trusted African gold exporter. Buy gold nuggets, dore bars, raw gold and LBMA-grade bullion from Kenya, Tanzania, Uganda & DRC Congo." },
       { property: "og:title", content: "African Gold Suppliers — Mayfox Gold Kenya" },
       { property: "og:description", content: "Verified African gold — nuggets, dore bars, raw & refined bullion — exported worldwide with full documentation." },
       { property: "og:image", content: img.goldBars1 },

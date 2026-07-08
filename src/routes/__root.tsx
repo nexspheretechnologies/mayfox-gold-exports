@@ -64,8 +64,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "African Gold Suppliers | Gold Dore Bars, Nuggets & Bullion — Mayfox Kenya" },
-      { name: "description", content: "African gold suppliers — buy verified gold nuggets, gold dore bars, raw gold and LBMA-grade bullion from Kenya, Tanzania, Uganda and DRC Congo. Mayfox Gold Nairobi ships worldwide with full assay & export docs. Trade desk: +254 754 979 755." },
+      { title: "Mayfox Gold Kenya — African Gold Dore, Nuggets & Bullion" },
+      { name: "description", content: "Buy verified African gold — nuggets, dore bars and LBMA-grade bullion from Kenya, Tanzania, Uganda and DRC Congo. Full assay, export docs, insured global delivery." },
       { name: "keywords", content: "african gold, gold in africa, gold in kenya, gold in uganda, gold in tanzania, gold in congo, gold nuggets for sale, raw gold for sale, gold dore bars, dore bars, lbma gold, gold investment, gold bullion kenya, gold bars kenya, gold dealers in kenya, gold price kenya, gold mining kenya, gold refinery kenya, gold exporters kenya, gold suppliers nairobi, precious metals kenya, alluvial gold, east africa gold, migori gold, kakamega gold, tanzania gold mining, uganda gold export, drc congo gold, gold smelting africa, 24 karat gold, 999.9 gold, conflict-free gold africa, dubai gold suppliers, gold assay kenya, sell gold nairobi, gold trading company kenya, Mayfox Gold" },
       { name: "author", content: "Mayfox Gold and Precious Metals Kenya" },
       { name: "geo.region", content: "KE-30" },
