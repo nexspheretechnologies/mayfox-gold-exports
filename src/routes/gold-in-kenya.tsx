@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { CountryPage, faqJsonLd } from "../components/country-page";
 import { img } from "../lib/images";
+import { absoluteUrl } from "../lib/site-url";
 
 const faqs = [
   { q: "Where can I buy gold in Kenya?", a: "Mayfox Gold is a licensed Kenyan gold dealer headquartered on Rhapta Road, Westlands, Nairobi. We supply verified gold nuggets, dore bars, refined bullion and investment-grade bars to institutional buyers and serious private investors, with full assay, chain-of-custody and export documentation." },
@@ -20,11 +21,11 @@ export const Route = createFileRoute("/gold-in-kenya")({
       { name: "keywords", content: "gold in kenya, kenyan gold, gold dealers in kenya, gold price kenya, buy gold in kenya, gold mining kenya, migori gold, kakamega gold, gold bullion kenya, gold nuggets kenya, sell gold nairobi, gold refinery kenya, gold exporters kenya" },
       { property: "og:title", content: "Gold in Kenya — Buy Verified Kenyan Bullion & Nuggets" },
       { property: "og:description", content: "Licensed Nairobi gold dealer. Verified Kenyan gold with full assay, chain-of-custody and export documentation." },
-      { property: "og:url", content: "/gold-in-kenya" },
+      { property: "og:url", content: absoluteUrl("/gold-in-kenya") },
       { property: "og:image", content: img.goldBullion },
       { property: "og:type", content: "article" },
     ],
-    links: [{ rel: "canonical", href: "/gold-in-kenya" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/gold-in-kenya") }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd(faqs)) }],
   }),
   component: KenyaPage,

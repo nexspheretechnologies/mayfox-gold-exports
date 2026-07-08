@@ -120,7 +120,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-[11px] tracking-[0.28em] uppercase text-gold mb-5">Company</h4>
+          <h3 className="text-[11px] tracking-[0.28em] uppercase text-gold mb-5">Company</h3>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li><Link to="/about" className="hover:text-gold">About Us</Link></li>
             <li><Link to="/compliance" className="hover:text-gold">Compliance</Link></li>
@@ -131,7 +131,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-[11px] tracking-[0.28em] uppercase text-gold mb-5">Trade</h4>
+          <h3 className="text-[11px] tracking-[0.28em] uppercase text-gold mb-5">Trade</h3>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li><Link to="/products" className="hover:text-gold">Gold Products</Link></li>
             <li><Link to="/services" className="hover:text-gold">Services</Link></li>
@@ -142,7 +142,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-[11px] tracking-[0.28em] uppercase text-gold mb-5">Newsletter</h4>
+          <h3 className="text-[11px] tracking-[0.28em] uppercase text-gold mb-5">Newsletter</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Weekly bullion market briefings and export advisories.
           </p>

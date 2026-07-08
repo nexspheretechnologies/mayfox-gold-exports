@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { img } from "../lib/images";
 import { PageHero } from "../components/site-blocks";
 import { checkSpamProtection, honeypotWrapperStyle } from "../lib/spam-protection";
+import { absoluteUrl } from "../lib/site-url";
 
 
 export const Route = createFileRoute("/request-quote")({
@@ -11,10 +12,12 @@ export const Route = createFileRoute("/request-quote")({
       { title: "Request a Gold Bullion Quote | Mayfox Gold Kenya" },
       { name: "description", content: "Request a confidential quote for gold bullion bars, dore bars, nuggets and raw gold. Specify product, purity, quantity and destination." },
       { property: "og:title", content: "Request Quote — Mayfox Gold" },
+      { property: "og:description", content: "Request a confidential quote for gold bullion bars, dore bars, nuggets and raw gold. Specify product, purity, quantity and destination." },
+      { property: "og:type", content: "website" },
       { property: "og:image", content: img.goldStack },
-      { property: "og:url", content: "/request-quote" },
+      { property: "og:url", content: absoluteUrl("/request-quote") },
     ],
-    links: [{ rel: "canonical", href: "/request-quote" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/request-quote") }],
   }),
   component: RequestQuote,
 });

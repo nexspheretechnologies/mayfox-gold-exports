@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { img } from "../lib/images";
 import { CTABand, PageHero, SectionHeader } from "../components/site-blocks";
+import { absoluteUrl } from "../lib/site-url";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -8,10 +9,12 @@ export const Route = createFileRoute("/services")({
       { title: "Services | Gold Smelting, Refining, Assay & Export — Mayfox Kenya" },
       { name: "description", content: "End-to-end precious metals services: gold smelting, refining, assay, bullion supply, procurement, trading, export facilitation and secure logistics." },
       { property: "og:title", content: "Services — Mayfox Gold Kenya" },
+      { property: "og:description", content: "End-to-end precious metals services: gold smelting, refining, assay, bullion supply, procurement, trading, export facilitation and secure logistics." },
+      { property: "og:type", content: "website" },
       { property: "og:image", content: img.smelting },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: absoluteUrl("/services") },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/services") }],
   }),
   component: Services,
 });

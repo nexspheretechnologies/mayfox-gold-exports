@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { CountryPage, faqJsonLd } from "../components/country-page";
 import { img } from "../lib/images";
+import { absoluteUrl } from "../lib/site-url";
 
 const faqs = [
   { q: "Where can I buy gold in Tanzania?", a: "Mayfox sources verified Tanzanian gold from licensed cooperatives and permitted operators across Geita, Mwanza, Shinyanga, Mara and Chunya, consolidating consignments in Nairobi for onward export with full documentation." },
@@ -20,11 +21,11 @@ export const Route = createFileRoute("/gold-in-tanzania")({
       { name: "keywords", content: "gold in tanzania, tanzania gold, tanzanian gold, tanzania gold mining, geita gold, mwanza gold, gold dealers in tanzania, buy gold in tanzania, tanzanian dore bars, lake victoria gold" },
       { property: "og:title", content: "Gold in Tanzania — Verified Dore, Nuggets & Bullion" },
       { property: "og:description", content: "Tanzanian gold from Geita, Mwanza and Shinyanga with full assay and export documentation." },
-      { property: "og:url", content: "/gold-in-tanzania" },
+      { property: "og:url", content: absoluteUrl("/gold-in-tanzania") },
       { property: "og:image", content: img.goldIngot },
       { property: "og:type", content: "article" },
     ],
-    links: [{ rel: "canonical", href: "/gold-in-tanzania" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/gold-in-tanzania") }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd(faqs)) }],
   }),
   component: TanzaniaPage,

@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { CountryPage, faqJsonLd } from "../components/country-page";
 import { img } from "../lib/images";
+import { absoluteUrl } from "../lib/site-url";
 
 const faqs = [
   { q: "Which African countries produce the most gold?", a: "Ghana is Africa's largest gold producer, followed by South Africa, Sudan, Mali, Burkina Faso, Tanzania, Guinea, the DRC, Ivory Coast, Zimbabwe and Kenya. Together the continent produces more than 25% of the world's mined gold." },
@@ -21,11 +22,11 @@ export const Route = createFileRoute("/gold-in-africa")({
       { name: "keywords", content: "gold in africa, african gold, africa gold suppliers, buy gold in africa, gold mining africa, gold dealers africa, east africa gold, west africa gold, kenya gold, tanzania gold, uganda gold, congo gold, ghana gold, south africa gold, mali gold, burkina faso gold, africa gold export, lbma africa, oecd gold africa" },
       { property: "og:title", content: "Gold in Africa — Verified Suppliers & Exporters" },
       { property: "og:description", content: "African gold from Kenya, Tanzania, Uganda and DRC with full assay, chain-of-custody and export documentation." },
-      { property: "og:url", content: "/gold-in-africa" },
+      { property: "og:url", content: absoluteUrl("/gold-in-africa") },
       { property: "og:image", content: img.goldBars1 },
       { property: "og:type", content: "article" },
     ],
-    links: [{ rel: "canonical", href: "/gold-in-africa" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/gold-in-africa") }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd(faqs)) }],
   }),
   component: AfricaPage,

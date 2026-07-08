@@ -10,9 +10,12 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { siteUrl, absoluteUrl } from "../lib/site-url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer } from "../components/site-chrome";
 import { WhatsAppWidget } from "../components/whatsapp-widget";
+
+const BASE_URL = siteUrl();
 
 function NotFoundComponent() {
   return (
@@ -88,8 +91,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" },
       { rel: "preconnect", href: "https://images.unsplash.com" },
+      { rel: "preconnect", href: "https://eee21e38-ed83-4489-aeaf-00127ef00e59.lovableproject.com" },
+      { rel: "preload", href: "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpHtKky2F7i6C.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" },
     ],
     scripts: [
       {
@@ -97,12 +103,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": ["Organization", "LocalBusiness"],
-          "@id": "/#organization",
+          "@id": `${BASE_URL}/#organization`,
           name: "Mayfox Gold and Precious Metals Kenya",
           alternateName: ["Mayfox Gold", "Mayfox Gold Kenya"],
-          url: "/",
-          logo: "/favicon.ico",
-          image: "/favicon.ico",
+          url: BASE_URL,
+          logo: `${BASE_URL}/favicon.ico`,
+          image: `${BASE_URL}/favicon.ico`,
           description:
             "Leading Kenyan gold trading, bullion supply, refining, smelting and precious metals export company serving institutional buyers across Africa, the Middle East, Europe, Asia and North America.",
           foundingDate: "2013",
@@ -150,9 +156,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Mayfox Gold Kenya",
-          url: "/",
+          url: BASE_URL,
           inLanguage: "en-KE",
-          publisher: { "@id": "/#organization" },
+          publisher: { "@id": `${BASE_URL}/#organization` },
         }),
       },
     ],

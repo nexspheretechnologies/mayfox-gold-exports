@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { CountryPage, faqJsonLd } from "../components/country-page";
 import { img } from "../lib/images";
+import { absoluteUrl } from "../lib/site-url";
 
 const faqs = [
   { q: "Where can I buy gold in Uganda?", a: "Mayfox sources verified Ugandan gold from licensed dealers and cooperatives in Karamoja, Busia, Mubende and Buhweju, consolidating consignments in Nairobi for onward international export with full documentation." },
@@ -20,11 +21,11 @@ export const Route = createFileRoute("/gold-in-uganda")({
       { name: "keywords", content: "gold in uganda, ugandan gold, uganda gold export, uganda gold mining, karamoja gold, mubende gold, buy gold in uganda, gold dealers in uganda, entebbe gold refinery, african gold refinery" },
       { property: "og:title", content: "Gold in Uganda — Verified Dore, Nuggets & Bullion" },
       { property: "og:description", content: "Ugandan gold from Karamoja, Busia and Mubende with full assay and export documentation." },
-      { property: "og:url", content: "/gold-in-uganda" },
+      { property: "og:url", content: absoluteUrl("/gold-in-uganda") },
       { property: "og:image", content: img.goldNuggets },
       { property: "og:type", content: "article" },
     ],
-    links: [{ rel: "canonical", href: "/gold-in-uganda" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/gold-in-uganda") }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd(faqs)) }],
   }),
   component: UgandaPage,

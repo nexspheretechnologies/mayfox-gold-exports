@@ -2,18 +2,21 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { img, realPhotos } from "../lib/images";
 import { CTABand, SectionHeader, Stat } from "../components/site-blocks";
 import { SilentVideo, VideoShowcase, mayfoxVideos } from "../components/video-showcase";
+import { absoluteUrl } from "../lib/site-url";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Buy African Gold — Nuggets, Dore Bars & Bullion | Mayfox" },
       { name: "description", content: "Kenya's trusted African gold exporter. Buy gold nuggets, dore bars, raw gold and LBMA-grade bullion from Kenya, Tanzania, Uganda & DRC Congo." },
+      { name: "keywords", content: "african gold, gold in africa, gold in kenya, gold in uganda, gold in tanzania, gold in congo, gold nuggets for sale, raw gold for sale, gold dore bars, dore bars, lbma gold, gold investment, gold bullion kenya, gold bars kenya, gold dealers in kenya, gold price kenya, gold mining kenya, gold refinery kenya, gold exporters kenya, gold suppliers nairobi, precious metals kenya, alluvial gold, east africa gold, migori gold, kakamega gold, tanzania gold mining, uganda gold export, drc congo gold, gold smelting africa, 24 karat gold, 999.9 gold, conflict-free gold africa, dubai gold suppliers, gold assay kenya, sell gold nairobi, gold trading company kenya, Mayfox Gold" },
       { property: "og:title", content: "African Gold Suppliers — Mayfox Gold Kenya" },
       { property: "og:description", content: "Verified African gold — nuggets, dore bars, raw & refined bullion — exported worldwide with full documentation." },
       { property: "og:image", content: img.goldBars1 },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: absoluteUrl("/") },
+      { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/") }],
     scripts: [
       {
         type: "application/ld+json",
@@ -44,6 +47,7 @@ function Home() {
             poster={realPhotos.bars}
             ariaLabel="Mayfox Gold vault footage"
             className="w-full h-full object-cover"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/85 to-onyx/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -115,9 +119,9 @@ function Home() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src={realPhotos.bars} alt="Crates of gold bars at Mayfox trading desk" loading="lazy" className="rounded-sm h-72 w-full object-cover" />
-              <img src={realPhotos.grains} alt="Sacks of gold grains for refining" loading="lazy" className="rounded-sm h-72 w-full object-cover mt-12" />
-              <img src={realPhotos.scale} alt="Gold bar on precision weighing scale" loading="lazy" className="rounded-sm h-72 w-full object-cover -mt-8" />
+              <img src={realPhotos.bars} alt="Crates of gold bars at Mayfox trading desk" loading="eager" className="rounded-sm h-72 w-full object-cover" />
+              <img src={realPhotos.grains} alt="Sacks of gold grains for refining" loading="eager" className="rounded-sm h-72 w-full object-cover mt-12" />
+              <img src={realPhotos.scale} alt="Gold bar on precision weighing scale" loading="eager" className="rounded-sm h-72 w-full object-cover -mt-8" />
               <img src={img.goldBullion} alt="Gold bullion" loading="lazy" className="rounded-sm h-72 w-full object-cover mt-4" />
             </div>
           </div>

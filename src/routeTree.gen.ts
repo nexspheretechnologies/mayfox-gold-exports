@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as RequestQuoteRouteImport } from './routes/request-quote'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as MarketInsightsRouteImport } from './routes/market-insights'
@@ -37,6 +38,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RequestQuoteRoute = RequestQuoteRouteImport.update({
@@ -143,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
   '/request-quote': typeof RequestQuoteRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -164,6 +171,7 @@ export interface FileRoutesByTo {
   '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
   '/request-quote': typeof RequestQuoteRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -186,6 +194,7 @@ export interface FileRoutesById {
   '/market-insights': typeof MarketInsightsRoute
   '/products': typeof ProductsRoute
   '/request-quote': typeof RequestQuoteRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -209,6 +218,7 @@ export interface FileRouteTypes {
     | '/market-insights'
     | '/products'
     | '/request-quote'
+    | '/robots.txt'
     | '/services'
     | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/market-insights'
     | '/products'
     | '/request-quote'
+    | '/robots.txt'
     | '/services'
     | '/sitemap.xml'
   id:
@@ -251,6 +262,7 @@ export interface FileRouteTypes {
     | '/market-insights'
     | '/products'
     | '/request-quote'
+    | '/robots.txt'
     | '/services'
     | '/sitemap.xml'
   fileRoutesById: FileRoutesById
@@ -273,6 +285,7 @@ export interface RootRouteChildren {
   MarketInsightsRoute: typeof MarketInsightsRoute
   ProductsRoute: typeof ProductsRoute
   RequestQuoteRoute: typeof RequestQuoteRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -291,6 +304,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/request-quote': {
@@ -433,6 +453,7 @@ const rootRouteChildren: RootRouteChildren = {
   MarketInsightsRoute: MarketInsightsRoute,
   ProductsRoute: ProductsRoute,
   RequestQuoteRoute: RequestQuoteRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

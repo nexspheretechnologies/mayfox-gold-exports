@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { img } from "../lib/images";
 import { CTABand, PageHero, SectionHeader, Stat } from "../components/site-blocks";
+import { absoluteUrl } from "../lib/site-url";
 
 export const Route = createFileRoute("/global-delivery")({
   head: () => ({
@@ -8,10 +9,12 @@ export const Route = createFileRoute("/global-delivery")({
       { title: "Global Gold Delivery | Secure Bullion Logistics from Kenya" },
       { name: "description", content: "Insured worldwide gold delivery from Kenya via Brinks, Loomis, Malca-Amit. Air freight, vault-to-vault transfer, customs coordination and shipment tracking." },
       { property: "og:title", content: "Global Delivery — Mayfox Gold Kenya" },
+      { property: "og:description", content: "Insured worldwide gold delivery from Kenya via Brinks, Loomis, Malca-Amit. Air freight, vault-to-vault transfer, customs coordination and shipment tracking." },
+      { property: "og:type", content: "website" },
       { property: "og:image", content: img.cargoPlane },
-      { property: "og:url", content: "/global-delivery" },
+      { property: "og:url", content: absoluteUrl("/global-delivery") },
     ],
-    links: [{ rel: "canonical", href: "/global-delivery" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/global-delivery") }],
   }),
   component: GlobalDelivery,
 });

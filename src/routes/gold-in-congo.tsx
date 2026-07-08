@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { CountryPage, faqJsonLd } from "../components/country-page";
 import { img } from "../lib/images";
+import { absoluteUrl } from "../lib/site-url";
 
 const faqs = [
   { q: "Where can I buy gold from the DRC Congo?", a: "Mayfox sources verified Congolese gold only through licensed exporters and cooperatives that meet OECD Due Diligence Guidance and ICGLR Regional Certification, consolidating consignments in Nairobi for onward export with full traceability documentation." },
@@ -20,11 +21,11 @@ export const Route = createFileRoute("/gold-in-congo")({
       { name: "keywords", content: "gold in congo, drc congo gold, congolese gold, gold in drc, buy gold from congo, kibali gold, ituri gold, south kivu gold, oecd compliant gold, icglr certified gold, conflict-free gold africa" },
       { property: "og:title", content: "Gold in DRC Congo — Verified & Responsibly Sourced" },
       { property: "og:description", content: "Congolese gold with ICGLR certification, OECD due diligence and LBMA-standard partner refining." },
-      { property: "og:url", content: "/gold-in-congo" },
+      { property: "og:url", content: absoluteUrl("/gold-in-congo") },
       { property: "og:image", content: img.oreDeposit ?? img.goldBullion },
       { property: "og:type", content: "article" },
     ],
-    links: [{ rel: "canonical", href: "/gold-in-congo" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/gold-in-congo") }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd(faqs)) }],
   }),
   component: CongoPage,

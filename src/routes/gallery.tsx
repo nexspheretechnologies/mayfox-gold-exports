@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { galleryImages } from "../lib/images";
 import { CTABand, PageHero } from "../components/site-blocks";
 import { SilentVideo, mayfoxVideos } from "../components/video-showcase";
+import { absoluteUrl } from "../lib/site-url";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -9,10 +10,12 @@ export const Route = createFileRoute("/gallery")({
       { title: "Gallery | Gold Bars, Refining & Logistics — Mayfox Gold Kenya" },
       { name: "description", content: "Photo gallery of Mayfox Gold operations: bullion bars, smelting, refining, assay laboratories, secure logistics and global delivery." },
       { property: "og:title", content: "Gallery — Mayfox Gold" },
+      { property: "og:description", content: "Photo gallery of Mayfox Gold operations: bullion bars, smelting, refining, assay laboratories, secure logistics and global delivery." },
+      { property: "og:type", content: "website" },
       { property: "og:image", content: galleryImages[0] },
-      { property: "og:url", content: "/gallery" },
+      { property: "og:url", content: absoluteUrl("/gallery") },
     ],
-    links: [{ rel: "canonical", href: "/gallery" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/gallery") }],
   }),
   component: Gallery,
 });

@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { img } from "../lib/images";
 import { CTABand, PageHero, SectionHeader, Stat } from "../components/site-blocks";
+import { absoluteUrl } from "../lib/site-url";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -8,10 +9,12 @@ export const Route = createFileRoute("/about")({
       { title: "About Mayfox Gold Kenya | Bullion Supply & Export Company" },
       { name: "description", content: "Mayfox Gold is a Kenyan precious metals export company supplying verified bullion, dore bars and gold nuggets to international buyers since 2012." },
       { property: "og:title", content: "About Mayfox Gold Kenya" },
+      { property: "og:description", content: "Mayfox Gold is a Kenyan precious metals export company supplying verified bullion, dore bars and gold nuggets to international buyers since 2012." },
+      { property: "og:type", content: "website" },
       { property: "og:image", content: img.boardroom },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: absoluteUrl("/about") },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/about") }],
   }),
   component: About,
 });

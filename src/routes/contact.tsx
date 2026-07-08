@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { img } from "../lib/images";
 import { PageHero } from "../components/site-blocks";
 import { checkSpamProtection, honeypotWrapperStyle } from "../lib/spam-protection";
+import { absoluteUrl } from "../lib/site-url";
 
 
 export const Route = createFileRoute("/contact")({
@@ -11,10 +12,12 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact Mayfox Gold Kenya | Trade Desk, Email & WhatsApp" },
       { name: "description", content: "Contact Mayfox Gold Kenya: trade desk, business hours, office location in Nairobi, email, WhatsApp and inquiry form for gold bullion buyers." },
       { property: "og:title", content: "Contact — Mayfox Gold" },
+      { property: "og:description", content: "Contact Mayfox Gold Kenya: trade desk, business hours, office location in Nairobi, email, WhatsApp and inquiry form for gold bullion buyers." },
+      { property: "og:type", content: "website" },
       { property: "og:image", content: img.boardroom },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: absoluteUrl("/contact") },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/contact") }],
   }),
   component: Contact,
 });

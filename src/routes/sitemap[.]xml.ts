@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-
-// TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+import { siteUrl } from "../lib/site-url";
 
 interface SitemapEntry {
   path: string;
@@ -14,12 +12,6 @@ const entries: SitemapEntry[] = [
   { path: "/", changefreq: "daily", priority: "1.0" },
   { path: "/about", changefreq: "monthly", priority: "0.8" },
   { path: "/products", changefreq: "weekly", priority: "0.95" },
-  { path: "/products#gold-bullion-bars", changefreq: "weekly", priority: "0.9" },
-  { path: "/products#gold-dore-bars", changefreq: "weekly", priority: "0.9" },
-  { path: "/products#gold-nuggets", changefreq: "weekly", priority: "0.9" },
-  { path: "/products#raw-gold", changefreq: "weekly", priority: "0.9" },
-  { path: "/products#refined-gold", changefreq: "weekly", priority: "0.9" },
-  { path: "/products#investment-grade-gold", changefreq: "weekly", priority: "0.9" },
   { path: "/services", changefreq: "monthly", priority: "0.85" },
   { path: "/export-documentation", changefreq: "monthly", priority: "0.8" },
   { path: "/global-delivery", changefreq: "monthly", priority: "0.8" },
@@ -41,11 +33,12 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const baseUrl = siteUrl();
         const today = new Date().toISOString().split("T")[0];
         const urls = entries.map((e) =>
           [
             `  <url>`,
-            `    <loc>${BASE_URL}${e.path}</loc>`,
+            `    <loc>${baseUrl}${e.path}</loc>`,
             `    <lastmod>${today}</lastmod>`,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,

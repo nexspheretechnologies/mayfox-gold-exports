@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { img } from "../lib/images";
 import { CTABand, PageHero, SectionHeader } from "../components/site-blocks";
+import { absoluteUrl } from "../lib/site-url";
 
 export const Route = createFileRoute("/compliance")({
   head: () => ({
@@ -8,10 +9,12 @@ export const Route = createFileRoute("/compliance")({
       { title: "Compliance — KYC, AML & OECD | Mayfox Gold Kenya" },
       { name: "description", content: "Mayfox operates to LBMA, OECD and Kenyan regulatory standards: verified purity 95–99.99%, KYC, AML, responsible sourcing and full export compliance." },
       { property: "og:title", content: "Compliance — Mayfox Gold" },
+      { property: "og:description", content: "Mayfox operates to LBMA, OECD and Kenyan regulatory standards: verified purity 95–99.99%, KYC, AML, responsible sourcing and full export compliance." },
+      { property: "og:type", content: "website" },
       { property: "og:image", content: img.lab },
-      { property: "og:url", content: "/compliance" },
+      { property: "og:url", content: absoluteUrl("/compliance") },
     ],
-    links: [{ rel: "canonical", href: "/compliance" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/compliance") }],
   }),
   component: Compliance,
 });

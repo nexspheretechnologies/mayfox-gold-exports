@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { img } from "../lib/images";
 import { CTABand, PageHero, SectionHeader } from "../components/site-blocks";
+import { absoluteUrl } from "../lib/site-url";
 
 export const Route = createFileRoute("/export-documentation")({
   head: () => ({
@@ -8,10 +9,12 @@ export const Route = createFileRoute("/export-documentation")({
       { title: "Gold Export Documentation Kenya | Assay Reports, Licenses, Permits" },
       { name: "description", content: "Full gold export documentation from Kenya: assay reports, export licenses, certificate of origin, commercial invoice, packing lists, customs and shipping documents." },
       { property: "og:title", content: "Export Documentation — Mayfox Gold Kenya" },
+      { property: "og:description", content: "Full gold export documentation from Kenya: assay reports, export licenses, certificate of origin, commercial invoice, packing lists, customs and shipping documents." },
+      { property: "og:type", content: "website" },
       { property: "og:image", content: img.documents },
-      { property: "og:url", content: "/export-documentation" },
+      { property: "og:url", content: absoluteUrl("/export-documentation") },
     ],
-    links: [{ rel: "canonical", href: "/export-documentation" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/export-documentation") }],
   }),
   component: ExportDocs,
 });
