@@ -21,7 +21,12 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
   // Nitro only runs at build time; `vite dev` must not pull the deploy plugin in.
   if (command === "build") {
     const { nitro } = await import("nitro/vite");
-    plugins.push(nitro({ preset: "node-server" }));
+    // node-server writes .output/ for Railway and local `npm start`. Vercel cannot
+    // run a long-lived Node entry point: it needs the Build Output API tree in
+    // .vercel/output, which is what the "vercel" preset emits. Vercel sets VERCEL=1
+    // during the build, and NITRO_PRESET lets any target be forced explicitly.
+    const preset = process.env.NITRO_PRESET || (process.env.VERCEL ? "vercel" : "node-server");
+    plugins.push(nitro({ preset }));
   }
 
   plugins.push(react());
