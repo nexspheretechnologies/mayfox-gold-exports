@@ -4,17 +4,18 @@ import { img } from "../lib/images";
 import { PageHero } from "../components/site-blocks";
 import { checkSpamProtection, honeypotWrapperStyle } from "../lib/spam-protection";
 import { absoluteUrl } from "../lib/site-url";
+import { useLeadSubmit } from "../lib/use-lead-submit";
 
 
 export const Route = createFileRoute("/request-quote")({
   head: () => ({
     meta: [
-      { title: "Request a Gold Bullion Quote | Mayfox Gold Kenya" },
-      { name: "description", content: "Request a confidential quote for gold bullion bars, dore bars, nuggets and raw gold. Specify product, purity, quantity and destination." },
+      { title: "Request a Gold Dore Quote | Mayfox Gold Kenya" },
+      { name: "description", content: "Request a confidential quote for gold dore bars, nuggets and raw gold. Specify product, purity, quantity and destination." },
       { property: "og:title", content: "Request Quote — Mayfox Gold" },
-      { property: "og:description", content: "Request a confidential quote for gold bullion bars, dore bars, nuggets and raw gold. Specify product, purity, quantity and destination." },
+      { property: "og:description", content: "Request a confidential quote for gold dore bars, nuggets and raw gold. Specify product, purity, quantity and destination." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: img.goldStack },
+      { property: "og:image", content: absoluteUrl("/og-image.jpg") },
       { property: "og:url", content: absoluteUrl("/request-quote") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/request-quote") }],
@@ -23,10 +24,12 @@ export const Route = createFileRoute("/request-quote")({
 });
 
 function RequestQuote() {
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { state, submit } = useLeadSubmit("quote");
+  const [blocked, setBlocked] = useState<string | null>(null);
   const startedAt = useRef(Date.now());
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const sent = state.status === "sent";
 
   return (
     <>
@@ -49,10 +52,18 @@ function RequestQuote() {
                   A senior trader will respond to your inquiry within one business hour with
                   indicative pricing, availability and next steps.
                 </p>
+                <p className="mt-6 text-sm">
+                  Your reference:{" "}
+                  <strong className="font-display text-gold tracking-widest">{state.result.reference}</strong>
+                </p>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Keep this reference to track progress on our inquiry tracking page.
+                </p>
               </div>
             ) : (
               <form
-                onSubmit={(e) => {
+                ref={formRef}
+                onSubmit={async (e) => {
                   e.preventDefault();
                   const result = checkSpamProtection({
                     formId: "quote",
@@ -60,11 +71,11 @@ function RequestQuote() {
                     startedAt: startedAt.current,
                   });
                   if (!result.ok) {
-                    setError(result.message);
+                    setBlocked(result.message);
                     return;
                   }
-                  setError(null);
-                  setSent(true);
+                  setBlocked(null);
+                  if (formRef.current) await submit(formRef.current);
                 }}
                 className="space-y-6"
               >
@@ -92,18 +103,18 @@ function RequestQuote() {
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5">
-                  <S label="Product Required" name="product" options={["Gold Bullion Bars", "Gold Dore Bars", "Gold Nuggets", "Raw Gold", "Refined Gold", "Investment Grade (99.99%)", "Wholesale Supply"]} required />
+                  <S label="Product Required" name="product" options={["Gold Dore Bars (85–95%)", "Gold Nuggets", "Raw Gold", "Refined Gold via partner refinery", "Investment Grade (99.99%) via partner refinery", "Wholesale Offtake"]} required />
                   <S label="Purity Required" name="purity" options={["85% – Dore", "90% – Dore", "95% – Refined", "99.50%", "99.90%", "99.99% Investment"]} required />
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5">
-                  <F label="Quantity (kg)" name="quantity" type="number" required />
+                  <F label="Quantity (kg)" name="quantityKg" type="number" required />
                   <S label="Preferred Delivery" name="delivery" options={["Insured Air Freight", "Vault-to-Vault Transfer", "Buyer Pickup (EXW)", "Sea Freight (Bulk)"]} required />
                 </div>
 
                 <div>
                   <label className="text-[10px] tracking-[0.24em] uppercase text-gold mb-2 block">Additional Notes</label>
-                  <textarea rows={5} placeholder="Incoterms, payment preference, timeline, branding…" className="w-full bg-background border border-border px-4 py-3 text-sm focus:border-gold outline-none resize-none" />
+                  <textarea name="notes" rows={5} placeholder="Incoterms, payment preference, timeline, branding…" className="w-full bg-background border border-border px-4 py-3 text-sm focus:border-gold outline-none resize-none" />
                 </div>
 
                 <label className="flex gap-3 items-start text-xs text-muted-foreground">
@@ -111,10 +122,17 @@ function RequestQuote() {
                   <span>I confirm I am a qualified institutional buyer and agree to Mayfox's KYC and confidentiality terms. Inquiries are non-binding until an SPA is signed.</span>
                 </label>
 
-                {error && (
-                  <p className="text-xs text-destructive text-center border border-destructive/40 py-2 px-3">{error}</p>
+                {(blocked ?? (state.status === "error" ? state.message : null)) && (
+                  <p role="alert" className="text-xs text-destructive text-center border border-destructive/40 py-2 px-3">
+                    {blocked ?? (state.status === "error" ? state.message : "")}
+                  </p>
                 )}
-                <button className="btn-gold btn-gold-hover w-full">Submit Quote Request</button>
+                <button className="btn-gold btn-gold-hover w-full" disabled={state.status === "pending"}>
+                  {state.status === "pending" ? "Sending…" : "Submit Quote Request"}
+                </button>
+                <p className="text-[11px] text-muted-foreground text-center">
+                  Not delivered to our desk within one business hour? Call +254 754 979 755.
+                </p>
 
               </form>
             )}

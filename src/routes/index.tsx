@@ -7,12 +7,12 @@ import { absoluteUrl } from "../lib/site-url";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Buy African Gold — Nuggets, Dore Bars & Bullion | Mayfox" },
-      { name: "description", content: "Kenya's trusted African gold exporter. Buy gold nuggets, dore bars, raw gold and LBMA-grade bullion from Kenya, Tanzania, Uganda & DRC Congo." },
-      { name: "keywords", content: "african gold, gold in africa, gold in kenya, gold in uganda, gold in tanzania, gold in congo, gold nuggets for sale, raw gold for sale, gold dore bars, dore bars, lbma gold, gold investment, gold bullion kenya, gold bars kenya, gold dealers in kenya, gold price kenya, gold mining kenya, gold refinery kenya, gold exporters kenya, gold suppliers nairobi, precious metals kenya, alluvial gold, east africa gold, migori gold, kakamega gold, tanzania gold mining, uganda gold export, drc congo gold, gold smelting africa, 24 karat gold, 999.9 gold, conflict-free gold africa, dubai gold suppliers, gold assay kenya, sell gold nairobi, gold trading company kenya, Mayfox Gold" },
-      { property: "og:title", content: "African Gold Suppliers — Mayfox Gold Kenya" },
-      { property: "og:description", content: "Verified African gold — nuggets, dore bars, raw & refined bullion — exported worldwide with full documentation." },
-      { property: "og:image", content: img.goldBars1 },
+      { title: "Buy African Gold — Nuggets & Dore Bars | Mayfox" },
+      { name: "description", content: "Kenya's trusted African gold exporter. Buy gold nuggets, dore bars, raw gold and refined bars through our partner refineries from Kenya, Tanzania, Uganda & DRC Congo." },
+      { name: "keywords", content: "african gold, gold in africa, gold in kenya, gold in uganda, gold in tanzania, gold in congo, gold nuggets for sale, raw gold for sale, gold dore bars, lbma gold, gold investment, gold dore kenya, gold bars kenya, gold dealers in kenya, gold price kenya, gold mining kenya, gold refinery kenya, gold exporters kenya, gold export agents nairobi, precious metals kenya, alluvial gold, east africa gold, migori gold, kakamega gold, tanzania gold mining, uganda gold export, drc congo gold, gold smelting africa, 24 karat gold, 999.9 gold, conflict-free gold africa, dubai gold export agents, gold assay kenya, sell gold nairobi, gold trading company kenya, Mayfox Gold" },
+      { property: "og:title", content: "African Gold Export Agents — Mayfox Gold Kenya" },
+      { property: "og:description", content: "Verified African gold — nuggets, dore bars, raw & refined gold — exported worldwide with full documentation." },
+      { property: "og:image", content: absoluteUrl(img.goldBars1) },
       { property: "og:url", content: absoluteUrl("/") },
       { property: "og:type", content: "website" },
     ],
@@ -24,9 +24,9 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: [
-            { "@type": "Question", name: "Where can I buy gold in Kenya?", acceptedAnswer: { "@type": "Answer", text: "Mayfox Gold, based on Rhapta Road, Westlands, Nairobi, is a licensed Kenyan gold dealer and exporter supplying verified bullion, dore bars, nuggets and raw gold to institutional buyers worldwide." } },
+            { "@type": "Question", name: "Where can I buy gold in Kenya?", acceptedAnswer: { "@type": "Answer", text: "Mayfox Gold, based on Rhapta Road, Westlands, Nairobi, is a licensed Kenyan gold dealer and exporter providing verified dore bars, nuggets and raw gold to institutional buyers worldwide." } },
             { "@type": "Question", name: "Do you supply gold from Tanzania, Uganda and DRC Congo?", acceptedAnswer: { "@type": "Answer", text: "Yes. Mayfox sources responsibly-mined gold across East and Central Africa — Kenya, Tanzania, Uganda and the Democratic Republic of Congo — under OECD due-diligence and KYC/AML controls." } },
-            { "@type": "Question", name: "What gold products does Mayfox export?", acceptedAnswer: { "@type": "Answer", text: "Gold bullion bars (99.5–99.99%), gold dore bars (85–95%), gold nuggets, raw gold, refined gold and LBMA investment-grade bullion." } },
+            { "@type": "Question", name: "What gold products does Mayfox export?", acceptedAnswer: { "@type": "Answer", text: "Gold dore bars (85–95%), gold nuggets (85–92%), raw and alluvial gold, and grain gold — with refined 995 to 999.9 bars cast through our partner refineries on request." } },
             { "@type": "Question", name: "Do you ship gold internationally?", acceptedAnswer: { "@type": "Answer", text: "Yes — insured air freight to Dubai (DMCC), Zurich, London, Singapore, Hong Kong, Mumbai and North America with full export documentation and certificate of origin." } },
           ],
         }),
@@ -56,10 +56,10 @@ function Home() {
           <div className="max-w-3xl animate-fade-up">
             <div className="eyebrow mb-6">Nairobi · Dubai · Zürich · London</div>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02]">
-              Kenya's Trusted <span className="text-gradient-gold">Gold Bullion</span> & Precious Metals Export Partner
+              Kenya's Trusted <span className="text-gradient-gold">Gold</span> & Precious Metals Export Partner
             </h1>
             <p className="mt-7 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Supplying verified gold bullion, gold nuggets, dore bars and precious metals to
+              Verified African gold — dore bars, nuggets and precious metals — arranged for
               international buyers with complete export documentation and secure global delivery.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
@@ -104,7 +104,7 @@ function Home() {
               <div className="mt-8 space-y-4">
                 {[
                   ["Verified Origin", "All consignments traced to licensed cooperatives and miners."],
-                  ["Independent Assay", "Bullion tested by SGS and third-party laboratories."],
+                  ["Independent Assay", "Gold tested by SGS and third-party laboratories."],
                   ["Secure Settlement", "Escrow, LC, and bank-to-bank options for institutional buyers."],
                   ["Full Compliance", "Adherence to LBMA Responsible Sourcing & OECD Due Diligence."],
                 ].map(([t, d]) => (
@@ -122,7 +122,7 @@ function Home() {
               <img src={realPhotos.bars} alt="Crates of gold bars at Mayfox trading desk" loading="eager" className="rounded-sm h-72 w-full object-cover" />
               <img src={realPhotos.grains} alt="Sacks of gold grains for refining" loading="eager" className="rounded-sm h-72 w-full object-cover mt-12" />
               <img src={realPhotos.scale} alt="Gold bar on precision weighing scale" loading="eager" className="rounded-sm h-72 w-full object-cover -mt-8" />
-              <img src={img.goldBullion} alt="Gold bullion" loading="lazy" className="rounded-sm h-72 w-full object-cover mt-4" />
+              <img src={img.goldBullion} alt="Gold dore bars" loading="lazy" className="rounded-sm h-72 w-full object-cover mt-4" />
             </div>
           </div>
         </div>
@@ -137,13 +137,13 @@ function Home() {
             <SectionHeader
               eyebrow="Products"
               title={<>Investment-grade <span className="text-gradient-gold">precious metals</span>.</>}
-              description="From dore bars straight from the smelter to refined 999.9 investment bullion, every product is documented, assayed, and export-ready."
+              description="From dore bars straight from the smelter to refined 999.9 investment gold bars, every product is documented, assayed, and export-ready."
             />
             <Link to="/products" className="btn-outline-gold whitespace-nowrap">All Products</Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Gold Bullion Bars", purity: "99.99%", image: img.goldBars2 },
+              { name: "Good Delivery Format Bars", purity: "99.99%", image: img.goldBars2 },
               { name: "Gold Dore Bars", purity: "85–95%", image: img.goldIngot },
               { name: "Gold Nuggets", purity: "85–92%", image: img.goldNuggets },
               { name: "Raw Gold", purity: "Field Grade", image: img.oreDeposit },
@@ -185,7 +185,7 @@ function Home() {
                 Delivering verified gold to <span className="text-gradient-gold">42+ markets</span> worldwide.
               </h2>
               <p className="mt-5 text-muted-foreground">
-                Mayfox maintains active trade corridors into the world's most demanding bullion
+                Mayfox maintains active trade corridors into the world's most demanding gold
                 markets — coordinated through our partners in Dubai, Zürich, Singapore, Hong
                 Kong, London and New York.
               </p>
@@ -257,7 +257,7 @@ function Home() {
       <section className="section-y bg-onyx border-y border-border/60">
         <div className="container-x grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {[
-            ["12+", "Years in Bullion Trade"],
+            ["12+", "Years in Gold Trade"],
             ["$480M", "Settled Cargo Value"],
             ["1,200+", "Documented Consignments"],
             ["0", "Failed Deliveries"],
@@ -271,13 +271,13 @@ function Home() {
       <section className="section-y">
         <div className="container-x">
           <div className="flex flex-col md:flex-row justify-between md:items-end gap-6 mb-12">
-            <SectionHeader eyebrow="Market Insights" title={<>Bullion intelligence from the <span className="text-gradient-gold">Mayfox</span> trade desk.</>} />
+            <SectionHeader eyebrow="Market Insights" title={<>Gold intelligence from the <span className="text-gradient-gold">Mayfox</span> trade desk.</>} />
             <Link to="/market-insights" className="btn-outline-gold whitespace-nowrap">All Articles</Link>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { t: "Gold Reaches New All-Time High Amid Global Uncertainty", c: "Market Trends", img: img.chart },
-              { t: "Africa's Rising Role in the Global Bullion Supply Chain", c: "Africa Mining", img: img.mining },
+              { t: "Africa's Rising Role in the Global Gold Supply Chain", c: "Africa Mining", img: img.mining },
               { t: "Understanding LBMA Good Delivery Standards", c: "Compliance", img: img.lab },
             ].map((a) => (
               <Link to="/market-insights" key={a.t} className="card-luxe overflow-hidden block group">

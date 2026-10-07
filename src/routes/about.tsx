@@ -6,12 +6,12 @@ import { absoluteUrl } from "../lib/site-url";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Mayfox Gold Kenya | Bullion Supply & Export Company" },
-      { name: "description", content: "Mayfox Gold is a Kenyan precious metals export company supplying verified bullion, dore bars and gold nuggets to international buyers since 2012." },
+      { title: "About Mayfox Gold Kenya | Gold Supply & Export Company" },
+      { name: "description", content: "Mayfox Gold is a Kenyan precious metals export company providing verified dore bars and gold nuggets to international buyers since 2012." },
       { property: "og:title", content: "About Mayfox Gold Kenya" },
-      { property: "og:description", content: "Mayfox Gold is a Kenyan precious metals export company supplying verified bullion, dore bars and gold nuggets to international buyers since 2012." },
+      { property: "og:description", content: "Mayfox Gold is a Kenyan precious metals export company providing verified dore bars and gold nuggets to international buyers since 2012." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: img.boardroom },
+      { property: "og:image", content: absoluteUrl(img.boardroom) },
       { property: "og:url", content: absoluteUrl("/about") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/about") }],
@@ -25,7 +25,7 @@ function About() {
       <PageHero
         eyebrow="About Mayfox"
         title={<>A Kenyan house built on <span className="text-gradient-gold">trust, assay & global trade</span>.</>}
-        subtitle="Mayfox Gold and Precious Metals Kenya is one of East Africa's most established bullion supply, refining and export companies, serving institutional buyers across four continents."
+        subtitle="Mayfox Gold and Precious Metals Kenya is one of East Africa's most established gold supply, refining and export companies, serving institutional buyers across four continents."
         image={img.boardroom}
       />
 
@@ -51,7 +51,7 @@ function About() {
                 requirements.
               </p>
               <p>
-                Today, Mayfox is a trusted name for institutional buyers seeking verified bullion,
+                Today, Mayfox is a trusted name for institutional buyers seeking verified dore,
                 documented provenance, and secure cross-border delivery.
               </p>
             </div>
@@ -89,7 +89,7 @@ function About() {
         <div className="container-x grid lg:grid-cols-3 gap-6">
           {[
             { t: "Mission", d: "To provide authentic, verified, and responsibly sourced precious metals to international buyers through secure trading, transparent documentation, and reliable global delivery.", i: img.refining },
-            { t: "Vision", d: "To become Africa's most trusted precious metals supplier and export partner — the benchmark for integrity in cross-border bullion trade.", i: img.cargoPlane },
+            { t: "Vision", d: "To become Africa's most trusted precious metals export partner — the benchmark for integrity in cross-border gold trade.", i: img.cargoPlane },
             { t: "Values", d: "Integrity. Compliance. Transparency. Security. Reliability. Excellence. These six tenets govern every consignment, contract and conversation.", i: img.vault },
           ].map((c) => (
             <div key={c.t} className="card-luxe overflow-hidden">
@@ -116,7 +116,7 @@ function About() {
           <div className="mt-14 grid md:grid-cols-3 gap-6">
             {[
               { t: "Trading Desk", d: "Senior traders managing live spot & forward positions in Nairobi, Dubai and Zürich.", i: img.tradingFloor },
-              { t: "Refining Floor", d: "In-house smelters and metallurgists producing investment-grade bullion to client spec.", i: img.smelting },
+              { t: "Refining Floor", d: "In-house smelters and metallurgists producing investment-grade gold to client spec.", i: img.smelting },
               { t: "Logistics & Security", d: "Dedicated coordinators working alongside Brinks, Loomis and Malca-Amit.", i: img.security },
             ].map((c) => (
               <div key={c.t} className="card-luxe overflow-hidden">

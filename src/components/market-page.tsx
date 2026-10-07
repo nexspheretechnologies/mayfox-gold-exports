@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import type { MarketData } from "../data/market-pages";
 import { img } from "../lib/images";
 import { PageHero, SectionHeader, Stat } from "./site-blocks";
+import { ExploreMoreGrid, MarketDepthSections } from "./country-page";
 
 export function MarketPage(p: MarketData) {
   return (
@@ -98,6 +99,16 @@ export function MarketPage(p: MarketData) {
           </div>
         </div>
       </section>
+
+      <MarketDepthSections
+        country={p.country}
+        buyerClimate={p.buyerClimate}
+        logisticsNote={p.logisticsNote}
+        settlementNote={p.settlementNote}
+        dueDiligence={p.dueDiligence}
+      />
+
+      <ExploreMoreGrid links={p.relatedLinks ?? []} />
 
       {/* FAQs */}
       <section className="section-y border-t border-border/50 bg-onyx/40">

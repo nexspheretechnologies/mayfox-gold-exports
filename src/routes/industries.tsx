@@ -6,12 +6,12 @@ import { absoluteUrl } from "../lib/site-url";
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "African Gold Suppliers to Refineries, Bullion Banks & Jewelers | Mayfox" },
-      { name: "description", content: "African gold supplier to LBMA refineries, bullion banks, jewelry manufacturers, investment funds and central reserves — sourcing from Kenya, Tanzania, Uganda and DRC Congo." },
-      { name: "keywords", content: "african gold suppliers, gold suppliers to refineries, bullion bank gold supply, gold for jewelry manufacturers, dubai gold suppliers, lbma refinery supply, gold offtake africa" },
+      { title: "African Gold export agents to Refineries, Bullion Banks & Jewelers | Mayfox" },
+      { name: "description", content: "African gold export agent to LBMA refineries, bullion banks, jewelry manufacturers, investment funds and central reserves — sourcing from Kenya, Tanzania, Uganda and DRC Congo." },
+      { name: "keywords", content: "african gold export agents, gold export agents to refineries, bullion bank gold supply, gold for jewelry manufacturers, dubai gold export agents, lbma refinery supply, gold offtake africa" },
       { property: "og:title", content: "Industries Served — Mayfox Gold" },
-      { property: "og:description", content: "African gold supplier to LBMA refineries, bullion banks, jewelry manufacturers, investment funds and central reserves — sourcing from Kenya, Tanzania, Uganda and DRC Congo." },
-      { property: "og:image", content: img.boardroom },
+      { property: "og:description", content: "African gold export agent to LBMA refineries, bullion banks, jewelry manufacturers, investment funds and central reserves — sourcing from Kenya, Tanzania, Uganda and DRC Congo." },
+      { property: "og:image", content: absoluteUrl(img.boardroom) },
       { property: "og:url", content: absoluteUrl("/industries") },
       { property: "og:type", content: "website" },
     ],
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/industries")({
           itemListElement: [
             { "@type": "ListItem", position: 1, item: { "@type": "Thing", name: "Mining Companies", description: "Long-term offtake agreements for licensed cooperatives and mid-tier producers across East Africa." } },
             { "@type": "ListItem", position: 2, item: { "@type": "Thing", name: "Jewelry Manufacturers", description: "Reliable supply of refined gold to ateliers and large-scale jewelry houses in the GCC, Asia and Europe." } },
-            { "@type": "ListItem", position: 3, item: { "@type": "Thing", name: "Investment Firms", description: "Bullion-backed portfolio supply for funds, family offices and HNWIs seeking allocated gold." } },
+            { "@type": "ListItem", position: 3, item: { "@type": "Thing", name: "Investment Firms", description: "Gold-backed portfolio supply for funds, family offices and HNWIs seeking allocated gold." } },
             { "@type": "ListItem", position: 4, item: { "@type": "Thing", name: "Bullion Dealers", description: "Wholesale tonnage to regional bullion dealers under tiered pricing and structured logistics." } },
             { "@type": "ListItem", position: 5, item: { "@type": "Thing", name: "Refineries", description: "Dore bar supply to LBMA-accredited refineries in Dubai, Switzerland and Singapore." } },
             { "@type": "ListItem", position: 6, item: { "@type": "Thing", name: "Commodity Traders", description: "Brokerage and physical execution for trading desks operating across precious metals markets." } },
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/industries")({
 const items = [
   { t: "Mining Companies", i: img.mining, d: "Long-term offtake agreements for licensed cooperatives and mid-tier producers across East Africa." },
   { t: "Jewelry Manufacturers", i: img.goldCoins, d: "Reliable supply of refined gold to ateliers and large-scale jewelry houses in the GCC, Asia and Europe." },
-  { t: "Investment Firms", i: img.tradingFloor, d: "Bullion-backed portfolio supply for funds, family offices and HNWIs seeking allocated gold." },
+  { t: "Investment Firms", i: img.tradingFloor, d: "Gold-backed portfolio supply for funds, family offices and HNWIs seeking allocated gold." },
   { t: "Bullion Dealers", i: img.goldStack, d: "Wholesale tonnage to regional bullion dealers under tiered pricing and structured logistics." },
   { t: "Refineries", i: img.refining, d: "Dore bar supply to LBMA-accredited refineries in Dubai, Switzerland and Singapore." },
   { t: "Commodity Traders", i: img.handshake, d: "Brokerage and physical execution for trading desks operating across precious metals markets." },

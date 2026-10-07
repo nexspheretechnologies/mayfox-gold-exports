@@ -4,17 +4,18 @@ import { img } from "../lib/images";
 import { PageHero } from "../components/site-blocks";
 import { checkSpamProtection, honeypotWrapperStyle } from "../lib/spam-protection";
 import { absoluteUrl } from "../lib/site-url";
+import { useLeadSubmit } from "../lib/use-lead-submit";
 
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Mayfox Gold Kenya | Trade Desk, Email & WhatsApp" },
-      { name: "description", content: "Contact Mayfox Gold Kenya: trade desk, business hours, office location in Nairobi, email, WhatsApp and inquiry form for gold bullion buyers." },
+      { name: "description", content: "Contact Mayfox Gold Kenya: trade desk, business hours, office location in Nairobi, email, WhatsApp and inquiry form for gold buyers." },
       { property: "og:title", content: "Contact — Mayfox Gold" },
-      { property: "og:description", content: "Contact Mayfox Gold Kenya: trade desk, business hours, office location in Nairobi, email, WhatsApp and inquiry form for gold bullion buyers." },
+      { property: "og:description", content: "Contact Mayfox Gold Kenya: trade desk, business hours, office location in Nairobi, email, WhatsApp and inquiry form for gold buyers." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: img.boardroom },
+      { property: "og:image", content: absoluteUrl(img.boardroom) },
       { property: "og:url", content: absoluteUrl("/contact") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/contact") }],
@@ -23,10 +24,12 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { state, submit } = useLeadSubmit("contact");
+  const [blocked, setBlocked] = useState<string | null>(null);
   const startedAt = useRef(Date.now());
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const sent = state.status === "sent";
 
   return (
     <>
@@ -89,10 +92,14 @@ function Contact() {
               <div className="border border-gold/40 p-6 text-center">
                 <div className="font-display text-2xl text-gradient-gold mb-2">Inquiry Received</div>
                 <p className="text-sm text-muted-foreground">A senior trader will reach out within one business hour.</p>
+                <p className="mt-4 text-sm">
+                  Reference: <strong className="font-display text-gold tracking-widest">{state.result.reference}</strong>
+                </p>
               </div>
             ) : (
               <form
-                onSubmit={(e) => {
+                ref={formRef}
+                onSubmit={async (e) => {
                   e.preventDefault();
                   const result = checkSpamProtection({
                     formId: "contact",
@@ -100,11 +107,11 @@ function Contact() {
                     startedAt: startedAt.current,
                   });
                   if (!result.ok) {
-                    setError(result.message);
+                    setBlocked(result.message);
                     return;
                   }
-                  setError(null);
-                  setSent(true);
+                  setBlocked(null);
+                  if (formRef.current) await submit(formRef.current);
                 }}
                 className="space-y-5"
               >
@@ -128,16 +135,20 @@ function Contact() {
                   <Field label="Phone / WhatsApp" name="phone" />
                 </div>
                 <Field label="Country" name="country" />
-                <Field label="Subject" name="subject" />
+                <Field label="Subject" name="topic" />
                 <div>
                   <label className="text-[10px] tracking-[0.24em] uppercase text-gold mb-2 block">Message</label>
-                  <textarea required rows={5} className="w-full bg-background border border-border px-4 py-3 text-sm focus:border-gold outline-none resize-none" />
+                  <textarea name="message" required rows={5} className="w-full bg-background border border-border px-4 py-3 text-sm focus:border-gold outline-none resize-none" />
                 </div>
-                {error && (
-                  <p className="text-xs text-destructive text-center border border-destructive/40 py-2 px-3">{error}</p>
+                {(blocked ?? (state.status === "error" ? state.message : null)) && (
+                  <p role="alert" className="text-xs text-destructive text-center border border-destructive/40 py-2 px-3">
+                    {blocked ?? (state.status === "error" ? state.message : "")}
+                  </p>
                 )}
-                <button className="btn-gold btn-gold-hover w-full">Send Inquiry</button>
-                <p className="text-xs text-muted-foreground text-center">Encrypted submission · NDA available on request.</p>
+                <button className="btn-gold btn-gold-hover w-full" disabled={state.status === "pending"}>
+                  {state.status === "pending" ? "Sending…" : "Send Inquiry"}
+                </button>
+                <p className="text-xs text-muted-foreground text-center">NDA available on request · Your reference is issued immediately.</p>
               </form>
 
             )}

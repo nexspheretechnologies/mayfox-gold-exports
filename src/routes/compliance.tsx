@@ -11,7 +11,7 @@ export const Route = createFileRoute("/compliance")({
       { property: "og:title", content: "Compliance — Mayfox Gold" },
       { property: "og:description", content: "Mayfox operates to LBMA, OECD and Kenyan regulatory standards: verified purity 95–99.99%, KYC, AML, responsible sourcing and full export compliance." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: img.lab },
+      { property: "og:image", content: absoluteUrl(img.lab) },
       { property: "og:url", content: absoluteUrl("/compliance") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/compliance") }],
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/compliance")({
 });
 
 const pillars = [
-  ["Verified Gold Purity", "All bullion independently assayed and reported with bar-by-bar fineness from 95% to 99.99%."],
+  ["Verified Gold Purity", "All gold independently assayed and reported with bar-by-bar fineness from 95% to 99.99%."],
   ["Assay Verification", "Fire assay & XRF by SGS, Alex Stewart and Bureau Veritas accredited laboratories."],
   ["Export Compliance", "Full licensing under the Mining Act of Kenya, KRA Customs and CBK forex reporting."],
   ["Anti-Money Laundering", "FRC-aligned AML program with transaction monitoring and STR reporting."],
@@ -31,7 +31,7 @@ const pillars = [
   ["Risk Management", "Country risk, counterparty risk and operational risk reviewed quarterly."],
   ["Trade Compliance", "OFAC, EU, UN and UK sanctions screening on every consignee and intermediary."],
   ["International Standards", "Conformance with FATF, EITI, Dodd-Frank Sec. 1502 disclosure requirements."],
-  ["Independent Audit", "Annual third-party compliance audit of supplier base and transaction trail."],
+  ["Independent Audit", "Annual third-party compliance audit of sourcing base and transaction trail."],
 ];
 
 function Compliance() {
@@ -89,7 +89,7 @@ function Compliance() {
       {/* Frameworks */}
       <section className="section-y">
         <div className="container-x">
-          <SectionHeader eyebrow="Standards & Frameworks" title="Aligned with the global benchmarks of bullion integrity." />
+          <SectionHeader eyebrow="Standards & Frameworks" title="Aligned with the global benchmarks of gold integrity." />
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mt-12">
             {["LBMA", "OECD", "FATF", "EITI", "ISO 17025", "Dodd-Frank"].map((f) => (
               <div key={f} className="border border-gold/30 py-10 text-center font-display text-2xl text-gradient-gold">{f}</div>

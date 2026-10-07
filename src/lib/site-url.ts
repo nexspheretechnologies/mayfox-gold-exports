@@ -6,6 +6,7 @@ export function siteUrl(): string {
 }
 
 export function absoluteUrl(path: string): string {
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
   const base = siteUrl();
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   return `${base}${cleanPath}`;

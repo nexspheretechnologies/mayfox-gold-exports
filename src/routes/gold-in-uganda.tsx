@@ -9,20 +9,20 @@ const faqs = [
   { q: "What are the main gold regions in Uganda?", a: "Karamoja (Moroto, Nakapiripirit, Amudat), Busia, Buhweju, Mubende, Kigezi (Kanungu) and the Kaabong district — plus significant cross-border flows from the DRC processed in Entebbe." },
   { q: "Is Ugandan gold LBMA compliant?", a: "The African Gold Refinery in Entebbe operates to international refining standards; Mayfox screens every Ugandan consignment against OECD Due Diligence and LBMA Responsible Gold Guidance before accepting it." },
   { q: "Can Ugandan gold be exported through Kenya?", a: "Yes. Ugandan gold cleared under a URA export permit is commonly consolidated in Nairobi for onward air freight to Dubai, Zurich, Mumbai and beyond." },
-  { q: "What purities of Ugandan gold are available?", a: "Dore typically 85–95%, refined bullion at 995 and 9999 investment-grade bars via partner refineries." },
+  { q: "What purities of Ugandan gold are available?", a: "Dore typically 85–95%, refined gold at 995 and 9999 investment-grade bars via partner refineries." },
   { q: "How do you verify Ugandan gold origin?", a: "Each consignment carries seller KYC, exporter licence, purity assay, chain-of-custody documentation and OECD-compliant due diligence records." },
 ];
 
 export const Route = createFileRoute("/gold-in-uganda")({
   head: () => ({
     meta: [
-      { title: "Gold in Uganda | Buy Ugandan Gold Dore, Nuggets & Refined Bullion — Mayfox" },
-      { name: "description", content: "Buy gold in Uganda — verified Ugandan dore bars, nuggets and refined bullion from Karamoja, Busia, Mubende and Buhweju. Consolidated in Nairobi with full assay and export documentation." },
+      { title: "Gold in Uganda | Buy Ugandan Gold Dore Bars & Nuggets — Mayfox" },
+      { name: "description", content: "Buy gold in Uganda — verified Ugandan dore bars, nuggets and refined gold from Karamoja, Busia, Mubende and Buhweju. Consolidated in Nairobi with full assay and export documentation." },
       { name: "keywords", content: "gold in uganda, ugandan gold, uganda gold export, uganda gold mining, karamoja gold, mubende gold, buy gold in uganda, gold dealers in uganda, entebbe gold refinery, african gold refinery" },
-      { property: "og:title", content: "Gold in Uganda — Verified Dore, Nuggets & Bullion" },
+      { property: "og:title", content: "Gold in Uganda — Verified Dore & Nuggets" },
       { property: "og:description", content: "Ugandan gold from Karamoja, Busia and Mubende with full assay and export documentation." },
       { property: "og:url", content: absoluteUrl("/gold-in-uganda") },
-      { property: "og:image", content: img.goldNuggets },
+      { property: "og:image", content: absoluteUrl(img.goldNuggets) },
       { property: "og:type", content: "article" },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/gold-in-uganda") }],
@@ -38,7 +38,7 @@ function UgandaPage() {
       slug="uganda"
       eyebrow="Gold in Uganda"
       heroTitle={<>Sourcing and exporting <span className="text-gradient-gold">gold in Uganda</span>.</>}
-      heroSubtitle="Verified Ugandan dore, nuggets and refined bullion from Karamoja, Busia, Mubende and Buhweju — consolidated and exported through Mayfox Nairobi."
+      heroSubtitle="Verified Ugandan dore, nuggets and refined gold from Karamoja, Busia, Mubende and Buhweju — consolidated and exported through Mayfox Nairobi."
       image={img.goldNuggets}
       intro={
         <>
@@ -81,7 +81,7 @@ function UgandaPage() {
       products={[
         { title: "Ugandan Dore Bars", desc: "85–95% purity dore from licensed dealers and cooperatives.", to: "/products" },
         { title: "Gold Nuggets", desc: "Alluvial nuggets from Karamoja and Buhweju with independent assay.", to: "/products" },
-        { title: "Refined 995 Bullion", desc: "Ugandan-source gold refined to 995 through Entebbe or Dubai partner refineries.", to: "/products" },
+        { title: "Refined 995 Gold", desc: "Ugandan-source gold refined to 995 through Entebbe or Dubai partner refineries.", to: "/products" },
         { title: "Investment 9999 Bars", desc: "24-karat bars in 100g, 250g, 500g and 1 kg denominations.", to: "/products" },
         { title: "Raw Gold", desc: "Unprocessed placer gold with field assay for buyers with in-house refining.", to: "/products" },
         { title: "Refined Gold Grain", desc: "9999 grain for jewellers and secondary refiners.", to: "/products" },

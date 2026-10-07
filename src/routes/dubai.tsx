@@ -15,7 +15,7 @@ export const Route = createFileRoute("/dubai")({
       { property: "og:title", content: data.ogTitle },
       { property: "og:description", content: data.ogDescription },
       { property: "og:url", content: absoluteUrl(`/${data.slug}`) },
-      { property: "og:image", content: img.goldBullion },
+      { property: "og:image", content: absoluteUrl(img.goldBullion) },
       { property: "og:type", content: "article" },
     ],
     links: [{ rel: "canonical", href: absoluteUrl(`/${data.slug}`) }],

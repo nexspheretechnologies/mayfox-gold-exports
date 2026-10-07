@@ -16,13 +16,13 @@ const faqs = [
 export const Route = createFileRoute("/gold-in-tanzania")({
   head: () => ({
     meta: [
-      { title: "Gold in Tanzania | Buy Tanzanian Gold Dore, Nuggets & Bullion — Mayfox" },
-      { name: "description", content: "Buy gold in Tanzania — verified Tanzanian dore bars, gold nuggets and refined bullion from Geita, Mwanza, Shinyanga and the Lake Victoria goldfield. Full assay, chain-of-custody and export documentation." },
+      { title: "Gold in Tanzania | Buy Tanzanian Gold Dore & Nuggets — Mayfox" },
+      { name: "description", content: "Buy gold in Tanzania — verified Tanzanian dore bars, gold nuggets and refined gold from Geita, Mwanza, Shinyanga and the Lake Victoria goldfield. Full assay, chain-of-custody and export documentation." },
       { name: "keywords", content: "gold in tanzania, tanzania gold, tanzanian gold, tanzania gold mining, geita gold, mwanza gold, gold dealers in tanzania, buy gold in tanzania, tanzanian dore bars, lake victoria gold" },
-      { property: "og:title", content: "Gold in Tanzania — Verified Dore, Nuggets & Bullion" },
+      { property: "og:title", content: "Gold in Tanzania — Verified Dore & Nuggets" },
       { property: "og:description", content: "Tanzanian gold from Geita, Mwanza and Shinyanga with full assay and export documentation." },
       { property: "og:url", content: absoluteUrl("/gold-in-tanzania") },
-      { property: "og:image", content: img.goldIngot },
+      { property: "og:image", content: absoluteUrl(img.goldIngot) },
       { property: "og:type", content: "article" },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/gold-in-tanzania") }],
@@ -38,7 +38,7 @@ function TanzaniaPage() {
       slug="tanzania"
       eyebrow="Gold in Tanzania"
       heroTitle={<>Sourcing and exporting <span className="text-gradient-gold">gold in Tanzania</span>.</>}
-      heroSubtitle="Verified Tanzanian dore, nuggets and refined bullion from Geita, Mwanza, Shinyanga and the Lake Victoria goldfield — consolidated and exported through Mayfox Nairobi."
+      heroSubtitle="Verified Tanzanian dore, nuggets and refined gold from Geita, Mwanza, Shinyanga and the Lake Victoria goldfield — consolidated and exported through Mayfox Nairobi."
       image={img.goldIngot}
       intro={
         <>
@@ -81,7 +81,7 @@ function TanzaniaPage() {
       products={[
         { title: "Tanzanian Dore Bars", desc: "82–92% purity dore from licensed cooperatives and permitted ASM operators.", to: "/products" },
         { title: "Gold Nuggets", desc: "Alluvial nuggets from Geita, Chunya and Mara sold by verified weight and purity.", to: "/products" },
-        { title: "Refined 995 Bullion", desc: "Tanzanian gold refined to 995 through partner refineries in the region.", to: "/products" },
+        { title: "Refined 995 Gold", desc: "Tanzanian gold refined to 995 through partner refineries in the region.", to: "/products" },
         { title: "Investment 9999 Bars", desc: "24-karat investment bars refined from Tanzanian source metal.", to: "/products" },
         { title: "Raw Gold", desc: "Unprocessed alluvial gold with field assay for buyers with in-house refining.", to: "/products" },
         { title: "Refined Gold Grain", desc: "9999 grain for jewellers and secondary refiners.", to: "/products" },

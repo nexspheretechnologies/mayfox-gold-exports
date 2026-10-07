@@ -6,12 +6,14 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { siteUrl, absoluteUrl } from "../lib/site-url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { reportClientError } from "../lib/error-reporting";
+import { analyticsHeadScripts } from "../lib/analytics";
 import { Header, Footer } from "../components/site-chrome";
 import { WhatsAppWidget } from "../components/whatsapp-widget";
 
@@ -36,11 +38,11 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportClientError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
   return (
@@ -67,9 +69,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mayfox Gold Kenya — African Gold Dore, Nuggets & Bullion" },
-      { name: "description", content: "Buy verified African gold — nuggets, dore bars and LBMA-grade bullion from Kenya, Tanzania, Uganda and DRC Congo. Full assay, export docs, insured global delivery." },
-      { name: "keywords", content: "african gold, gold in africa, gold in kenya, gold in uganda, gold in tanzania, gold in congo, gold nuggets for sale, raw gold for sale, gold dore bars, dore bars, lbma gold, gold investment, gold bullion kenya, gold bars kenya, gold dealers in kenya, gold price kenya, gold mining kenya, gold refinery kenya, gold exporters kenya, gold suppliers nairobi, precious metals kenya, alluvial gold, east africa gold, migori gold, kakamega gold, tanzania gold mining, uganda gold export, drc congo gold, gold smelting africa, 24 karat gold, 999.9 gold, conflict-free gold africa, dubai gold suppliers, gold assay kenya, sell gold nairobi, gold trading company kenya, Mayfox Gold" },
+      { title: "Mayfox Gold Kenya — African Gold Dore & Nuggets" },
+      { name: "description", content: "Buy verified African gold — nuggets, dore bars and refined bars through our partner refineries from Kenya, Tanzania, Uganda and DRC Congo. Full assay, export docs, insured global delivery." },
+      { name: "keywords", content: "african gold, gold in africa, gold in kenya, gold in uganda, gold in tanzania, gold in congo, gold nuggets for sale, raw gold for sale, gold dore bars, lbma gold, gold investment, gold dore kenya, gold bars kenya, gold dealers in kenya, gold price kenya, gold mining kenya, gold refinery kenya, gold exporters kenya, gold export agents nairobi, precious metals kenya, alluvial gold, east africa gold, migori gold, kakamega gold, tanzania gold mining, uganda gold export, drc congo gold, gold smelting africa, 24 karat gold, 999.9 gold, conflict-free gold africa, dubai gold export agents, gold assay kenya, sell gold nairobi, gold trading company kenya, Mayfox Gold" },
       { name: "author", content: "Mayfox Gold and Precious Metals Kenya" },
       { name: "geo.region", content: "KE-30" },
       { name: "geo.placename", content: "Nairobi, Kenya" },
@@ -78,21 +80,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Mayfox Gold & Precious Metals Kenya" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_KE" },
-      { property: "og:title", content: "Mayfox Gold & Precious Metals Kenya — Trusted Bullion Exporter" },
-      { property: "og:description", content: "Verified Kenyan gold bullion, dore bars, nuggets and refined gold exported worldwide with full documentation. Based on Rhapta Road, Westlands, Nairobi." },
+      { property: "og:title", content: "Mayfox Gold & Precious Metals Kenya — Licensed Gold Export Agent" },
+      { property: "og:description", content: "Verified Kenyan gold dore bars, nuggets and refined gold through partner refineries, arranged for international buyers with full documentation. Based on Rhapta Road, Westlands, Nairobi." },
+      { property: "og:image", content: absoluteUrl("/og-image.jpg") },
+      { property: "og:image:width", content: "1536" },
+      { property: "og:image:height", content: "1024" },
+      { property: "og:image:alt", content: "Gold dore bars — Mayfox Gold and Precious Metals Kenya" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Mayfox Gold Kenya — Bullion, Refining & Export" },
-      { name: "twitter:description", content: "Kenya's trusted gold dealer and exporter. Verified bullion, dore bars and nuggets with full assay and secure global delivery." },
+      { name: "twitter:title", content: "Mayfox Gold Kenya — African Gold Dore & Nuggets" },
+      { name: "twitter:description", content: "Kenya's trusted gold export partner. Verified dore bars and nuggets with full assay and secure global delivery." },
+      { name: "twitter:image", content: absoluteUrl("/og-image.jpg") },
       { name: "theme-color", content: "#141414" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "format-detection", content: "telephone=yes" },
     ],
     links: [
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "apple-touch-icon", href: "/logo.svg" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "preconnect", href: "https://images.unsplash.com" },
-      { rel: "preconnect", href: "https://eee21e38-ed83-4489-aeaf-00127ef00e59.lovableproject.com" },
       { rel: "preload", href: "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpHtKky2F7i6C.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
       { rel: "preload", href: "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" },
@@ -107,14 +115,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "Mayfox Gold and Precious Metals Kenya",
           alternateName: ["Mayfox Gold", "Mayfox Gold Kenya"],
           url: BASE_URL,
-          logo: `${BASE_URL}/favicon.ico`,
-          image: `${BASE_URL}/favicon.ico`,
+          logo: `${BASE_URL}/logo.svg`,
+          image: `${BASE_URL}/og-image.jpg`,
           description:
-            "Leading Kenyan gold trading, bullion supply, refining, smelting and precious metals export company serving institutional buyers across Africa, the Middle East, Europe, Asia and North America.",
+            "Licensed Kenyan gold export agent arranging verified dore bars, nuggets and raw gold from East and Central African cooperatives for institutional buyers, with assay, export documentation and insured delivery.",
           foundingDate: "2013",
           areaServed: ["KE", "TZ", "UG", "RW", "ET", "AE", "CH", "GB", "US", "CN", "IN", "ZA", "SG", "HK"],
           knowsAbout: [
-            "Gold bullion trading",
+            "Gold dore trading",
             "Gold dore bar refining",
             "Gold export Kenya",
             "LBMA Good Delivery",
@@ -161,6 +169,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           publisher: { "@id": `${BASE_URL}/#organization` },
         }),
       },
+      ...analyticsHeadScripts,
     ],
   }),
   shellComponent: RootShell,

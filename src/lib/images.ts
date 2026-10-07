@@ -16,21 +16,21 @@ import africanBoardroom from "../assets/african-boardroom.jpg";
 import africanTrader from "../assets/african-trader.jpg";
 import smeltingImg from "../assets/smelting.jpg";
 import assayLab from "../assets/assay-lab.jpg";
-import realBars from "../assets/real-gold-bars-crates.jpg.asset.json";
-import realGrains from "../assets/real-gold-grains-sacks.jpg.asset.json";
-import realScale from "../assets/real-gold-bar-scale.jpg.asset.json";
+import realBars from "../assets/real-gold-bars-crates.jpg";
+import realGrains from "../assets/real-gold-grains-sacks.jpg";
+import realScale from "../assets/real-gold-bar-scale.jpg";
 
 export const realPhotos = {
-  bars: realBars.url,
-  grains: realGrains.url,
-  scale: realScale.url,
+  bars: realBars,
+  grains: realGrains,
+  scale: realScale,
 };
 
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 export const img = {
-  // Gold & bullion — generated, depict the real product
+  // Gold & dore — generated, depict the real product
   goldBars1: heroGold,
   goldBars2: goldBullionBars,
   goldBars3: refinedGoldImg,
@@ -93,7 +93,7 @@ export const img = {
 };
 
 export const galleryImages = [
-  realBars.url, realGrains.url, realScale.url,
+  realBars, realGrains, realScale,
   goldBullionBars, goldDoreBars, goldNuggetsImg, rawGoldImg,
   refinedGoldImg, investmentGradeGold, heroGold, africanTrader,
   smeltingImg, assayLab, africanBoardroom, africanHandshake,

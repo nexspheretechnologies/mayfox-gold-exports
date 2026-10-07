@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import video1 from "../assets/mayfox-video-1.mp4.asset.json";
-import video2 from "../assets/mayfox-video-2.mp4.asset.json";
-import video3 from "../assets/mayfox-video-3.mp4.asset.json";
-import video4 from "../assets/mayfox-video-4.mp4.asset.json";
-import realBars from "../assets/real-gold-bars-crates.jpg.asset.json";
-import realGrains from "../assets/real-gold-grains-sacks.jpg.asset.json";
-import realScale from "../assets/real-gold-bar-scale.jpg.asset.json";
+import realBars from "../assets/real-gold-bars-crates.jpg";
+import realGrains from "../assets/real-gold-grains-sacks.jpg";
+import realScale from "../assets/real-gold-bar-scale.jpg";
 
-export const mayfoxVideos = [video1.url, video2.url, video3.url, video4.url];
+export const mayfoxVideos = [
+  "/videos/mayfox-video-1.mp4",
+  "/videos/mayfox-video-2.mp4",
+  "/videos/mayfox-video-3.mp4",
+  "/videos/mayfox-video-4.mp4",
+];
 export const mayfoxRealPhotos = {
-  bars: realBars.url,
-  grains: realGrains.url,
-  scale: realScale.url,
+  bars: realBars,
+  grains: realGrains,
+  scale: realScale,
 };
 
 interface SilentVideoProps {
@@ -44,7 +45,7 @@ export function SilentVideo({ src, poster, className, ariaLabel, fetchPriority }
       preload="metadata"
       aria-label={ariaLabel}
       className={className}
-      {...(fetchPriority ? { fetchpriority: fetchPriority } : {})}
+      {...(fetchPriority ? { fetchPriority } : {})}
     />
   );
 }
@@ -95,7 +96,7 @@ export function VideoShowcase() {
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-md">
-            Unedited footage of Mayfox bullion, dore bars and grain gold being weighed,
+            Unedited footage of Mayfox dore bars and grain gold being weighed,
             inspected and prepared for insured export from Nairobi.
           </p>
         </div>

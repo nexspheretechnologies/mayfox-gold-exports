@@ -9,7 +9,7 @@ const faqs = [
   { q: "Which regions produce gold in the DRC?", a: "Ituri (Mongbwalu, Djugu), South Kivu (Kamituga, Mwenga, Twangiza), North Kivu (Walikale), Maniema (Namoya) and Haut-Uele. Kibali in Haut-Uele is one of the world's largest gold mines." },
   { q: "How does Mayfox handle conflict-minerals compliance for DRC gold?", a: "We apply a five-step OECD due diligence framework: strong management systems, risk identification, risk mitigation, independent third-party audit and public reporting. We only accept gold with valid ICGLR/iTSCi documentation and full chain-of-custody records." },
   { q: "Can DRC gold be exported through Kenya?", a: "Yes. DRC-origin gold cleared under a valid Congolese export permit and ICGLR Regional Certificate is commonly consolidated in Nairobi for onward air freight to Dubai, Zurich, London and Asian markets." },
-  { q: "What purities of Congolese gold are available?", a: "Artisanal dore 85–95%, refined bullion at 995 and investment-grade 9999 bars refined via LBMA-standard partner refineries." },
+  { q: "What purities of Congolese gold are available?", a: "Artisanal dore 85–95%, refined gold at 995 and investment-grade 9999 bars refined via LBMA-standard partner refineries." },
   { q: "Is DRC gold LBMA compliant?", a: "Mayfox works exclusively with source-verified consignments and partner refineries that meet or align with LBMA Responsible Gold Guidance." },
 ];
 
@@ -17,12 +17,12 @@ export const Route = createFileRoute("/gold-in-congo")({
   head: () => ({
     meta: [
       { title: "Gold in DRC Congo | Buy Verified Congolese Gold — Mayfox Nairobi" },
-      { name: "description", content: "Buy responsibly sourced gold from the DRC Congo. Verified Congolese dore, nuggets and refined bullion with ICGLR certification, OECD due diligence and LBMA-compliant partner refining. Consolidated and exported through Nairobi." },
+      { name: "description", content: "Buy responsibly sourced gold from the DRC Congo. Verified Congolese dore, nuggets and refined gold with ICGLR certification, OECD due diligence and LBMA-compliant partner refining. Consolidated and exported through Nairobi." },
       { name: "keywords", content: "gold in congo, drc congo gold, congolese gold, gold in drc, buy gold from congo, kibali gold, ituri gold, south kivu gold, oecd compliant gold, icglr certified gold, conflict-free gold africa" },
       { property: "og:title", content: "Gold in DRC Congo — Verified & Responsibly Sourced" },
       { property: "og:description", content: "Congolese gold with ICGLR certification, OECD due diligence and LBMA-standard partner refining." },
       { property: "og:url", content: absoluteUrl("/gold-in-congo") },
-      { property: "og:image", content: img.oreDeposit ?? img.goldBullion },
+      { property: "og:image", content: absoluteUrl(img.oreDeposit ?? img.goldBullion) },
       { property: "og:type", content: "article" },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/gold-in-congo") }],
@@ -84,7 +84,7 @@ function CongoPage() {
       products={[
         { title: "Congolese Dore Bars", desc: "85–95% purity dore from ICGLR-certified exporters and cooperatives.", to: "/products" },
         { title: "Gold Nuggets", desc: "Alluvial nuggets with full origin documentation and independent assay.", to: "/products" },
-        { title: "Refined 995 Bullion", desc: "DRC-source gold refined through LBMA-standard partner refineries.", to: "/products" },
+        { title: "Refined 995 Gold", desc: "DRC-source gold refined through LBMA-standard partner refineries.", to: "/products" },
         { title: "Investment 9999 Bars", desc: "24-karat investment bars refined from certified Congolese source metal.", to: "/products" },
         { title: "Raw Gold", desc: "Unprocessed placer gold — accepted only with full ICGLR certification.", to: "/products" },
         { title: "Refined Gold Grain", desc: "9999 grain from responsibly sourced Congolese metal.", to: "/products" },

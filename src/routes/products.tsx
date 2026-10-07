@@ -2,52 +2,46 @@
 import { img } from "../lib/images";
 import { CTABand, PageHero, SectionHeader } from "../components/site-blocks";
 import { absoluteUrl } from "../lib/site-url";
+import { breadcrumbSchema, pageSeo } from "../lib/seo";
 
 export const Route = createFileRoute("/products")({
-  head: () => ({
-    meta: [
-      { title: "Gold Nuggets for Sale | Gold Dore Bars, Raw Gold & Bullion — Mayfox Kenya" },
-      { name: "description", content: "Gold nuggets for sale, gold dore bars, raw gold and LBMA-grade bullion from Kenya, Tanzania, Uganda & DRC Congo. Verified African gold with full assay, certificate of origin and insured export." },
-      { name: "keywords", content: "gold nuggets for sale, gold dore bars, dore bars, raw gold for sale, african gold, gold bullion kenya, gold bars kenya, 24 karat gold, 999.9 gold, lbma gold, investment grade gold, buy gold online, gold from uganda, gold from tanzania, drc congo gold" },
-      { property: "og:title", content: "Gold Nuggets, Dore Bars & Bullion — Mayfox Gold Kenya" },
-      { property: "og:description", content: "Gold nuggets for sale, gold dore bars, raw gold and LBMA-grade bullion from Kenya, Tanzania, Uganda & DRC Congo. Verified African gold with full assay, certificate of origin and insured export." },
-      { property: "og:image", content: img.goldBars2 },
-      { property: "og:url", content: absoluteUrl("/products") },
-      { property: "og:type", content: "website" },
-    ],
-    links: [{ rel: "canonical", href: absoluteUrl("/products") }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ItemList",
-          name: "Gold Products — Mayfox Gold Kenya",
-          description: "Verified African gold products: bullion bars, dore bars, nuggets, raw gold, refined gold and investment grade gold with full assay and export documentation.",
-          numberOfItems: 7,
-          itemListElement: [
-            { "@type": "ListItem", position: 1, item: { "@type": "Product", name: "Gold Bullion Bars", description: "LBMA-format bullion bars produced and stamped to international Good Delivery standards. Each bar is serialized, weighed and assayed before release.", category: "Bullion" } },
-            { "@type": "ListItem", position: 2, item: { "@type": "Product", name: "Gold Dore Bars", description: "Semi-pure gold bars cast directly at the smelter from artisanal and small-scale mining feed. Ideal for buyers operating their own refineries.", category: "Dore" } },
-            { "@type": "ListItem", position: 3, item: { "@type": "Product", name: "Gold Nuggets", description: "Naturally formed alluvial nuggets sourced from licensed cooperatives. Each parcel includes weight breakdown and visual inspection report.", category: "Nuggets" } },
-            { "@type": "ListItem", position: 4, item: { "@type": "Product", name: "Raw Gold", description: "Unprocessed gold direct from cooperative-licensed pits. Refined and assayed on-site before consolidation into dore bars or sale.", category: "Raw Gold" } },
-            { "@type": "ListItem", position: 5, item: { "@type": "Product", name: "Refined Gold", description: "Twice-refined gold produced at Mayfox-partnered facilities. Casting to client specification including private branding.", category: "Refined Gold" } },
-            { "@type": "ListItem", position: 6, item: { "@type": "Product", name: "Investment Grade Gold", description: "Highest grade investment bullion meeting LBMA Good Delivery and Swiss refinery standards. Tamper-evident packaging and digital provenance.", category: "Investment Bullion" } },
-            { "@type": "ListItem", position: 7, item: { "@type": "Product", name: "Wholesale Gold Supply", description: "Long-term offtake agreements for refineries and bullion banks requiring monthly tonnage. Structured under SPA with quarterly compliance review.", category: "Wholesale" } },
-          ],
-        }),
-      },
-    ],
-  }),
+  head: () => {
+    const seo = pageSeo({
+      title: "Gold Nuggets for Sale | Gold Dore Bars & Raw Gold — Mayfox Kenya",
+      description:
+        "Gold nuggets for sale, gold doré bars, raw gold and refined bars through our partner refineries from Kenya, Tanzania, Uganda and DRC Congo. Verified African gold with assay, certificate of origin and insured export.",
+      path: "/products",
+      ogImage: img.goldBars2,
+      keywords:
+        "gold nuggets for sale, gold dore bars, raw gold for sale, african gold, gold dore kenya, gold bars kenya, 24 karat gold, 999.9 gold, lbma gold, investment grade gold, buy gold online, gold from uganda, gold from tanzania, drc congo gold",
+    });
+    return {
+      meta: seo.meta,
+      links: seo.links,
+      scripts: [
+        { type: "application/ld+json", children: JSON.stringify(productItemList()) },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Products", path: "/products" },
+            ]),
+          ),
+        },
+      ],
+    };
+  },
   component: Products,
 });
 
 const products = [
   {
-    name: "Gold Bullion Bars",
+    name: "Good Delivery Format Bars",
     purity: "99.50% – 99.99%",
     weights: ["1 oz", "100 g", "250 g", "500 g", "1 kg", "12.5 kg LBMA"],
     image: img.goldBars2,
-    overview: "LBMA-format bullion bars produced and stamped to international Good Delivery standards. Each bar is serialized, weighed and assayed before release.",
+    overview: "Cast to international Good Delivery format through our partner refineries. Each bar is serialized, weighed and assayed before release.",
     use: "Central reserves, bullion banks, investment funds, ETFs and high-net-worth vaults.",
   },
   {
@@ -87,11 +81,11 @@ const products = [
     purity: "99.99% (Four-Nines)",
     weights: ["1 oz – 1 kg"],
     image: img.goldStack,
-    overview: "Highest grade investment bullion meeting LBMA Good Delivery and Swiss refinery standards. Tamper-evident packaging and digital provenance.",
+    overview: "Highest grade investment gold bars meeting LBMA Good Delivery and Swiss refinery standards. Tamper-evident packaging and digital provenance.",
     use: "Sovereign wealth, family offices, institutional portfolios.",
   },
   {
-    name: "Wholesale Gold Supply",
+    name: "Wholesale Offtake Programmes",
     purity: "Mixed inventories",
     weights: ["Contractual / monthly tonnage"],
     image: img.goldBullion,
@@ -100,13 +94,61 @@ const products = [
   },
 ];
 
+// Product markup is derived from the rendered list so the schema can never
+// drift from what the page actually shows. Price is deliberately a
+// specification, not a number: doré is struck per consignment after assay.
+function productItemList() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Gold Products — Mayfox Gold Kenya",
+    description:
+      "Verified African gold products: doré bars, nuggets, raw gold, refined gold and investment grade gold with assay and export documentation.",
+    numberOfItems: products.length,
+    itemListElement: products.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Product",
+        name: product.name,
+        description: product.overview,
+        image: absoluteUrl(product.image),
+        url: absoluteUrl("/products"),
+        additionalProperty: [
+          { "@type": "PropertyValue", name: "Assayed fineness", value: product.purity },
+          { "@type": "PropertyValue", name: "Available weights", value: product.weights.join(", ") },
+          { "@type": "PropertyValue", name: "Typical buyer", value: product.use },
+        ],
+        offers: {
+          "@type": "Offer",
+          url: absoluteUrl("/request-quote"),
+          availability: "https://schema.org/InStock",
+          priceCurrency: "USD",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            priceCurrency: "USD",
+            valueAddedTaxIncluded: false,
+            description:
+              "Valued on contained gold against the benchmark agreed in the mandate, less refining and treatment charges. Indicative quotes are issued on request.",
+          },
+          seller: {
+            "@type": "Organization",
+            name: "Mayfox Gold and Precious Metals Kenya",
+            url: absoluteUrl("/"),
+          },
+        },
+      },
+    })),
+  };
+}
+
 function Products() {
   return (
     <>
       <PageHero
         eyebrow="Gold Products"
         title={<>Documented, assayed, <span className="text-gradient-gold">export-ready</span> precious metals.</>}
-        subtitle="From dore straight off the smelter to four-nines investment bullion, every Mayfox product ships with full assay, certificate of origin, and export clearance."
+        subtitle="From dore straight off the smelter to four-nines investment gold bars, every Mayfox product ships with full assay, certificate of origin, and export clearance."
         image={img.goldBars2}
       />
 
@@ -151,8 +193,9 @@ function Products() {
                   <span className="text-muted-foreground">{p.use}</span>
                 </div>
 
-                <div className="mt-8 flex gap-3">
+                <div className="mt-8 flex flex-wrap gap-3">
                   <Link to="/request-quote" className="btn-gold btn-gold-hover">Request Quote</Link>
+                  <Link to="/gold-specifications" className="btn-outline-gold">Specification Sheet</Link>
                   <Link to="/contact" className="btn-outline-gold">Speak to a Trader</Link>
                 </div>
               </div>

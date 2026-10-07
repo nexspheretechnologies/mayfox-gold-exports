@@ -8,11 +8,11 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery | Gold Bars, Refining & Logistics — Mayfox Gold Kenya" },
-      { name: "description", content: "Photo gallery of Mayfox Gold operations: bullion bars, smelting, refining, assay laboratories, secure logistics and global delivery." },
+      { name: "description", content: "Photo gallery of Mayfox Gold operations: dore bars, smelting, refining, assay laboratories, secure logistics and global delivery." },
       { property: "og:title", content: "Gallery — Mayfox Gold" },
-      { property: "og:description", content: "Photo gallery of Mayfox Gold operations: bullion bars, smelting, refining, assay laboratories, secure logistics and global delivery." },
+      { property: "og:description", content: "Photo gallery of Mayfox Gold operations: dore bars, smelting, refining, assay laboratories, secure logistics and global delivery." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: galleryImages[0] },
+      { property: "og:image", content: absoluteUrl(galleryImages[0]) },
       { property: "og:url", content: absoluteUrl("/gallery") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/gallery") }],
@@ -26,7 +26,7 @@ function Gallery() {
       <PageHero
         eyebrow="Gallery"
         title={<>Inside <span className="text-gradient-gold">Mayfox</span> operations.</>}
-        subtitle="From the smelting floor to the cargo apron — a visual record of how verified bullion moves from Kenya to global vaults."
+        subtitle="From the smelting floor to the cargo apron — a visual record of how verified dore moves from Kenya to global vaults."
         image={galleryImages[10]}
       />
 

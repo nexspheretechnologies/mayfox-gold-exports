@@ -7,6 +7,19 @@ export interface CountryFaq {
   a: string;
 }
 
+export interface RelatedLink {
+  label: string;
+  path: string;
+}
+
+export interface MarketDepthProps {
+  country: string;
+  buyerClimate?: string[];
+  logisticsNote?: string;
+  settlementNote?: string;
+  dueDiligence?: string[];
+}
+
 export interface CountryPageProps {
   country: string;
   slug: string;
@@ -21,6 +34,116 @@ export interface CountryPageProps {
   process: { title: string; desc: string }[];
   faqs: CountryFaq[];
   related: { label: string; to: string }[];
+  relatedLinks?: RelatedLink[];
+  buyerClimate?: string[];
+  logisticsNote?: string;
+  settlementNote?: string;
+  dueDiligence?: string[];
+}
+
+function byPath(links: RelatedLink[]): RelatedLink[] {
+  const seen = new Set<string>();
+  return links.filter((l) => {
+    if (seen.has(l.path)) return false;
+    seen.add(l.path);
+    return true;
+  });
+}
+
+/**
+ * Buyer-behaviour, import-corridor and settlement depth sections. Every block renders only
+ * when its data is present, so markets without depth copy simply skip the section.
+ */
+export function MarketDepthSections(p: MarketDepthProps) {
+  const climate = p.buyerClimate ?? [];
+  const checklist = p.dueDiligence ?? [];
+  const hasSettlementOrChecklist = Boolean(p.settlementNote) || checklist.length > 0;
+
+  if (!climate.length && !p.logisticsNote && !hasSettlementOrChecklist) return null;
+
+  return (
+    <>
+      {climate.length > 0 && (
+        <section className="section-y border-t border-border/50 bg-onyx/40">
+          <div className="container-x">
+            <SectionHeader
+              eyebrow="Buyer Climate"
+              title={<>How <span className="text-gradient-gold">{p.country}</span> buyers actually buy.</>}
+              description="The institutions, trade hubs and proof standards that shape a first conversation in this market."
+            />
+            <div className="mt-10 max-w-4xl space-y-5 text-muted-foreground leading-relaxed text-[15px]">
+              {climate.map((text, i) => (
+                <p key={i}>{text}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {p.logisticsNote && (
+        <section className="section-y">
+          <div className="container-x">
+            <SectionHeader
+              eyebrow="Import Corridor"
+              title={<>The freight route in, and the papers {p.country} buyers ask to see.</>}
+            />
+            <p className="mt-10 max-w-4xl text-muted-foreground leading-relaxed text-[15px]">{p.logisticsNote}</p>
+          </div>
+        </section>
+      )}
+
+      {hasSettlementOrChecklist && (
+        <section className="section-y border-t border-border/50 bg-onyx/40">
+          <div className="container-x grid lg:grid-cols-5 gap-10 items-start">
+            {p.settlementNote && (
+              <div className={checklist.length ? "lg:col-span-3" : "lg:col-span-5"}>
+                <SectionHeader
+                  eyebrow="Settling A First Trade"
+                  title={<>How a first trade with an East African agent is customarily structured.</>}
+                />
+                <p className="mt-8 text-muted-foreground leading-relaxed text-[15px] max-w-3xl">{p.settlementNote}</p>
+              </div>
+            )}
+            {checklist.length > 0 && (
+              <aside className={p.settlementNote ? "card-luxe p-7 lg:col-span-2" : "card-luxe p-7"}>
+                <div className="eyebrow mb-4">Due Diligence Checklist</div>
+                <h3 className="font-display text-xl mb-5">Questions a {p.country} compliance officer should ask Mayfox.</h3>
+                <ul className="space-y-4">
+                  {checklist.map((q, i) => (
+                    <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                      <span className="text-gold leading-none mt-0.5 flex-shrink-0">&#10003;</span>
+                      <span>{q}</span>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            )}
+          </div>
+        </section>
+      )}
+    </>
+  );
+}
+
+/** Shared "Explore More" link grid used by the country and market templates. */
+export function ExploreMoreGrid({ links }: { links: RelatedLink[] }) {
+  const unique = byPath(links);
+  if (!unique.length) return null;
+  return (
+    <section className="section-y">
+      <div className="container-x">
+        <SectionHeader eyebrow="Explore More" title="Related pages" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+          {unique.map((r) => (
+            <Link key={r.path} to={r.path} className="card-luxe p-5 flex items-center justify-between hover:border-gold transition-colors">
+              <span className="font-display">{r.label}</span>
+              <span className="text-gold">→</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function CountryPage(p: CountryPageProps) {
@@ -128,6 +251,14 @@ export function CountryPage(p: CountryPageProps) {
         </div>
       </section>
 
+      <MarketDepthSections
+        country={p.country}
+        buyerClimate={p.buyerClimate}
+        logisticsNote={p.logisticsNote}
+        settlementNote={p.settlementNote}
+        dueDiligence={p.dueDiligence}
+      />
+
       {/* FAQs */}
       <section className="section-y border-t border-border/50 bg-onyx/40">
         <div className="container-x max-w-4xl">
@@ -150,19 +281,12 @@ export function CountryPage(p: CountryPageProps) {
       </section>
 
       {/* Related */}
-      <section className="section-y">
-        <div className="container-x">
-          <SectionHeader eyebrow="Explore More" title="Related pages" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-            {p.related.map((r) => (
-              <Link key={r.to} to={r.to} className="card-luxe p-5 flex items-center justify-between hover:border-gold transition-colors">
-                <span className="font-display">{r.label}</span>
-                <span className="text-gold">→</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ExploreMoreGrid
+        links={[
+          ...p.related.map((r) => ({ label: r.label, path: r.to })),
+          ...(p.relatedLinks ?? []),
+        ]}
+      />
 
       {/* CTA */}
       <section className="section-y border-t border-border/50 bg-gradient-to-b from-onyx to-background">

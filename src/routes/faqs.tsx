@@ -9,10 +9,10 @@ export const Route = createFileRoute("/faqs")({
     meta: [
       { title: "Gold Export FAQs — Pricing & Docs | Mayfox Kenya" },
       { name: "description", content: "Frequently asked questions on gold purity, pricing, export documentation, shipping, security, compliance, payments and wholesale supply from Kenya." },
-      { name: "keywords", content: "gold export faq, gold buying questions, gold purity faq, gold pricing faq, gold export documentation, gold shipping faq, gold compliance faq, kenya gold faq, african gold questions, bullion buying guide" },
+      { name: "keywords", content: "gold export faq, gold buying questions, gold purity faq, gold pricing faq, gold export documentation, gold shipping faq, gold compliance faq, kenya gold faq, african gold questions, gold buying guide" },
       { property: "og:title", content: "FAQs — Mayfox Gold" },
       { property: "og:description", content: "Frequently asked questions on gold purity, pricing, export documentation, shipping, security, compliance, payments and wholesale supply from Kenya." },
-      { property: "og:image", content: img.goldBars1 },
+      { property: "og:image", content: absoluteUrl(img.goldBars1) },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absoluteUrl("/faqs") },
     ],
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/faqs")({
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: [
-            { "@type": "Question", "name": "What purity grades does Mayfox supply?", "acceptedAnswer": { "@type": "Answer", "text": "From 85% dore bars to 99.99% (four-nines) investment bullion. Every consignment is independently assayed by SGS, Alex Stewart or Bureau Veritas." } },
+            { "@type": "Question", "name": "What purity grades does Mayfox supply?", "acceptedAnswer": { "@type": "Answer", "text": "From 85% dore bars to 99.99% (four-nines) investment gold bars. Every consignment is independently assayed by SGS, Alex Stewart or Bureau Veritas." } },
             { "@type": "Question", "name": "Who conducts the assay?", "acceptedAnswer": { "@type": "Answer", "text": "Independent ISO 17025 accredited laboratories — never an in-house only test for export consignments." } },
             { "@type": "Question", "name": "Can I appoint my own assayer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Buyer-appointed surveyors and witnessed assay sessions are welcomed at our Mombasa facility." } },
             { "@type": "Question", "name": "Are bars serialized?", "acceptedAnswer": { "@type": "Answer", "text": "Every refined bar is laser-engraved with weight, fineness, refinery mark and a unique serial number." } },
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/faqs")({
             { "@type": "Question", "name": "What payment methods do you accept?", "acceptedAnswer": { "@type": "Answer", "text": "T/T bank transfer, irrevocable LC, escrow (Euroclear or DMCC), and bank-to-bank settlement on receipt." } },
             { "@type": "Question", "name": "Do you require a deposit?", "acceptedAnswer": { "@type": "Answer", "text": "Standard structure is a refundable Performance Bond (PB) or escrow funding rather than a deposit." } },
             { "@type": "Question", "name": "Is the price negotiable on large tonnage?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — multi-shipment offtake agreements receive tiered pricing structures." } },
-            { "@type": "Question", "name": "What is your minimum order?", "acceptedAnswer": { "@type": "Answer", "text": "Spot minimum is 5 kg for dore and 1 kg for refined bullion." } },
+            { "@type": "Question", "name": "What is your minimum order?", "acceptedAnswer": { "@type": "Answer", "text": "Spot minimum is 5 kg for dore and 1 kg for refined gold." } },
             { "@type": "Question", "name": "What documents are included?", "acceptedAnswer": { "@type": "Answer", "text": "Assay report, export license, certificate of origin, commercial invoice, packing list, export permit, customs SAD, airway bill, insurance and KYC pack." } },
             { "@type": "Question", "name": "Who issues the export license?", "acceptedAnswer": { "@type": "Answer", "text": "The Ministry of Mining of Kenya, per shipment." } },
             { "@type": "Question", "name": "Can you issue documents in multiple languages?", "acceptedAnswer": { "@type": "Answer", "text": "Documents are issued in English; certified translations available on request." } },
@@ -49,10 +49,10 @@ export const Route = createFileRoute("/faqs")({
             { "@type": "Question", "name": "Has Mayfox ever lost a shipment?", "acceptedAnswer": { "@type": "Answer", "text": "No. Across 1,200+ consignments we maintain a 0% loss record." } },
             { "@type": "Question", "name": "Is Mayfox KYC/AML compliant?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — FRC-registered, full counterparty KYC including UBO, PEP and sanctions screening." } },
             { "@type": "Question", "name": "Do you screen for sanctions?", "acceptedAnswer": { "@type": "Answer", "text": "OFAC, EU, UN and UK lists are screened on every consignee and intermediary." } },
-            { "@type": "Question", "name": "Does Mayfox follow OECD Due Diligence?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — our supplier base is reviewed under the OECD five-step framework." } },
+            { "@type": "Question", "name": "Does Mayfox follow OECD Due Diligence?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — our sourcing base is reviewed under the OECD five-step framework." } },
             { "@type": "Question", "name": "Can I audit Mayfox's compliance?", "acceptedAnswer": { "@type": "Answer", "text": "Institutional buyers may request access to our annual third-party compliance audit summary." } },
             { "@type": "Question", "name": "Do you provide source-of-gold disclosure?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — origin cooperative, mining license number and route are documented for every consignment." } },
-            { "@type": "Question", "name": "Can you cast bars to my specification?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — private branding, custom weights, hallmarks and finish are available for refined bullion." } },
+            { "@type": "Question", "name": "Can you cast bars to my specification?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — private branding, custom weights, hallmarks and finish are available for refined gold." } },
             { "@type": "Question", "name": "Can you supply other precious metals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — silver, platinum and palladium on a project basis." } },
             { "@type": "Question", "name": "Do you offer long-term offtake agreements?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — monthly tonnage agreements under SPA with quarterly compliance review." } },
             { "@type": "Question", "name": "Can you store gold on my behalf?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — allocated storage at partner vaults in DMCC, Switzerland or Singapore." } },
@@ -72,7 +72,7 @@ const groups: { g: string; items: [string, string][] }[] = [
   {
     g: "Purity & Quality",
     items: [
-      ["What purity grades does Mayfox supply?", "From 85% dore bars to 99.99% (four-nines) investment bullion. Every consignment is independently assayed by SGS, Alex Stewart or Bureau Veritas."],
+      ["What purity grades does Mayfox supply?", "From 85% dore bars to 99.99% (four-nines) investment gold bars. Every consignment is independently assayed by SGS, Alex Stewart or Bureau Veritas."],
       ["Who conducts the assay?", "Independent ISO 17025 accredited laboratories — never an in-house only test for export consignments."],
       ["Can I appoint my own assayer?", "Yes. Buyer-appointed surveyors and witnessed assay sessions are welcomed at our Mombasa facility."],
       ["Are bars serialized?", "Every refined bar is laser-engraved with weight, fineness, refinery mark and a unique serial number."],
@@ -86,7 +86,7 @@ const groups: { g: string; items: [string, string][] }[] = [
       ["What payment methods do you accept?", "T/T bank transfer, irrevocable LC, escrow (Euroclear or DMCC), and bank-to-bank settlement on receipt."],
       ["Do you require a deposit?", "Standard structure is a refundable Performance Bond (PB) or escrow funding rather than a deposit."],
       ["Is the price negotiable on large tonnage?", "Yes — multi-shipment offtake agreements receive tiered pricing structures."],
-      ["What is your minimum order?", "Spot minimum is 5 kg for dore and 1 kg for refined bullion."],
+      ["What is your minimum order?", "Spot minimum is 5 kg for dore and 1 kg for refined gold."],
     ],
   },
   {
@@ -122,7 +122,7 @@ const groups: { g: string; items: [string, string][] }[] = [
     items: [
       ["Is Mayfox KYC/AML compliant?", "Yes — FRC-registered, full counterparty KYC including UBO, PEP and sanctions screening."],
       ["Do you screen for sanctions?", "OFAC, EU, UN and UK lists are screened on every consignee and intermediary."],
-      ["Does Mayfox follow OECD Due Diligence?", "Yes — our supplier base is reviewed under the OECD five-step framework."],
+      ["Does Mayfox follow OECD Due Diligence?", "Yes — our sourcing base is reviewed under the OECD five-step framework."],
       ["Can I audit Mayfox's compliance?", "Institutional buyers may request access to our annual third-party compliance audit summary."],
       ["Do you provide source-of-gold disclosure?", "Yes — origin cooperative, mining license number and route are documented for every consignment."],
     ],
@@ -130,7 +130,7 @@ const groups: { g: string; items: [string, string][] }[] = [
   {
     g: "Delivery & Custom Orders",
     items: [
-      ["Can you cast bars to my specification?", "Yes — private branding, custom weights, hallmarks and finish are available for refined bullion."],
+      ["Can you cast bars to my specification?", "Yes — private branding, custom weights, hallmarks and finish are available for refined gold."],
       ["Can you supply other precious metals?", "Yes — silver, platinum and palladium on a project basis."],
       ["Do you offer long-term offtake agreements?", "Yes — monthly tonnage agreements under SPA with quarterly compliance review."],
       ["Can you store gold on my behalf?", "Yes — allocated storage at partner vaults in DMCC, Switzerland or Singapore."],

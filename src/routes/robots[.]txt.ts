@@ -8,8 +8,13 @@ export const Route = createFileRoute("/robots.txt")({
       GET: async () => {
         const baseUrl = siteUrl();
         const body = [
+          `# Mayfox Gold and Precious Metals Kenya`,
+          `# Licensed export agent for gold doré bars and nuggets from East and Central Africa.`,
+          ``,
           `User-agent: *`,
           `Allow: /`,
+          `Disallow: /admin/`,
+          `Disallow: /search`,
           ``,
           `Sitemap: ${baseUrl}/sitemap.xml`,
         ].join("\n");

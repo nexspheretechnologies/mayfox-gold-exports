@@ -11,7 +11,7 @@ export const Route = createFileRoute("/export-documentation")({
       { property: "og:title", content: "Export Documentation — Mayfox Gold Kenya" },
       { property: "og:description", content: "Full gold export documentation from Kenya: assay reports, export licenses, certificate of origin, commercial invoice, packing lists, customs and shipping documents." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: img.documents },
+      { property: "og:image", content: absoluteUrl(img.documents) },
       { property: "og:url", content: absoluteUrl("/export-documentation") },
     ],
     links: [{ rel: "canonical", href: absoluteUrl("/export-documentation") }],
@@ -38,7 +38,7 @@ function ExportDocs() {
       <PageHero
         eyebrow="Export Documentation"
         title={<>Every consignment ships with a <span className="text-gradient-gold">complete document pack</span>.</>}
-        subtitle="Mayfox handles every line of paperwork required to move bullion from Nairobi to your vault — legally, compliantly, and on time."
+        subtitle="Mayfox handles every line of paperwork required to move gold from Nairobi to your vault — legally, compliantly, and on time."
         image={img.documents}
       />
 

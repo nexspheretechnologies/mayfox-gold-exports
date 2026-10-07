@@ -88,7 +88,7 @@ export function CTABand() {
             <div>
               <div className="eyebrow mb-4">Speak to the Trade Desk</div>
               <h2 className="font-display text-3xl lg:text-5xl max-w-2xl">
-                Ready to source <span className="text-gradient-gold">verified bullion</span> for your portfolio?
+                Ready to source <span className="text-gradient-gold">verified dore</span> for your portfolio?
               </h2>
               <p className="mt-4 text-muted-foreground max-w-xl">
                 Our senior traders respond within one business hour. All inquiries are handled

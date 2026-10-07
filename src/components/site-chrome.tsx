@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type FormEvent } from "react";
+import { subscribeNewsletter } from "../lib/lead-functions";
+import { track } from "../lib/analytics";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -133,6 +135,15 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <Link
+              to="/search"
+              aria-label="Search the site"
+              className="p-2 border border-border rounded-sm text-muted-foreground hover:text-gold hover:border-gold transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+              </svg>
+            </Link>
             <Link to="/request-quote" className="hidden md:inline-flex btn-gold btn-gold-hover">Request Quote</Link>
             <button
               onClick={() => setOpen((v) => !v)}
@@ -212,7 +223,7 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="bg-onyx border-t border-border/60 mt-24">
-      <div className="container-x py-20 grid lg:grid-cols-5 gap-12">
+      <div className="container-x py-20 grid lg:grid-cols-6 gap-12">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3 mb-5">
             <div className="w-10 h-10 rounded-sm bg-gradient-to-br from-[var(--gold-soft)] to-[var(--gold-deep)] flex items-center justify-center text-onyx font-display text-xl font-bold">M</div>
@@ -222,9 +233,10 @@ export function Footer() {
             </div>
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-            Mayfox Gold and Precious Metals Kenya is a leading bullion supply, refining,
-            and precious metals export company serving institutional buyers across Africa,
-            the Middle East, Europe, Asia, and North America.
+            Mayfox Gold and Precious Metals Kenya is a licensed export agent arranging
+            verified gold doré bars and nuggets from East and Central African cooperatives
+            for institutional buyers across Africa, the Middle East, Europe, Asia and North
+            America, with assay, export documentation and insured delivery.
           </p>
           <div className="mt-6 space-y-2 text-sm text-muted-foreground">
             <div><span className="text-gold">Address:</span> Rhapta Road, Westlands, Nairobi, Kenya</div>
@@ -240,6 +252,7 @@ export function Footer() {
             <li><Link to="/about" className="hover:text-gold">About Us</Link></li>
             <li><Link to="/compliance" className="hover:text-gold">Compliance</Link></li>
             <li><Link to="/industries" className="hover:text-gold">Industries</Link></li>
+            <li><Link to="/for" className="hover:text-gold">Who We Serve</Link></li>
             <li><Link to="/market-insights" className="hover:text-gold">Market Insights</Link></li>
             <li><Link to="/gallery" className="hover:text-gold">Gallery</Link></li>
           </ul>
@@ -249,41 +262,114 @@ export function Footer() {
           <h3 className="text-[11px] tracking-[0.28em] uppercase text-gold mb-5">Trade</h3>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li><Link to="/products" className="hover:text-gold">Gold Products</Link></li>
+            <li><Link to="/gold-specifications" className="hover:text-gold">Product Specifications</Link></li>
             <li><Link to="/services" className="hover:text-gold">Services</Link></li>
             <li><Link to="/export-documentation" className="hover:text-gold">Export Documentation</Link></li>
             <li><Link to="/global-delivery" className="hover:text-gold">Global Delivery</Link></li>
             <li><Link to="/request-quote" className="hover:text-gold">Request a Quote</Link></li>
+            <li><Link to="/book-a-call" className="hover:text-gold">Book a Call</Link></li>
+            <li><Link to="/upload-documents" className="hover:text-gold">Upload KYC Documents</Link></li>
+            <li><Link to="/track-inquiry" className="hover:text-gold">Track an Inquiry</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-[11px] tracking-[0.28em] uppercase text-gold mb-5">Buyer Guides</h3>
+          <ul className="space-y-3 text-sm text-muted-foreground">
+            <li><Link to="/buy-gold-safely" className="hover:text-gold">Buying Safely</Link></li>
+            <li><Link to="/kenya-gold-export-license" className="hover:text-gold">Kenya Export Licence</Link></li>
+            <li><Link to="/dore-vs-refined-gold" className="hover:text-gold">Doré vs Refined</Link></li>
+            <li><Link to="/faqs" className="hover:text-gold">FAQs</Link></li>
           </ul>
         </div>
 
         <div>
           <h3 className="text-[11px] tracking-[0.28em] uppercase text-gold mb-5">Newsletter</h3>
-          <p className="text-sm text-muted-foreground mb-4">
-            Weekly bullion market briefings and export advisories.
-          </p>
-          <form onSubmit={(e) => e.preventDefault()} className="space-y-3">
-            <input
-              type="email"
-              required
-              placeholder="Email address"
-              className="w-full bg-card border border-border px-3 py-2.5 text-sm focus:border-gold outline-none"
-            />
-            <button className="w-full btn-outline-gold !py-2.5">Subscribe</button>
-          </form>
+          <NewsletterSignup />
         </div>
       </div>
 
       <div className="border-t border-border/60">
         <div className="container-x py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <div>© {new Date().getFullYear()} Mayfox Gold and Precious Metals Kenya. All rights reserved.</div>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-gold">Privacy Policy</a>
-            <a href="#" className="hover:text-gold">Terms</a>
-            <a href="#" className="hover:text-gold">Disclaimer</a>
-            <a href="#" className="hover:text-gold">Anti-Fraud Notice</a>
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2">
+            <Link to="/privacy" className="hover:text-gold">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-gold">Terms</Link>
+            <Link to="/disclaimer" className="hover:text-gold">Disclaimer</Link>
+            <Link to="/anti-fraud" className="hover:text-gold">Anti-Fraud Notice</Link>
           </div>
         </div>
       </div>
     </footer>
+  );
+}
+
+function NewsletterSignup() {
+  const [email, setEmail] = useState("");
+  const [state, setState] = useState<"idle" | "pending" | "done" | "error">("idle");
+  const [message, setMessage] = useState<string | null>(null);
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const honeypot = new FormData(form).get("website");
+    if (honeypot) {
+      // A bot filled the hidden field; confirm silently so it does not retry.
+      setState("done");
+      return;
+    }
+    setState("pending");
+    setMessage(null);
+    try {
+      const page = typeof window === "undefined" ? "" : window.location.pathname;
+      await subscribeNewsletter({ data: { email, sourcePage: page } });
+      track("newsletter_subscribe", { page });
+      setState("done");
+      setEmail("");
+    } catch (error) {
+      setState("error");
+      setMessage(error instanceof Error ? error.message : "Subscription failed. Please email sales@mayfox.co.ke.");
+    }
+  }
+
+  return (
+    <>
+      <p className="text-sm text-muted-foreground mb-4">
+        Weekly gold market briefings and export advisories. No spam, unsubscribe any time.
+      </p>
+      {state === "done" ? (
+        <p className="text-sm text-gold border border-gold/40 px-3 py-2.5">
+          You are on the list. The next briefing goes out weekly.
+        </p>
+      ) : (
+        <form onSubmit={onSubmit} className="space-y-3">
+          <input
+            type="email"
+            required
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email address"
+            autoComplete="email"
+            className="w-full bg-card border border-border px-3 py-2.5 text-sm focus:border-gold outline-none"
+          />
+          {/* Honeypot — hidden from humans, attractive to bots */}
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute left-[-9000px] h-0 w-0 opacity-0"
+          />
+          {state === "error" && message && (
+            <p role="alert" className="text-xs text-destructive">{message}</p>
+          )}
+          <button type="submit" disabled={state === "pending"} className="w-full btn-outline-gold !py-2.5 disabled:opacity-60">
+            {state === "pending" ? "Subscribing…" : "Subscribe"}
+          </button>
+        </form>
+      )}
+    </>
   );
 }

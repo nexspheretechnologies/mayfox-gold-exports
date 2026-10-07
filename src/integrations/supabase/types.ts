@@ -14,7 +14,155 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          carrier: string | null
+          company: string | null
+          country: string | null
+          created_at: string
+          delivery: string | null
+          destination: string | null
+          email: string
+          id: string
+          indicative_usd: number | null
+          ip_hash: string | null
+          kind: string
+          message: string | null
+          name: string
+          notes: string | null
+          phone: string | null
+          product: string | null
+          purity: string | null
+          quantity_kg: number | null
+          reference: string
+          shipment_ref: string | null
+          source_page: string | null
+          stage_note: string | null
+          status: string
+          topic: string | null
+          updated_at: string
+          user_agent: string | null
+        }
+        Insert: {
+          carrier?: string | null
+          company?: string | null
+          country?: string | null
+          created_at?: string
+          delivery?: string | null
+          destination?: string | null
+          email: string
+          id?: string
+          indicative_usd?: number | null
+          ip_hash?: string | null
+          kind: string
+          message?: string | null
+          name: string
+          notes?: string | null
+          phone?: string | null
+          product?: string | null
+          purity?: string | null
+          quantity_kg?: number | null
+          reference: string
+          shipment_ref?: string | null
+          source_page?: string | null
+          stage_note?: string | null
+          status?: string
+          topic?: string | null
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Update: {
+          carrier?: string | null
+          company?: string | null
+          country?: string | null
+          created_at?: string
+          delivery?: string | null
+          destination?: string | null
+          email?: string
+          id?: string
+          indicative_usd?: number | null
+          ip_hash?: string | null
+          kind?: string
+          message?: string | null
+          name?: string
+          notes?: string | null
+          phone?: string | null
+          product?: string | null
+          purity?: string | null
+          quantity_kg?: number | null
+          reference?: string
+          shipment_ref?: string | null
+          source_page?: string | null
+          stage_note?: string | null
+          status?: string
+          topic?: string | null
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      newsletter_subscribers: {
+        Row: {
+          created_at: string
+          email: string
+          source_page: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          source_page?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          source_page?: string | null
+        }
+        Relationships: []
+      }
+      kyc_documents: {
+        Row: {
+          content_type: string
+          created_at: string
+          file_name: string
+          file_path: string
+          id: string
+          ip_hash: string | null
+          reference: string
+          size_bytes: number
+          uploaded_by: string
+        }
+        Insert: {
+          content_type: string
+          created_at?: string
+          file_name: string
+          file_path: string
+          id?: string
+          ip_hash?: string | null
+          reference: string
+          size_bytes: number
+          uploaded_by?: string
+        }
+        Update: {
+          content_type?: string
+          created_at?: string
+          file_name?: string
+          file_path?: string
+          id?: string
+          ip_hash?: string | null
+          reference?: string
+          size_bytes?: number
+          uploaded_by?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "kyc_documents_reference_fkey"
+            columns: ["reference"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["reference"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never
